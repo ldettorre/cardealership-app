@@ -1,3 +1,4 @@
 {
-    "python.pythonPath": "/Users/luca/.pyenv/versions/venv38/bin/python"
+    "python.pythonPath": "/Users/luca/.pyenv/versions/venv38/bin/python",
+    "python.linting.enabled": false
 }
