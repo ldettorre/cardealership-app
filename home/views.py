@@ -7,5 +7,5 @@ def index(request):
 def about(request):
     return render(request, "home/about.html")
 
-def faq(request):
-    return render(request, "home/faq.html")
+def blog(request):
+    return render(request, "home/blog.html")
