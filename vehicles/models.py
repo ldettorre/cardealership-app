@@ -8,9 +8,7 @@ class Vehicles(models.Model):
     CONDITION_CHOICES = [("Brand New","Brand New"),("Used", "Used")]
     FUEL_CHOICES = [("Petrol","Petrol"),("Diesel", "Diesel"),("Electric", "Electric"),("Hybrid", "Hybrid")]
     TRANSMISSION_CHOICES = [("Automatic","Automatic"),("Manual", "Manual")]
-    title = models.CharField(max_length=200, default = "Place Title For Ad Here")
-    def folder_name(self, title):
-        return self.title
+    title = models.CharField(max_length=200, default = "Ad Title & Folder Name")
     make = models.CharField(max_length=100)
     model = models.CharField(max_length=100)
     year = models.IntegerField()
