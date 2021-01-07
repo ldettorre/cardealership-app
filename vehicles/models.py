@@ -1,8 +1,8 @@
 from django.db import models
 from datetime import datetime
-import os
+
 # Create your models here.
-count = 0
+
 
 class Vehicles(models.Model):
     CONDITION_CHOICES = [("Brand New","Brand New"),("Used", "Used")]
@@ -16,7 +16,7 @@ class Vehicles(models.Model):
     year = models.IntegerField()
     price = models.IntegerField()
     condition = models.CharField(max_length=100,blank=True, choices = CONDITION_CHOICES)
-    color = models.CharField(max_length=100)
+    color = models.CharField(max_length=50)
     mileage = models.IntegerField()
     fuel = models.CharField(max_length=100, choices = FUEL_CHOICES)
     engine_size = models.DecimalField(max_digits=2,decimal_places=1)

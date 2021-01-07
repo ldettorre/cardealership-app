@@ -1,3 +1,34 @@
-{% extends 'base.html' %} {% block content %}
+{% extends 'base.html' %} 
+
+{% load humanize %}
+
+{% block content %}
+
 <h1 class="blue-text">Welcome to our Vehicles Page.</h1>
+{% if vehicles %}
+<div class="row mb-2">
+    {% for vehicle in vehicles %}
+
+    
+        <div class="col-md-6">
+          <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+            <div class="col p-4 d-flex flex-column position-static">
+              <h3 class="mb-0">{{ vehicle.title }}</h3>
+              <div class="mb-1 text-muted">{{ vehicle.make }} {{ vehicle.model }}</div>
+              <p class="card-text mb-auto"> {{ vehicle.title }} </p>
+              <a href="#" class="stretched-link">€ {{ vehicle.price | intcomma }}</a>
+            </div>
+            <div class="col-auto d-none d-lg-block">
+              <img width="200" height="250" src="{{ vehicle.photo_main.url }}" >
+            </div>
+          </div>
+          <a href="{% url 'vehicle' vehicle.id %}" class="btn btn-default">View more</a>
+        </div>  
+        
+
+    {% endfor %}
+</div>
+{% else %}
+    <p>There are currently no vehicles available.</p>
+{% endif %}
 {% endblock %}
