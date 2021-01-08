@@ -45,7 +45,7 @@ INSTALLED_APPS = [
     'home',
     'vehicles',
     'contact',
-    'django_forms_bootstrap'
+    'django_forms_bootstrap',
 
 ]
 

@@ -4,7 +4,7 @@
 
 <h1>Welcome to the Contact Page</h1>
 
-<form action="{% url 'standard_contact' %}" method="POST">
+<form action="{% url 'contact_form' %}" method="POST">
     {% csrf_token %} {{ form |as_bootstrap }}
     <button type="submit" class="btn btn-info">Submit</button>
 </form>
