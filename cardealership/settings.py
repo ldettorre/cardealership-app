@@ -44,6 +44,8 @@ INSTALLED_APPS = [
     'django.contrib.humanize',
     'home',
     'vehicles',
+    'contact',
+    'django_forms_bootstrap'
 
 ]
 
