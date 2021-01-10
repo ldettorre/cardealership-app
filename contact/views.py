@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .forms import ContactForm
+from .forms import ContactForm, CarSourcingForm
 from django.contrib import messages
 
 
@@ -17,3 +17,16 @@ def contact_form(request):
         form = ContactForm()
         messages.error(request, "Thanks")
     return render(request, 'contact/contact_form.html', {'form':form})
+
+def car_sourcing(request):
+    if request.method =="POST":
+        form =  CarSourcingForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect("car_sourcing")
+        else:
+            messages.error(request, "Please ensure your phone number only contains digits")
+    else:
+        form = ContactForm()
+        messages.error(request, "Thanks")
+    return render(request, 'contact/car_sourcing.html', {'form':form})
