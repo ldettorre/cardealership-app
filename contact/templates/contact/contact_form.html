@@ -3,7 +3,11 @@
 {% block content %}
 
 <h1>Welcome to the Contact Page</h1>
-
+{% if messages %}
+    {% for message in messages %}
+        {{ message }}
+    {% endfor %}
+{% endif %}
 <form action="{% url 'contact_form' %}" method="POST">
     {% csrf_token %} {{ form |as_bootstrap }}
     <button type="submit" class="btn btn-info">Submit</button>

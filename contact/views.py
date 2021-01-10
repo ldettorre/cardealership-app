@@ -10,7 +10,10 @@ def contact_form(request):
         form =  ContactForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-        return redirect("contact_form")
+            return redirect("contact_form")
+        else:
+            messages.error(request, "Please ensure your phone number only contains digits")
     else:
         form = ContactForm()
+        messages.error(request, "Thanks")
     return render(request, 'contact/contact_form.html', {'form':form})
