@@ -1,0 +1,16 @@
+{% extends 'base.html' %} 
+{% load bootstrap_tags %}
+{% block content %}
+
+<h1>Welcome to the Car Sourcing Page</h1>
+<p></p>
+{% if messages %}
+    {% for message in messages %}
+        {{ message }}
+    {% endfor %}
+{% endif %}
+<form action="{% url 'car_sourcing' %}" method="POST">
+    {% csrf_token %} {{ form |as_bootstrap }}
+    <button type="submit" class="btn btn-info">Submit</button>
+</form>
+{% endblock %}

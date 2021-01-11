@@ -12,7 +12,7 @@ class Contact(models.Model):
     phone_regex = RegexValidator(regex=r'^\d+$')
     phone_number = models.CharField(validators=[phone_regex], max_length=17)
     submission_date = models.DateTimeField(blank=True, null=True, default=timezone.now)
-    
+
     def __str__(self):
         return self.name
 

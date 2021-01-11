@@ -9,5 +9,6 @@ class ContactForm(forms.ModelForm):
 class CarSourcingForm(forms.ModelForm):
     class Meta:
         model = CarSourcing
-        fields =('name','phone_number','email','additional_information')
+        fields =  fields = '__all__'
+        exclude = ['submission_date']
 

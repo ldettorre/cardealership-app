@@ -4,7 +4,6 @@ from django.contrib import messages
 
 
 # Create your views here.
-
 def contact_form(request):
     if request.method =="POST":
         form =  ContactForm(request.POST, request.FILES)
@@ -15,7 +14,6 @@ def contact_form(request):
             messages.error(request, "Please ensure your phone number only contains digits")
     else:
         form = ContactForm()
-        messages.error(request, "Thanks")
     return render(request, 'contact/contact_form.html', {'form':form})
 
 def car_sourcing(request):
@@ -27,6 +25,5 @@ def car_sourcing(request):
         else:
             messages.error(request, "Please ensure your phone number only contains digits")
     else:
-        form = ContactForm()
-        messages.error(request, "Thanks")
+        form = CarSourcingForm()
     return render(request, 'contact/car_sourcing.html', {'form':form})
