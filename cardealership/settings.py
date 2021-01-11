@@ -29,7 +29,7 @@ SECRET_KEY = 'y&y1ip#nnuyj7_!j*dvkm@*-%%hc*#!_k5+$fq*kg5a)jz#im-'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['cardealership-ireland.herokuapp.com']
 
 
 # Application definition
