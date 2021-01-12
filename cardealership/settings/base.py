@@ -17,7 +17,7 @@ from decouple import config
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
 
 # Quick-start development settings - unsuitable for production
@@ -27,9 +27,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'y&y1ip#nnuyj7_!j*dvkm@*-%%hc*#!_k5+$fq*kg5a)jz#im-'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = config("DEBUG")
 
-ALLOWED_HOSTS = ['cardealership-ireland.herokuapp.com']
+ALLOWED_HOSTS = ['cardealership-ireland.herokuapp.com','127.0.0.1']
 
 
 # Application definition
@@ -83,15 +83,6 @@ WSGI_APPLICATION = 'cardealership.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': config('PGNAME'),
-        'USER': config('PGUSER'),
-        'PASSWORD': config('PGPASSWORD'),
-        'HOST': config('PGHOST'),
-    }
-}
 
 
 
@@ -134,9 +125,3 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
-STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'cardealership/static')]
-
-MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
