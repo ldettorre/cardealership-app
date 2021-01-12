@@ -17,6 +17,7 @@ from decouple import config
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
+# An additional parent was added onto the end of the code below because we added an additional level with our settings/files folder.
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
 
