@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'vehicles',
     'contact',
     'django_forms_bootstrap',
+    'storages',
 
 ]
 
