@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'contact',
     'django_forms_bootstrap',
     'storages',
+    'blog',
 
 ]
 
