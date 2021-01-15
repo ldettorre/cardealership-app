@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'django_forms_bootstrap',
     'storages',
     'blog',
+    'ckeditor',
 
 ]
 
