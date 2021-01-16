@@ -69,7 +69,7 @@ class CarMake(models.Model):
         return self.name
 
 class CarModel(models.Model):
-    make = models.ForeignKey(CarMake, on_delete = models.DO_NOTHING)
+    make = models.ForeignKey(CarMake, on_delete= models.CASCADE)
     name = models.CharField(max_length=100)
     year = models.CharField(max_length=4)
 
