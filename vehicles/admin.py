@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Vehicles
+from .models import Vehicles, CarMake, CarModel
 # Register your models here.
 
 class VehiclesAdmin(admin.ModelAdmin):
@@ -8,6 +8,16 @@ class VehiclesAdmin(admin.ModelAdmin):
     list_filter = ('make','condition')
     list_editable = ('published',)
     list_per_page = 20
-    search_fields = ('id', 'title', 'make', 'model', 'color', 'engine_size', 'condition', 'year', 'price', 'published')#This allows admin to use a search feature when looking for specific vehicles
+    #This allows admin to use a search feature when looking for specific vehicles
+    search_fields = ('id', 'title', 'make', 'model', 'color', 'engine_size', 'condition', 'year', 'price', 'published')
+
+
+class CarMakeAdmin(admin.ModelAdmin):
+    list_display = ('name',)
+
+class CarModelAdmin(admin.ModelAdmin):
+    list_display = ('make', 'name', 'year')
 
 admin.site.register(Vehicles, VehiclesAdmin)
+admin.site.register(CarMake, CarMakeAdmin)
+admin.site.register(CarModel, CarModelAdmin)
