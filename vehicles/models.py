@@ -53,10 +53,10 @@ class Vehicles(models.Model):
 # Finally, the users selection will then be passed through a view to render vehicles that match their choices on a new page where we could then look at filtering by price or other field.
 
 
-#1 Create new models for searchable fields.
-#2 Create a new vehicle model using the new fields.
-#3 Create a new url, view and template to render the new model
-#3 Create a new add via the dashboard with the new model to test that everything is working so far.
+#1 Create new models for searchable fields. - DONE
+#2 Create a new vehicle model using the new fields. - DONE (Using CarModel)
+#3 Create a new url, view and template to render the new model - DONE
+#3 Create a new add via the dashboard with the new model to test that everything is working so far. - DONE
 #4 Create a search form on the index page using the make and model fields.
 #5 Populate the new search form using the fields above.
 #6 Using JS or AJAX, work on a way to render only what is available in the db.

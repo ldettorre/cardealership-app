@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator    
-from .models import Vehicles, CarModel
+from .models import Vehicles, CarModel, CarMake
 
 
 
@@ -18,10 +18,10 @@ def vehicle(request, vehicle_id):
 
 #Test views below
 
-def test_vehicles(request):
-    vehicles = CarModel.objects.all()
-    return render(request, 'vehicles/test_vehicles.html', {"vehicles":vehicles})
+def t_vehicles(request):
+    carmodels = CarModel.objects.all()
+    return render(request, 'vehicles/t_vehicles.html', {"carmodels":carmodels})
 
-def test_vehicle(request, test_vehicle_id):
-    vehicle = get_object_or_404(CarModel, id=test_vehicle_id)
-    return render(request, 'vehicles/test_vehicle.html', {"vehicle": vehicle})
+def t_vehicle(request, carmodel_id):
+    carmodel = get_object_or_404(CarModel, id=carmodel_id)
+    return render(request, 'vehicles/t_vehicle.html', {"carmodel": carmodel})

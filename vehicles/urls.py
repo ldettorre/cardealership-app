@@ -3,8 +3,10 @@ from . import views
 
 urlpatterns=[
     path('', views.vehicles, name='vehicles'),
-    path('<int:vehicle_id>', views.vehicle, name='vehicle'),
+
+    # The url path below is commented out so that the new models can be rendered on the t_vehicle.html page. This can be undone after the search feature is working
+    # path('<int:vehicle_id>', views.vehicle, name='vehicle'),
     #Test url patterns below.
-    path('test_vehicles', views.test_vehicles, name='test_vehicles'),
-    path('<int:test_vehicle_id>', views.test_vehicle, name='test_vehicle'),
+    path('t_vehicles', views.t_vehicles, name='t_vehicles'),
+    path('<int:carmodel_id>', views.t_vehicle, name='t_vehicle'),
 ]
