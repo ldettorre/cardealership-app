@@ -4,4 +4,21 @@
 
 <h1 class="blue-text">Welcome to our Home Page.</h1>
 
+<form>
+        <select name="carmake" class="carmake" id='carmake'>
+                <option value="no_carmake">Select a carmake</option>
+                {% for carmake in carmakes %}
+
+                <option value="{{carmake.pk}}">{{carmake.name}}</option>
+        
+                {% endfor %}
+
+        </select>
+        
+        <select name="carmodel" id="carmodel">
+
+        </select>
+
+    </form>
+
 {% endblock %}

@@ -57,9 +57,9 @@ class Vehicles(models.Model):
 #2 Create a new vehicle model using the new fields. - DONE (Using CarModel)
 #3 Create a new url, view and template to render the new model - DONE
 #3 Create a new add via the dashboard with the new model to test that everything is working so far. - DONE
-#4 Create a search form on the index page using the make and model fields.
-#5 Populate the new search form using the fields above.
-#6 Using JS or AJAX, work on a way to render only what is available in the db.
+#4 Create a search form on the index page using the make and model fields. - DONE
+#5 Populate the new search form using the fields above. - DONE
+#6 Using JS or AJAX, work on a way to render only what is available in the db. - DONE
 #7 Work on passing this submitted forms selections to a new view that renders the options on a new template.
 
 class CarMake(models.Model):
