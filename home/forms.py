@@ -1,9 +1,11 @@
 from django.forms import ModelForm, modelformset_factory, formset_factory
 from django import forms
-from vehicles.models import CarMake
+from vehicles.models import CarMake, CarModel
 
-class CarMakeForm(ModelForm):
-    name = forms.CharField(widget=forms.Select)
+class SearchForm(ModelForm):
+    name = forms.ModelChoiceField(queryset=CarMake.objects.all(), widget=forms.Select(attrs={'class':'carmake','id':'carmake'}))
+    make = forms.ModelChoiceField(queryset=CarMake.objects.all(), widget=forms.Select(attrs={'class':'carmodel','id':'carmodel'}))
     class Meta:
         model = CarMake
-        fields = ('name',)
+        fields = ('name','make')
+        
