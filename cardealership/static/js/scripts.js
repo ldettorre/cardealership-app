@@ -55,3 +55,4 @@ var removeChilds = function (node) {
     var last;
     while (last = node.lastChild) node.removeChild(last);
 };
+
