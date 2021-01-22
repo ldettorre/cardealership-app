@@ -13,7 +13,7 @@ class VehiclesAdmin(admin.ModelAdmin):
 
 
 class CarMakeAdmin(admin.ModelAdmin):
-    list_display = ('name',)
+    list_display = ('id','name',)
 
 class CarModelAdmin(admin.ModelAdmin):
     list_display = ('id','make', 'name', 'year')

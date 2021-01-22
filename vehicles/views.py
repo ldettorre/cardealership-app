@@ -25,3 +25,4 @@ def t_vehicles(request):
 def t_vehicle(request, carmodel_id):
     carmodel = get_object_or_404(CarModel, id=carmodel_id)
     return render(request, 'vehicles/t_vehicle.html', {"carmodel": carmodel})
+    

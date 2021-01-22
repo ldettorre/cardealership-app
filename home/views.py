@@ -14,7 +14,7 @@ def index(request):
         'carmodels' : carmodels,
         'form' : form,
     }
-    return render(request,'home/index.html',context=context)
+    return render(request,'home/index.html',context)
 
     
 
@@ -26,8 +26,19 @@ def blog(request):
 
 def ajax_handler(request,id):
     carmodels = CarModel.objects.filter(make_id=id).values_list('id','name')
-    print(carmodels)
     carmodels = dict(carmodels)
     return JsonResponse({
         'carmodels' : carmodels,
     })
+
+def search(request):
+    if 'model' in request.POST:
+        id = request.POST["model"]
+        
+        carmodels = CarModel.objects.all()
+        carmodels = carmodels.filter(id=id)
+    return render(request, "home/search.html", {'carmodels':carmodels})
+
+    
+    
+
