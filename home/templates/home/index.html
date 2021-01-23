@@ -6,8 +6,23 @@
 
 
 <form action="search" method="POST"> 
-    {% csrf_token %} {{ form |as_bootstrap }}
+    {% csrf_token %} 
+
+    <select name="carmake" class="carmake" id='carmake'>
+        <option value="no_carmake">Select a carmake</option>
+        {% for carmake in carmakes %}
+
+        <option value="{{carmake.pk}}">{{carmake.name}}</option>
+
+        {% endfor %}
+
+        </select>
+
+        <select name="carmodel" id="carmodel">
+            <option value="no_carmodel">Select a Model</option>
+        </select>
     <button type="submit" class="btn btn-info">Search</button>
+
 </form>
 
 {% endblock %}

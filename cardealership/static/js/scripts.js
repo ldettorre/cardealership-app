@@ -49,10 +49,15 @@ opt.value = val;
 sel.appendChild(opt); 
 }
 
+let selector2 = document.querySelector("#carmodel");
+    selector2.addEventListener('change',function(){
+        console.log("Test")
+        
+    });
+
 }
 
 var removeChilds = function (node) {
     var last;
     while (last = node.lastChild) node.removeChild(last);
 };
-
