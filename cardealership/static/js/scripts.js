@@ -3,19 +3,19 @@ window.onload = function(){
     let selector = document.querySelector("#carmake");
     selector.addEventListener('change',function(){
 
-        let carmake_id = selector.value;
-        console.log(carmake_id)
-        if(carmake_id == "no_carmake"){
+        let carmakeName = selector.value;
+        console.log(carmakeName)
+        if(carmakeName == "no_carmake"){
             removeChilds(document.getElementById('carmodel'));
         }
         else{
-            ajax_request(carmake_id);
+            ajax_request(carmakeName);
         }
         
     });
 
 
-function ajax_request(id){
+function ajax_request(name){
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
@@ -28,7 +28,7 @@ function ajax_request(id){
      }
     }
   };
-  xhttp.open("GET", `/ajax_handler/${id}`, true);
+  xhttp.open("GET", `/ajax_handler/${name}`, true);
   xhttp.send();
 }
 
@@ -49,11 +49,12 @@ opt.value = val;
 sel.appendChild(opt); 
 }
 
-let selector2 = document.querySelector("#carmodel");
-    selector2.addEventListener('change',function(){
-        console.log("Test")
+// let selector2 = document.querySelector("#carmodel");
+//     selector2.addEventListener('change',function(){
+//     let carmodel_id = selector.value;
+//     console.log(carmodel_id)
         
-    });
+//     });
 
 }
 

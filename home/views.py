@@ -22,10 +22,13 @@ def about(request):
 def blog(request):
     return render(request, "home/blog.html")
 
-def ajax_handler(request,id):
-    carmodels = CarModel.objects.filter(make_id=id).values_list('id','name')
+def ajax_handler(request,name):
+    carMakeName = name
+    print(carMakeName)
+    carmodels = CarModel.objects.filter(make__name=carMakeName).values_list('id','name')
     print(carmodels)
     carmodels = dict(carmodels)
+    print(carmodels)
     return JsonResponse({
         'carmodels' : carmodels,
     })
@@ -37,8 +40,8 @@ def ajax_handler(request,id):
 
 def search(request):
     if 'carmodel' in request.POST:
-        id = request.POST["carmodel"]
-        print(id)
+        name = request.POST["carmodel"]
+        print(name)
         carmodels = CarModel.objects.all()
-        carmodels = carmodels.filter(id=id)
+        carmodels = carmodels.filter(name=name)
     return render(request, "home/search.html", {'carmodels':carmodels})
