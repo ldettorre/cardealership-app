@@ -2,9 +2,9 @@
 
 <h1>Welcome to our Search Page.</h1>
     {% for carmodel in carmodels %}
-        {{ carmodel.make }}
-        {{ carmodel.name }}
-        {{ carmodel.year }}
+        <p>{{ carmodel.make }}</p>
+        <p>{{ carmodel.name }}</p>
+        <p>{{ carmodel.year }}</p> 
     {% endfor %}
 
 {% endblock %}

@@ -24,11 +24,20 @@ def blog(request):
 
 def ajax_handler(request,name):
     carMakeName = name
-    print(carMakeName)
-    carmodels = CarModel.objects.filter(make__name=carMakeName).values_list('id','name')
-    print(carmodels)
+
+    carmodels = CarModel.objects.filter(make__name=carMakeName).values_list('id','name',)
     carmodels = dict(carmodels)
-    print(carmodels)
+    listK =[]
+    listV =[]
+    for val in carmodels.values():
+        if val in listK:
+            continue
+        else:
+            listK.append(val)
+            listV.append(val)
+    carmodels = dict(zip(listK, listV))
+    # print(carmodels)
+    
     return JsonResponse({
         'carmodels' : carmodels,
     })
@@ -39,9 +48,17 @@ def ajax_handler(request,name):
 
 
 def search(request):
+    carmodels = CarModel.objects.all()
     if 'carmodel' in request.POST:
         name = request.POST["carmodel"]
         print(name)
-        carmodels = CarModel.objects.all()
-        carmodels = carmodels.filter(name=name)
+        if name:
+            carmodels = carmodels.filter(name=name)
+    context ={
+        'carmodels':carmodels,
+    }
     return render(request, "home/search.html", {'carmodels':carmodels})
+
+
+
+    
