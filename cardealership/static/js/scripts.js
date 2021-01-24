@@ -5,7 +5,7 @@ window.onload = function () {
 
         let carmakeName = selector.value;
         console.log(carmakeName)
-        if (carmakeName == "no_carmake") {
+        if (carmakeName == "") {
             removeChilds(document.getElementById('carmodel'));
         }
         else {
@@ -18,10 +18,8 @@ window.onload = function () {
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
-                // console.log(this.responseText);
                 res = JSON.parse(this.responseText)
                 carmodels = res.carmodels;
-                removeChilds(document.getElementById('carmodel'));
                 for (const prop in carmodels) {
                     add_option(prop, carmodels[prop]);
                 }
@@ -57,7 +55,7 @@ window.onload = function () {
 $(document).on('change', '#carmodel', function(){
     let selector = document.querySelector("#carmodel")
     carmodel = selector.value
-    if (carmodel == "no_carmodel") {
+    if (carmodel == "") {
         removeChilds(document.getElementById('caryear'));
     }
     else {
@@ -69,10 +67,8 @@ $(document).on('change', '#carmodel', function(){
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
-                // console.log(this.responseText);
                 res = JSON.parse(this.responseText)
                 caryears = res.caryears;
-                removeChilds(document.getElementById('caryear'));
                 for (const prop in caryears) {
                     add_option(prop, caryears[prop]);
                 }

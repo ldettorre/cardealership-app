@@ -66,11 +66,17 @@ def ajax_handler2(request,carmodel):
 
 
 def search(request):
-    #Filter cars by model
     carmodels = CarModel.objects.all()
+
+    #Filter cars by make
+    if 'carmake' in request.POST:
+        make = request.POST["carmake"]
+        if make:
+            carmodels = carmodels.filter(make__name=make)
+
+    #Filter cars by model
     if 'carmodel' in request.POST:
         name = request.POST["carmodel"]
-        print(name)
         if name:
             carmodels = carmodels.filter(name=name)
     
@@ -79,6 +85,7 @@ def search(request):
         year = request.POST["caryear"]
         if year:
             carmodels = carmodels.filter(year=year)
+
     context ={
         'carmodels':carmodels,
     }

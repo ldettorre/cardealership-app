@@ -1,32 +1,32 @@
 {% extends 'base.html' %} 
-{% load bootstrap_tags %}
+{% load bootstrap_tags %} 
 {% block content %}
 
 <h1 class="blue-text">Welcome to our Home Page.</h1>
 
+<form action="search" method="POST">
+  {% csrf_token %}
 
-<form action="search" method="POST"> 
-    {% csrf_token %} 
+  <label for="carmake">Make:</label>
+  <select name="carmake" class="carmake" id="carmake">
+    <option value="">Any</option>
+    {% for carmake in carmakes %}
+    <option value="{{carmake.name}}">{{carmake.name}}</option>
+    {% endfor %}
+  </select>
 
-    <select name="carmake" class="carmake" id='carmake'>
-        <option value="no_carmake">Select a carmake</option>
-        {% for carmake in carmakes %}
+  <label for="carmodel">Model:</label>
+  <select name="carmodel" id="carmodel">
+    Make:
+    <option value="">Any</option>
+  </select>
 
-        <option value="{{carmake.name}}">{{carmake.name}}</option>
-
-        {% endfor %}
-
-        </select>
-
-        <select name="carmodel" id="carmodel">
-            <option value="no_carmodel">Select a Model</option>
-        </select>
-
-        <select name="caryear" id="caryear">
-            <option value="no_caryear">Select a Year</option>
-        </select>
-    <button type="submit" class="btn btn-info">Search</button>
-
+  <label for="caryear">Year:</label>
+  <select name="caryear" id="caryear">
+    Year:
+    <option value="">Any</option>
+  </select>
+  <button type="submit" class="btn btn-info">Search</button>
 </form>
 
 {% endblock %}
