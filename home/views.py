@@ -57,7 +57,7 @@ def search(request):
     context ={
         'carmodels':carmodels,
     }
-    return render(request, "home/search.html", {'carmodels':carmodels})
+    return render(request, "vehicles/t_vehicles.html", {'carmodels':carmodels})
 
 
 
