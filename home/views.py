@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404, HttpResponse
-from vehicles.models import Vehicles, CarMake, CarModel
+from vehicles.models import CarMake, CarModel
 import json
 from django.http import JsonResponse
 # from .forms import SearchForm
@@ -24,7 +24,7 @@ def blog(request):
 
 def ajax_handler(request,name):
     carMakeName = name
-    carmodels = CarModel.objects.filter(make__name=carMakeName).values_list('id','name',)
+    carmodels = CarModel.objects.filter(make__name=carMakeName).values_list('id','model',)
     carmodels = dict(carmodels)
     listK =[]
     listV =[]
@@ -42,7 +42,7 @@ def ajax_handler(request,name):
 
 def ajax_handler2(request,carmodel): 
     carModelName = carmodel
-    caryears = CarModel.objects.filter(name=carModelName).values_list('id','year',)
+    caryears = CarModel.objects.filter(model=carModelName).values_list('id','year',)
     caryears = dict(caryears)
     listK =[]
     listV =[]
@@ -60,11 +60,6 @@ def ajax_handler2(request,carmodel):
     })
     
 
-# Code Below gets the year!
-    # name = carmodels[0][1]
-    # carmodels = CarModel.objects.filter(name=name).values_list('id','year')
-
-
 def search(request):
     carmodels = CarModel.objects.all()
 
@@ -76,9 +71,9 @@ def search(request):
 
     #Filter cars by model
     if 'carmodel' in request.POST:
-        name = request.POST["carmodel"]
-        if name:
-            carmodels = carmodels.filter(name=name)
+        model = request.POST["carmodel"]
+        if model:
+            carmodels = carmodels.filter(model=model)
     
     #Filter cars by year
     if 'caryear' in request.POST:
@@ -89,7 +84,7 @@ def search(request):
     context ={
         'carmodels':carmodels,
     }
-    return render(request, "vehicles/t_vehicles.html", {'carmodels':carmodels})
+    return render(request, "vehicles/vehicles.html", {'carmodels':carmodels})
 
 
 

@@ -4,18 +4,18 @@
 
 {% block content %}
 
-<h1 class="blue-text">You are currently viewing the {{ vehicle.title }} .</h1>
+<h1 class="blue-text">You are currently viewing the {{ carmodel.title }} .</h1>
 <div class="row mb-2">
         <div class="col-md-6">
           <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
             <div class="col p-4 d-flex flex-column position-static">
-              <h3 class="mb-0">{{ vehicle.title }}</h3>
-              <div class="mb-1 text-muted">{{ vehicle.make }} {{ vehicle.model }}</div>
-              <p class="card-text mb-auto"> {{ vehicle.title }} </p>
-              <a href="#" class="stretched-link">€ {{ vehicle.price | intcomma }}</a>
+              <h3 class="mb-0">{{ carmodel.title }}</h3>
+              <div class="mb-1 text-muted">{{ carmodel.make }} {{ carmodel.model }}</div>
+              <p class="card-text mb-auto"> {{ carmodel.title }} </p>
+              <a href="#" class="stretched-link">€ {{ carmodel.price | intcomma }}</a>
             </div>
             <div class="col-auto d-none d-lg-block">
-              <img width="200" height="250" src="{{ vehicle.photo_main.url }}" >
+              <img width="200" height="250" src="{{ carmodel.photo_main.url }}" >
             </div>
           </div>
         </div>  

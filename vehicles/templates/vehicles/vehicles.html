@@ -1,43 +1,43 @@
 {% extends 'base.html' %} {% load humanize %} {% block content %}
 
-<h1 class="blue-text">Welcome to our Vehicles Page.</h1>
-{% if vehicles %}
+<h1 class="blue-text">Welcome to our carmodels Page.</h1>
+{% if carmodels %}
     <div class="row mb-2">
-        {% for vehicle in vehicles %}
+        {% for carmodel in carmodels %}
         <div class="col-md-6">
             <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
             <div class="col p-4 d-flex flex-column position-static">
-                <h3 class="mb-0">{{ vehicle.title }}</h3>
+                <h3 class="mb-0">{{ carmodel.title }}</h3>
                 <div class="mb-1 text-muted">
-                {{ vehicle.make }} {{ vehicle.model }}
+                {{ carmodel.make }} {{ carmodel.model }}
                 </div>
-                <p class="card-text mb-auto">{{ vehicle.title }}</p>
-                <a href="#" class="stretched-link">€ {{ vehicle.price | intcomma }}</a>
+                <p class="card-text mb-auto">{{ carmodel.title }}</p>
+                <a href="#" class="stretched-link">€ {{ carmodel.price | intcomma }}</a>
             </div>
             <div class="col-auto d-none d-lg-block">
-                <img width="200" height="250" src="{{ vehicle.photo_main.url }}" />
+                <img width="200" height="250" src="{{ carmodel.photo_main.url }}" />
             </div>
             </div>
-            <a href="{% url 'vehicle' vehicle.id %}" class="btn btn-default">View more</a></div>
+            <a href="{% url 'carmodel' carmodel.id %}" class="btn btn-default">View more</a></div>
         {% endfor %}
     </div>
 {% else %}
-    <p>There are currently no vehicles available.</p>
+    <p>There are currently no carmodels available.</p>
 {% endif %} 
 
-{% if vehicles.has_other_pages %}
+{% if carmodels.has_other_pages %}
 <nav aria-label="Page navigation example">
   <ul class="pagination justify-content-center">
-    {% if vehicles.has_previous %}
+    {% if carmodels.has_previous %}
     <li class="page-item">
-      <a href="?page={{vehicles.previous_page_number}}" class="page-link">Previous</a>
+      <a href="?page={{carmodels.previous_page_number}}" class="page-link">Previous</a>
     </li>
     {% else %}
     <li class="page-item disabled"><a class="page-link">Previous</a></li>
     {% endif %} 
     
 
-    {% for i in vehicles.paginator.page_range %} 
+    {% for i in carmodels.paginator.page_range %} 
         {% if listings.number == i %}
             <li class="page-item active">
                 <a class="page-link"> {{i}} </a>
@@ -49,9 +49,9 @@
         {% endif %}
     {% endfor %}
 
-    {% if vehicles.has_next %}
+    {% if carmodels.has_next %}
     <li class="page-item">
-      <a href="?page={{vehicles.next_page_number}}" class="page-link">
+      <a href="?page={{carmodels.next_page_number}}" class="page-link">
         Next</a>
     </li>
     {% else %}
