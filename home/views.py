@@ -78,6 +78,13 @@ def search(request):
         if year:
             carmodels = carmodels.filter(year=year)
 
+    #Filter cars by make
+    if 'price_min' in request.POST:
+        price_min = request.POST["price_min"]
+    if 'price_max' in request.POST:
+        price_max = request.POST["price_max"]
+    carmodels = carmodels.filter(price__range=(price_min, price_max))
+    
     context ={
         'carmodels':carmodels,
     }

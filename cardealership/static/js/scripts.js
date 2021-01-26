@@ -116,3 +116,6 @@ modelFieldId.addEventListener('change', function () {
 
 
 
+// Min Price number generator
+// let minPriceField = document.querySelector("#pricemin");
+// minPriceField.addEventListener('change', function () {
