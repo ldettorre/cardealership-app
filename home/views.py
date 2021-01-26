@@ -2,7 +2,6 @@ from django.shortcuts import render, get_object_or_404, HttpResponse
 from vehicles.models import CarMake, CarModel
 import json
 from django.http import JsonResponse
-# from .forms import SearchForm
 
 
 def index(request):
@@ -35,10 +34,10 @@ def ajax_handler(request,name):
             listK.append(val)
             listV.append(val)
     carmodels = dict(zip(listK, listV))
-    
     return JsonResponse({
         'carmodels' : carmodels,
     })
+
 
 def ajax_handler2(request,carmodel): 
     carModelName = carmodel
@@ -53,8 +52,6 @@ def ajax_handler2(request,carmodel):
             listK.append(val)
             listV.append(val)
     caryears = dict(zip(listK, listV))
-
-    print(caryears)
     return JsonResponse({
         'caryears' : caryears,
     })
