@@ -115,7 +115,17 @@ modelFieldId.addEventListener('change', function () {
 })
 
 
+// Below is the logic for valid price selection. It ensures that the user cannot select a min price that exceeds max price 
+// or a max price that is less than the chosen min price.
+let priceMin = document.querySelector("#price_min");
+let priceMax = document.querySelector("#price_max");
 
-// Min Price number generator
-// let minPriceField = document.querySelector("#pricemin");
-// minPriceField.addEventListener('change', function () {
+priceMin.addEventListener('change', function () {
+    if(parseInt(priceMin.value) > parseInt(priceMax.value))
+    $("#price_max").val(priceMin.value)
+})
+
+priceMax.addEventListener('change', function () {
+    if(parseInt(priceMin.value) > parseInt(priceMax.value))
+    $("#price_min").val(priceMax.value)
+})

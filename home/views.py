@@ -81,8 +81,12 @@ def search(request):
     #Filter cars by make
     if 'price_min' in request.POST:
         price_min = request.POST["price_min"]
+        if price_min == "":
+            price_min = 0
     if 'price_max' in request.POST:
         price_max = request.POST["price_max"]
+        if price_max == "":
+            price_max = 999999
     carmodels = carmodels.filter(price__range=(price_min, price_max))
     
     context ={
