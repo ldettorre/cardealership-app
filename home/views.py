@@ -78,7 +78,7 @@ def search(request):
         if year:
             carmodels = carmodels.filter(year=year)
 
-    #Filter cars by make
+    #Filter cars by price
     if 'price_min' in request.POST:
         price_min = request.POST["price_min"]
         if price_min == "":
@@ -87,7 +87,31 @@ def search(request):
         price_max = request.POST["price_max"]
         if price_max == "":
             price_max = 999999
-    carmodels = carmodels.filter(price__range=(price_min, price_max))
+            carmodels = carmodels.filter(price__range=(price_min, price_max))
+
+    #Filter cars by fuel type
+    if 'fuel' in request.POST:
+        fuel = request.POST["fuel"]
+        if fuel:
+            carmodels = carmodels.filter(fuel=fuel)
+    
+    #Filter cars by transmission
+    if 'transmission' in request.POST:
+        transmission = request.POST["transmission"]
+        if transmission:
+            carmodels = carmodels.filter(transmission=transmission)
+
+    #Filter cars by engine size
+    if 'engine_size_min' in request.POST:
+        engine_size_min = request.POST["engine_size_min"]
+        if engine_size_min == "":
+            engine_size_min = 0.0
+    if 'engine_size_max' in request.POST:
+        engine_size_max = request.POST["engine_size_max"]
+        if engine_size_max == "":
+            engine_size_max = 10.0
+        carmodels = carmodels.filter(engine_size__range=(engine_size_min, engine_size_max))
+    
     
     context ={
         'carmodels':carmodels,

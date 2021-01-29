@@ -11,8 +11,10 @@ class CarMake(models.Model):
 
 class CarModel(models.Model):
     CONDITION_CHOICES = [("Brand New","Brand New"),("Used", "Used")]
+    COLOUR_CHOICES = [("Black","Black"),("Blue", "Blue"),("Gold", "Gold"),("Green", "Green"),("Grey", "Grey"),("Navy", "Navy"),("Orange", "Orange"),("Red", "Red"),("Silver", "Silver"),("White", "White")]
     FUEL_CHOICES = [("Petrol","Petrol"),("Diesel", "Diesel"),("Electric", "Electric"),("Hybrid", "Hybrid")]
-    TRANSMISSION_CHOICES = [("Automatic","Automatic"),("Manual", "Manual")]
+    TRANSMISSION_CHOICES = [("Automatic","Automatic"),("Manual", "Manual"), ("Semi-auto", "Semi-auto"), ("CVT","CVT"),("Other","Other")]
+    BODY_CHOICES = [("Convertible","Convertible"),("Coupe", "Coupe"), ("Estate", "Estate"), ("Hatchback","Hatchback"),("SUV","SUV"),("Saloon","Saloon")]
     title = models.CharField(max_length=200, default = "Ad Title & Folder Name")
     def upload_photo_to(self, filename):
         return f'{self.title}/{filename}'
@@ -21,11 +23,11 @@ class CarModel(models.Model):
     year = models.CharField(max_length=4)
     price = models.IntegerField()
     condition = models.CharField(max_length=100,blank=True, choices = CONDITION_CHOICES)
-    color = models.CharField(max_length=50)
+    color = models.CharField(max_length=100, choices = COLOUR_CHOICES)
     mileage = models.IntegerField()
     fuel = models.CharField(max_length=100, choices = FUEL_CHOICES)
     engine_size = models.DecimalField(max_digits=2,decimal_places=1)
-    body_type = models.CharField(max_length=100)
+    body_type = models.CharField(max_length=100, choices = BODY_CHOICES)
     owners = models.IntegerField(blank=True)
     transmission = models.CharField(max_length=100, choices = TRANSMISSION_CHOICES)
     nct_due_date = models.DateField(blank=True, null=True)

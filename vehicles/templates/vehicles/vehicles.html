@@ -12,7 +12,8 @@
                 {{ carmodel.make }} {{ carmodel.model }}
                 </div>
                 <p class="card-text mb-auto">{{ carmodel.title }}</p>
-                <a href="#" class="stretched-link">€ {{ carmodel.price | intcomma }}</a>
+                <p class="card-text mb-auto">Engine Size: {{ carmodel.engine_size }}</p>
+                <a href="#" class="stretched-link">Price: €{{ carmodel.price | intcomma }}</a>
             </div>
             <div class="col-auto d-none d-lg-block">
                 <img width="200" height="250" src="{{ carmodel.photo_main.url }}" />

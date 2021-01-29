@@ -1,6 +1,6 @@
 // Notes
-// The terms 'reset/resetting' used in comments refers to combined use of the removeChilds() and add_option() function. Together, these effectively remove the options from a field and then
-// create a single default option with a value of "" and text "Any".
+// The terms 'reset/resetting' used in comments refers to combined use of the removeChilds() and add_option() function. 
+// Together, these effectively remove the options from a field and then create a single default option with a value of "" and text "Any".
 
 window.onload = function () {
     let selector = document.querySelector("#carmake");
@@ -30,7 +30,6 @@ window.onload = function () {
     }
 
 
-    // Used in a loop within the ajax request above. 
     // This grabs the carmodel id, creates a new option element, creates a text node and sets the value of the newly created option.
     function add_option(val, text) {
         var sel = document.getElementById('carmodel');
@@ -42,8 +41,6 @@ window.onload = function () {
 }
 
 
-// Changing the carmodel field triggers the ajax request returning car years..
-// The ajax request is then called to render years available to that carmodel option.
 $(document).on('change', '#carmodel', function () {
     let selector = document.querySelector("#carmodel")
     carmodel = selector.value
@@ -93,10 +90,6 @@ function dynamic_add_option(val, text, elementId) {
 }
 
 
-// Ideally I wanted to have one chain link of eventListeners that would 'reset' all the fields that followed the trigger event.
-// But I couldn't seem to get it working as desired. Instead, I settled on creating a 'reset' event chain per field.
-
-
 // Changing carmake results in all following fields to be reset.
 let makeFieldId = document.querySelector("#carmake");
 makeFieldId.addEventListener('change', function () {
@@ -107,7 +100,6 @@ makeFieldId.addEventListener('change', function () {
 })
 
 
-// Changing carmodel results in all its following fields to be reset.
 let modelFieldId = document.querySelector("#carmodel");
 modelFieldId.addEventListener('change', function () {
     removeChilds(document.getElementById('caryear'));
@@ -115,7 +107,7 @@ modelFieldId.addEventListener('change', function () {
 })
 
 
-// Below is the logic for valid price selection. It ensures that the user cannot select a min price that exceeds max price 
+// Price selection logic. It ensures that the user cannot select a min price that exceeds max price 
 // or a max price that is less than the chosen min price.
 let priceMin = document.querySelector("#price_min");
 let priceMax = document.querySelector("#price_max");
@@ -128,4 +120,18 @@ priceMin.addEventListener('change', function () {
 priceMax.addEventListener('change', function () {
     if(parseInt(priceMin.value) > parseInt(priceMax.value))
     $("#price_min").val(priceMax.value)
+})
+
+
+let engineSizeMin = document.querySelector("#engine_size_min");
+let engineSizeMax = document.querySelector("#engine_size_max");
+
+engineSizeMin.addEventListener('change', function () {
+    if(parseFloat(engineSizeMin.value) > parseFloat(engineSizeMax.value))
+    $("#engine_size_max").val(engineSizeMin.value)
+})
+
+engineSizeMax.addEventListener('change', function () {
+    if(parseFloat(engineSizeMin.value) > parseFloat(engineSizeMax.value))
+    $("#engine_size_min").val(engineSizeMax.value)
 })
