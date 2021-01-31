@@ -39,7 +39,7 @@
     
 
     {% for i in carmodels.paginator.page_range %} 
-        {% if listings.number == i %}
+        {% if carmodels.number == i %}
             <li class="page-item active">
                 <a class="page-link"> {{i}} </a>
             </li>

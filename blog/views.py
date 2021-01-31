@@ -3,8 +3,9 @@ from .models import BlogPost
 # Create your views here.
 
 def blog(request):
-    blogpost = BlogPost.objects.all()
-    return render(request, 'blog/blog.html', {"blogpost":blogpost})
+    blogposts = BlogPost.objects.all()
+    blogposts = blogposts.filter(is_published=True)
+    return render(request, 'blog/blog.html', {"blogposts":blogposts})
     
 
 def blog_post(request,blog_id):
