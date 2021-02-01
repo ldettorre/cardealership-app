@@ -25,7 +25,7 @@ window.onload = function () {
                 }
             }
         };
-        xhttp.open("GET", `/ajax_handler/${name}`, true);
+        xhttp.open("GET", `/ajax_handler_carmake/${name}`, true);
         xhttp.send();
     }
 
@@ -59,7 +59,7 @@ function ajax_request_carmodel(carmodel) {
             }
         }
     };
-    xhttp.open("GET", `/ajax_handler2/${carmodel}`, true);
+    xhttp.open("GET", `/ajax_handler_carmodel/${carmodel}`, true);
     xhttp.send();
 }
 
@@ -135,3 +135,4 @@ engineSizeMax.addEventListener('change', function () {
     if(parseFloat(engineSizeMin.value) > parseFloat(engineSizeMax.value))
     $("#engine_size_min").val(engineSizeMax.value)
 })
+

@@ -18,7 +18,7 @@ def about(request):
     return render(request, "home/about.html")
 
 
-def ajax_handler(request, name):
+def ajax_handler_carmake(request, name):
     carMakeName = name
     carmodels = CarModel.objects.filter(
         make__name=carMakeName).values_list('id', 'model',)
@@ -37,7 +37,7 @@ def ajax_handler(request, name):
     })
 
 
-def ajax_handler2(request, carmodel):
+def ajax_handler_carmodel(request, carmodel):
     carModelName = carmodel
     caryears = CarModel.objects.filter(
         model=carModelName).values_list('id', 'year',)
