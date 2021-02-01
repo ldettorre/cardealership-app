@@ -23,7 +23,7 @@ def carmodel(request, carmodel_id):
 
 def search(request):
     carmodels = CarModel.objects.all()
-    carmakes = CarModel.objects.all()
+    carmakes = CarMake.objects.all()
 
     # Filter cars by make
     if 'carmake' in request.POST:
@@ -77,7 +77,6 @@ def search(request):
         carmodels = carmodels.filter(
             engine_size__range=(engine_size_min, engine_size_max))
 
-    carmakes = CarMake.objects.all()
     paginator = Paginator(carmodels, 3)
     page = request.GET.get('page')
     paged_vehicles = paginator.get_page(page)
@@ -86,3 +85,40 @@ def search(request):
         "carmakes": carmakes,
     }
     return render(request, 'vehicles/vehicles.html', context)
+
+def ajax_handler_carmake(request, name):
+    carMakeName = name
+    carmodels = CarModel.objects.filter(
+        make__name=carMakeName).values_list('id', 'model',)
+    carmodels = dict(carmodels)
+    listK = []
+    listV = []
+    for val in carmodels.values():
+        if val in listK:
+            continue
+        else:
+            listK.append(val)
+            listV.append(val)
+    carmodels = dict(zip(listK, listV))
+    return JsonResponse({
+        'carmodels': carmodels,
+    })
+
+
+def ajax_handler_carmodel(request, carmodel):
+    carModelName = carmodel
+    caryears = CarModel.objects.filter(
+        model=carModelName).values_list('id', 'year',)
+    caryears = dict(caryears)
+    listK = []
+    listV = []
+    for val in caryears.values():
+        if val in listK:
+            continue
+        else:
+            listK.append(val)
+            listV.append(val)
+    caryears = dict(zip(listK, listV))
+    return JsonResponse({
+        'caryears': caryears,
+    })
