@@ -148,4 +148,9 @@
   <button type="submit" class="btn btn-info">Search</button>
 </form>
 
+
+<form action="{% url 'index' %}" method="POST">
+    {% csrf_token %} {{ form |as_bootstrap }}
+    <button type="submit" class="btn btn-info">Submit</button>
+</form>
 {% endblock %}

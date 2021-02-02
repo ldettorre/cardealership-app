@@ -40,4 +40,10 @@ class CarSourcing(models.Model):
         return self.name
 
 
-        
+class EmailSubscribers(models.Model):
+    name = models.CharField(max_length=100)
+    email = models.EmailField(max_length=50)
+    subscription_start_date  = models.DateTimeField(blank=True, null=True, default=timezone.now)
+
+    def __str__(self):
+        return self.name

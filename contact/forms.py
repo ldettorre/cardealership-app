@@ -1,5 +1,5 @@
 from django import forms
-from .models import Contact, CarSourcing
+from .models import Contact, CarSourcing, EmailSubscribers
 
 class ContactForm(forms.ModelForm):
     class Meta:
@@ -12,3 +12,8 @@ class CarSourcingForm(forms.ModelForm):
         fields =  fields = '__all__'
         exclude = ['submission_date']
 
+class EmailSubscribersForm(forms.ModelForm):
+    class Meta:
+        model = EmailSubscribers
+        fields =  fields = '__all__'
+        exclude = ['subscription_start_date']
