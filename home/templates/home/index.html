@@ -149,8 +149,13 @@
 </form>
 
 
-<form action="{% url 'index' %}" method="POST">
+<h2>Subscribe</h2>
+<form action="{% url 'subscribe' %}" method="POST">
     {% csrf_token %} {{ form |as_bootstrap }}
     <button type="submit" class="btn btn-info">Submit</button>
 </form>
+{% if recepient %}
+  <p>Thank you for subscribing {{ recepient }}</p>
+{% endif %}
+
 {% endblock %}
