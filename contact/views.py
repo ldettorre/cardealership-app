@@ -39,9 +39,12 @@ def subscribe(request):
         form = EmailSubscribersForm(request.POST, request.FILES)
         if form.is_valid():
             subject = 'Welcome to Cardealership'
-            message = 'Hope you are enjoying our inventory'
+            message = 'Hope you are enjoying our inventory. You are receiving this email to confirm that you have now been added to our email subscription list.'
             recipient = request.POST['email']
             send_mail(subject, message, EMAIL_HOST_USER,
                       [recipient], fail_silently=False)
-            return render(request, 'home/index.html', {'form': sub})
-    return render(request, 'home/index.html', {'form': sub})
+            context = {
+                'form': form,
+            }
+            return render(request, 'home/index.html', context)
+    return render(request, 'home/index.html', {'form': form})

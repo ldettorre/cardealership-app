@@ -154,8 +154,8 @@
     {% csrf_token %} {{ form |as_bootstrap }}
     <button type="submit" class="btn btn-info">Submit</button>
 </form>
-{% if recepient %}
-  <p>Thank you for subscribing {{ recepient }}</p>
+{% if recipient %}
+  <p>Thank you for subscribing {{ recipient }}</p>
 {% endif %}
 
 {% endblock %}
