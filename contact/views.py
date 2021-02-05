@@ -3,6 +3,8 @@ from .forms import ContactForm, CarSourcingForm, EmailSubscribersForm
 from django.contrib import messages
 from cardealership.settings.base import EMAIL_HOST_USER
 from django.core.mail import send_mail
+from .models import EmailSubscribers
+
 
 
 # Create your views here.
@@ -39,16 +41,19 @@ def car_sourcing(request):
 def subscribe(request):
     if request.method == "POST":
         form = EmailSubscribersForm(request.POST, request.FILES)
-        if form.is_valid():
+        submitted_email = request.POST['email']
+
+        # If the submitted email exists, don't save it.
+        if EmailSubscribers.objects.filter(email=submitted_email).exists():
+            return redirect("index")
+
+        # If it doesn't exist and is valid, save it and send the email.
+        elif form.is_valid():
             form.save()
             subject = 'Welcome to Cardealership'
-            message = 'Hope you are enjoying our inventory. You are receiving this email to confirm that you have now been added to our email subscription list.'
+            message = 'Hope you\'re enjoying our inventory. You are receiving this email to confirm that you have now been added to our email subscription list.'
             recipient = request.POST['email']
-            send_mail(subject, message, EMAIL_HOST_USER,
-                      [recipient], fail_silently=False)
-            context = {
-                'form': form,
-            }
+            send_mail(subject, message, EMAIL_HOST_USER, [recipient], fail_silently=False)
             return redirect("index")
         
     return redirect("index")
