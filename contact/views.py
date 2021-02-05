@@ -6,6 +6,8 @@ from django.core.mail import send_mail
 
 
 # Create your views here.
+
+
 def contact_form(request):
     if request.method == "POST":
         form = ContactForm(request.POST, request.FILES)
@@ -38,6 +40,7 @@ def subscribe(request):
     if request.method == "POST":
         form = EmailSubscribersForm(request.POST, request.FILES)
         if form.is_valid():
+            form.save()
             subject = 'Welcome to Cardealership'
             message = 'Hope you are enjoying our inventory. You are receiving this email to confirm that you have now been added to our email subscription list.'
             recipient = request.POST['email']
@@ -46,5 +49,6 @@ def subscribe(request):
             context = {
                 'form': form,
             }
-            return render(request, 'home/index.html', context)
-    return render(request, 'home/index.html', {'form': form})
+            return redirect("index")
+        
+    return redirect("index")
