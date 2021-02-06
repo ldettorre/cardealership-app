@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Contact, CarSourcing, EmailSubscribers
+from .models import Contact, CarSourcing, EmailSubscriber
 import csv
 from django.shortcuts import render
 from django.http import HttpResponse
@@ -25,11 +25,13 @@ class ContactAdmin(admin.ModelAdmin):
 class CarSourcingAdmin(admin.ModelAdmin):
     list_display = ('name', 'phone_number', 'email', 'submission_date')
 
-class EmailSubscribersAdmin(admin.ModelAdmin):
+class EmailSubscriberAdmin(admin.ModelAdmin):
     list_display = ('name', 'email', 'subscription_start_date')
     actions = [export_emails]
+
+
  
 admin.site.register(Contact, ContactAdmin)
 admin.site.register(CarSourcing, CarSourcingAdmin)
-admin.site.register(EmailSubscribers, EmailSubscribersAdmin)
+admin.site.register(EmailSubscriber, EmailSubscriberAdmin)
 

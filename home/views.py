@@ -2,18 +2,18 @@ from django.shortcuts import render, get_object_or_404, HttpResponse, redirect
 from vehicles.models import CarMake, CarModel
 import json
 from django.http import JsonResponse
-from contact.forms import EmailSubscribersForm
+from contact.forms import EmailSubscriberForm
 
 def index(request):
     carmakes = CarMake.objects.all()
     carmodels = CarModel.objects.all()
     if request.method =="POST":
-        form =  EmailSubscribersForm(request.POST, request.FILES)
+        form =  EmailSubscriberForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
             return redirect("index")
     else:
-        form = EmailSubscribersForm()
+        form = EmailSubscriberForm()
     context = {
         'carmakes': carmakes,
         'carmodels': carmodels,
