@@ -1,0 +1,160 @@
+{% extends 'base.html' %} {% load bootstrap_tags %} {% block content %}
+
+<h1 class="blue-text">Welcome to Moderna Motors.</h1>
+
+<form action="search" method="POST">
+  {% csrf_token %}
+
+  <label for="carmake">Make:</label>
+  <select name="carmake" class="carmake" id="carmake">
+    <option value="">Any</option>
+    {% for carmake in carmakes %}
+    <option value="{{carmake.name}}">{{carmake.name}}</option>
+    {% endfor %}
+  </select>
+
+  <label for="carmodel">Model:</label>
+  <select name="carmodel" id="carmodel">
+    Make:
+    <option value="">Any</option>
+  </select>
+
+  <label for="caryear">Year:</label>
+  <select name="caryear" id="caryear">
+    Year:
+    <option value="">Any</option>
+  </select>
+
+  <label for="price_min">Min Price:</label>
+  <select name="price_min" id="price_min">
+    <option value="">Any</option>
+    <option value="0">€0</option>
+    <option value="500">€500</option>
+    <option value="1000">€1000</option>
+    <option value="1500">€1500</option>
+    <option value="2000">€2000</option>
+    <option value="3000">€3000</option>
+    <option value="5000">€5000</option>
+    <option value="7000">€7000</option>
+    <option value="10000">€10,000</option>
+    <option value="15000">€15,000</option>
+    <option value="20000">€20,000</option>
+    <option value="25000">€25,000</option>
+    <option value="30000">€30,000</option>
+    <option value="40000">€40,000</option>
+    <option value="50000">€50,000</option>
+  </select>
+
+  <label for="price_max">Max Price:</label>
+  <select name="price_max" id="price_max">
+    <option value="">Any</option>
+    <option value="0">€0</option>
+    <option value="500">€500</option>
+    <option value="1000">€1000</option>
+    <option value="1500">€1500</option>
+    <option value="2000">€2000</option>
+    <option value="3000">€3000</option>
+    <option value="5000">€5000</option>
+    <option value="7000">€7000</option>
+    <option value="10000">€10,000</option>
+    <option value="15000">€15,000</option>
+    <option value="20000">€20,000</option>
+    <option value="25000">€25,000</option>
+    <option value="30000">€30,000</option>
+    <option value="40000">€40,000</option>
+    <option value="50000">€50,000</option>
+  </select>
+
+  <div>
+    <a data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample" class="advanced">
+      More search options <i class="fa fa-angle-down"></i></a>
+    <div class="collapse" id="collapseExample">
+      <div class="row">
+        <div class="col-md-2">
+          <label for="fuel">Fuel:</label>
+          <select name="fuel" id="fuel">
+            <option value="">Any</option>
+            <option value="Petrol">Petrol</option>
+            <option value="Diesel">Diesel</option>
+            <option value="Electric">Electric</option>
+            <option value="Hybrid">Hybrid</option>
+          </select>
+        </div>
+        <div class="col-md-2">
+          <label for="transmission">Transmission:</label>
+          <select name="transmission" id="transmission">
+            <option value="">Any</option>
+            <option value="Automatic">Automatic</option>
+            <option value="Semi-auto">Semi-auto</option>
+            <option value="Manual">Manual</option>
+            <option value="Electric">Electric</option>
+            <option value="Hybrid">Hybrid</option>
+          </select>
+        </div>
+        <div class="col-md-2">
+          <p>Engine Size:</p>
+          <label for="engine_size_min">From:</label>
+          <select name="engine_size_min" id="engine_size_min">
+            <option value="">Any</option>
+            <option value="1">1L</option>
+            <option value="1.2">1.2L</option>
+            <option value="1.4">1.4L</option>
+            <option value="1.6">1.6L</option>
+            <option value="1.8">1.8L</option>
+            <option value="1.9">1.9L</option>
+            <option value="2.0">2.0L</option>
+            <option value="2.2">2.2L</option>
+            <option value="2.4">2.4L</option>
+            <option value="2.6">2.6L</option>
+            <option value="2.8">2.8L</option>
+            <option value="3.0">3.0L</option>
+            <option value="3.5">3.5L</option>
+            <option value="4.0">4.0L</option>
+            <option value="4.5">4.5L</option>
+            <option value="5.0">5.0L</option>
+            <option value="5.5">5.5L</option>
+            <option value="6.0">6.0L</option>
+            <option value="6.5">6.5L</option>
+          </select>
+
+          <label for="engine_size_max">To:</label>
+          <select name="engine_size_max" id="engine_size_max">
+            <option value="">Any</option>
+            <option value="1">1L</option>
+            <option value="1.2">1.2L</option>
+            <option value="1.4">1.4L</option>
+            <option value="1.6">1.6L</option>
+            <option value="1.8">1.8L</option>
+            <option value="1.9">1.9L</option>
+            <option value="2.0">2.0L</option>
+            <option value="2.2">2.2L</option>
+            <option value="2.4">2.4L</option>
+            <option value="2.6">2.6L</option>
+            <option value="2.8">2.8L</option>
+            <option value="3.0">3.0L</option>
+            <option value="3.5">3.5L</option>
+            <option value="4.0">4.0L</option>
+            <option value="4.5">4.5L</option>
+            <option value="5.0">5.0L</option>
+            <option value="5.5">5.5L</option>
+            <option value="6.0">6.0L</option>
+            <option value="6.5">6.5L</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <button type="submit" class="btn btn-info">Search</button>
+</form>
+
+
+<h2>Subscribe</h2>
+<form action="{% url 'subscribe' %}" method="POST">
+    {% csrf_token %} {{ form |as_bootstrap }}
+    <button type="submit" class="btn btn-info">Submit</button>
+</form>
+
+
+
+{% endblock %}
