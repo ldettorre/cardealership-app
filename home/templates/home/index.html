@@ -53,31 +53,24 @@
           {% csrf_token %}
 		   <div class="row">
             <div class="form-group col-md-3 col-sm-6">
-              <div class="select">
                 <select class="form-control carmake" name="carmake" id="carmake">
                   <option value="">Any Make</option>
                     {% for carmake in carmakes %}
                       <option value="{{carmake.name}}">{{carmake.name}}</option>
                     {% endfor %}
                 </select>
-              </div>
             </div>
             <div class="form-group col-md-3 col-sm-6">
-              <div class="select">
                 <select class="form-control" name="carmodel" id="carmodel">
                   <option value="">Any Model</option>
                 </select>
-              </div>
             </div>
             <div class="form-group col-md-3 col-sm-6">
-              <div class="select">
                 <select class="form-control" name="caryear" id="caryear">
                   <option value="">Any Year</option>
                 </select>
-              </div>
             </div>
             <div class="form-group col-md-3 col-sm-6">
-              <div class="select">
                 <select class="form-control" name="price_min" id="price_min">
                   <option value="">Select Min Price</option>
                   <option value="0">€0</option>
@@ -96,7 +89,6 @@
                   <option value="40000">€40,000</option>
                   <option value="50000">€50,000</option>
                 </select>
-              </div>
             </div>
             
             <div class="form-group col-md-3 col-sm-6">
@@ -120,84 +112,28 @@
               </select>
             </div>
             
-            
             <div class="form-group col-md-3 col-sm-6">
-              <select data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample" class="form-control advanced">
-                <i class="fa fa-angle-down"></i></select>
-                <div class="collapse" id="collapseExample">
-                    <div class="form-group col-md-3">
-                      <select class="form-control" name="fuel" id="fuel">
-                        <option value="">Select Fuel</option>
-                        <option value="Petrol">Petrol</option>
-                        <option value="Diesel">Diesel</option>
-                        <option value="Electric">Electric</option>
-                        <option value="Hybrid">Hybrid</option>
-                      </select>
-                    </div>
-                    <div class="form-group col-md-3">
-                      <select class="form-control" name="transmission" id="transmission">
-                        <option value="">Select Transmission</option>
-                        <option value="Automatic">Automatic</option>
-                        <option value="Semi-auto">Semi-auto</option>
-                        <option value="Manual">Manual</option>
-                        <option value="Electric">Electric</option>
-                        <option value="Hybrid">Hybrid</option>
-                      </select>
-                    </div>
-                    <div class="col-md-2">
-                      <p>Engine Size:</p>
-                      <label for="engine_size_min">From:</label>
-                      <select name="engine_size_min" id="engine_size_min">
-                        <option value="">Any</option>
-                        <option value="1">1L</option>
-                        <option value="1.2">1.2L</option>
-                        <option value="1.4">1.4L</option>
-                        <option value="1.6">1.6L</option>
-                        <option value="1.8">1.8L</option>
-                        <option value="1.9">1.9L</option>
-                        <option value="2.0">2.0L</option>
-                        <option value="2.2">2.2L</option>
-                        <option value="2.4">2.4L</option>
-                        <option value="2.6">2.6L</option>
-                        <option value="2.8">2.8L</option>
-                        <option value="3.0">3.0L</option>
-                        <option value="3.5">3.5L</option>
-                        <option value="4.0">4.0L</option>
-                        <option value="4.5">4.5L</option>
-                        <option value="5.0">5.0L</option>
-                        <option value="5.5">5.5L</option>
-                        <option value="6.0">6.0L</option>
-                        <option value="6.5">6.5L</option>
-                      </select>
-            
-                      <label for="engine_size_max">To:</label>
-                      <select name="engine_size_max" id="engine_size_max">
-                        <option value="">Any</option>
-                        <option value="1">1L</option>
-                        <option value="1.2">1.2L</option>
-                        <option value="1.4">1.4L</option>
-                        <option value="1.6">1.6L</option>
-                        <option value="1.8">1.8L</option>
-                        <option value="1.9">1.9L</option>
-                        <option value="2.0">2.0L</option>
-                        <option value="2.2">2.2L</option>
-                        <option value="2.4">2.4L</option>
-                        <option value="2.6">2.6L</option>
-                        <option value="2.8">2.8L</option>
-                        <option value="3.0">3.0L</option>
-                        <option value="3.5">3.5L</option>
-                        <option value="4.0">4.0L</option>
-                        <option value="4.5">4.5L</option>
-                        <option value="5.0">5.0L</option>
-                        <option value="5.5">5.5L</option>
-                        <option value="6.0">6.0L</option>
-                        <option value="6.5">6.5L</option>
-                      </select>
-                    </div>
-                </div>
+              <select class="form-control" name="fuel" id="fuel">
+                <option value="">Select Fuel</option>
+                <option value="Petrol">Petrol</option>
+                <option value="Diesel">Diesel</option>
+                <option value="Electric">Electric</option>
+                <option value="Hybrid">Hybrid</option>
               </select>
             </div>
-            <div class="form-group col-md-6 col-sm-6">
+
+            <div class="form-group col-md-3 col-sm-6">
+              <select class="form-control" name="transmission" id="transmission">
+                  <option value="">Select Transmission</option>
+                  <option value="Automatic">Automatic</option>
+                  <option value="Semi-auto">Semi-auto</option>
+                  <option value="Manual">Manual</option>
+                  <option value="Electric">Electric</option>
+                  <option value="Hybrid">Hybrid</option>
+                </select>
+            </div>
+
+            <div class="form-group col-md-3 col-sm-6">
               <button type="submit" class="btn btn-block"><i class="fa fa-search" aria-hidden="true"></i> Search Car </button>
             </div>
 			</div>
@@ -673,9 +609,9 @@
         <div class="col-md-3 col-sm-6">
           <h6>Subscribe Newsletter</h6>
           <div class="newsletter-form">
-            <form action="#">
+            <form action="{% url 'subscribe' %}" method="POST">
               <div class="form-group">
-                <input type="email" class="form-control newsletter-input" required placeholder="Enter Email Address" />
+                {% csrf_token %} {{ form |as_bootstrap }}
               </div>
               <button type="submit" class="btn btn-block">Subscribe <span class="angle_arrow"><i class="fa fa-angle-right" aria-hidden="true"></i></span></button>
             </form>
