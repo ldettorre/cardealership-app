@@ -1976,7 +1976,7 @@ input.newsletter-input {
   top: 34%;
 }
 
-@media (min-width:992px) {
+@media (min-width:766px) {
 .header_style2 #navigation.collapse.navbar-collapse {
   display: inline-block !important;
   float: none;
@@ -1984,6 +1984,9 @@ input.newsletter-input {
 }
 .header_style2 {
   padding:6px 0;
+}
+.navbar-toggler {
+    display:none;
 }
 
 }
