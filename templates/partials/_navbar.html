@@ -2,16 +2,16 @@
 <!--Header-->
 <header class="header_style2 nav-stacked affix-top" data-spy="affix" data-offset-top="1">
   <!-- Navigation -->
-  <nav id="navigation_bar" class="navbar navbar-expand-md">
+  <nav id="navigation_bar" class="navbar navbar-expand-lg">
      <div class="container">
         <div class="row header-row">
            <div class="navbar-header">
-              <div class="logo"> <a href="index.html"><img src="static/images/logo.png" alt="image"/></a> </div>
+              <div class="logo"> <a href="{% url 'index' %}"><img src="static/images/logo.png" alt="image"/></a> </div>
               <button id="menu_slide" data-target="#navigation" aria-expanded="false" data-toggle="collapse" class="navbar-toggler" type="button"> 
               <i class="fa fa-bars"></i>
               </button>
            </div>
-           <div class="collapse navbar-collapse" id="navigation">
+           <div class="navbar-collapse collapse" id="navigation">
               <ul class="nav navbar-nav">
                  <li class="nav-item">
                     <a class="nav-link" href="{% url 'index' %}">Home <span class="sr-only">(current)</span></a>
@@ -35,10 +35,7 @@
            </div>
         </div>
      </div>
-     </div>
-     </div>
   </nav>
   <!-- Navigation end --> 
 </header>
 <!-- /Header -->
-
