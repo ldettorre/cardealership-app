@@ -1,0 +1,20 @@
+.carousel{
+    width:100%;
+}
+.search-form {
+    background-color:red;
+    top:80%;
+    left:25%;
+    width: 50%;
+    position:absolute;
+    z-index:10;
+}
+
+.row > .form-group {
+    padding-top:5px;
+}
+
+.search > button {
+    color:white;
+    background-color: black;
+}
