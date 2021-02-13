@@ -1,5 +1,6 @@
 {% extends 'base.html' %} {% load static %} {% block content %}
 
+<!-- Carousel -->
 <div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
   <div class="carousel-inner">
     <div class="carousel-item active">
@@ -116,5 +117,51 @@
 </div>
 <!-- /Filter-Form --> 
 </div>
+<!-- /Carousel -->
+
+
+<h1 class="col-sm-12 welcome-title">Welcome to Moderna Motors</h1>
+<p class="col-sm-12 welcome-blurb">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis ullamcorper tempus arcu nec congue. Phasellus vel lorem mi. In ut neque ornare, lobortis purus et, rutrum magna. Namssssssimperdiet pellentesque venenatis. Vestibulum eget lacus pretium, imperdiet eros vel, rutrum elit. Maecenas vel cursus lectus. Maecenas vel eros luctus, viverra neque in, porta odio. Maecenas non nibh vitae augue vestibulum venenatis ac a nibh. </p>
+
+<!-- Infocards -->
+<div class="row">
+<div class="card col-sm-4" style="width: 18rem;">
+  <img src="{% static 'images/landing-image.jpg' %}" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">Service Card</h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div>
+
+<div class="card col-sm-4" style="width: 18rem;">
+  <img src="{% static 'images/landing-image.jpg' %}" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">Warranty Card</h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div>
+
+<div class="card col-sm-4" style="width: 18rem;">
+  <img src="{% static 'images/landing-image.jpg' %}" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">Blog Card</h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div>
+</div>
+<!-- /Infocards -->
+
+<!-- Featured Vehicles -->
+
+<!-- CarModels will be updated to have an is_featured field so that certain cars will render on the front page using cards. Possibly 3 or 6. -->
+
+
+<!-- /Featured Vehicles -->
+
+<!-- Google Map Embedded-->
+<div class="col-sm-4"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d9539.035947213582!2d-6.242002059080055!3d53.293852265704565!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48670967208312b5%3A0x2600c7a819b930d1!2sDundrum%2C%20Dublin!5e0!3m2!1sen!2sie!4v1613189339817!5m2!1sen!2sie" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe></div>
 
 {% endblock %}

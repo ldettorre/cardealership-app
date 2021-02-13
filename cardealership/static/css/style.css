@@ -18,3 +18,13 @@
     color:white;
     background-color: black;
 }
+
+.welcome-title {
+    text-align: center;
+}
+
+.welcome-blurb {
+    text-align: center;
+    margin: auto;
+    width: 50%;
+}
