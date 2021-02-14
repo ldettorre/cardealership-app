@@ -32,6 +32,7 @@ class CarModel(models.Model):
     transmission = models.CharField(max_length=100, choices = TRANSMISSION_CHOICES)
     nct_due_date = models.DateField(blank=True, null=True)
     description = models.TextField(blank=True)
+    is_featured = models.BooleanField(default=False)
     photo_main = models.ImageField(upload_to=upload_photo_to, blank=True)
     photo_1 = models.ImageField(upload_to=upload_photo_to, blank=True)
     photo_2 = models.ImageField(upload_to=upload_photo_to, blank=True)

@@ -7,6 +7,7 @@ from contact.forms import EmailSubscriberForm
 def index(request):
     carmakes = CarMake.objects.all()
     carmodels = CarModel.objects.all()
+    featured_cars = CarModel.objects.filter(is_featured=True)
     if request.method =="POST":
         form =  EmailSubscriberForm(request.POST, request.FILES)
         if form.is_valid():
@@ -17,7 +18,8 @@ def index(request):
     context = {
         'carmakes': carmakes,
         'carmodels': carmodels,
-        'form':form,
+        'form': form,
+        'featured_cars': featured_cars,
     }
     return render(request, 'home/index.html', context)
 

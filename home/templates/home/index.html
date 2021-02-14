@@ -1,4 +1,5 @@
-{% extends 'base.html' %} {% load static %} {% block content %}
+{% extends 'base.html' %} {% load static %} {% load bootstrap_tags %} {% block content %}
+
 
 <!-- Carousel -->
 <div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
@@ -21,6 +22,8 @@
     <span class="carousel-control-next-icon" aria-hidden="true"></span>
     <span class="sr-only">Next</span>
   </a>
+</div>
+<!-- /Carousel -->
 
 
 <!-- Filter-Form -->
@@ -115,53 +118,170 @@
     </div>
       </form>
 </div>
-<!-- /Filter-Form --> 
-</div>
-<!-- /Carousel -->
+<!-- /Filter Form -->
 
 
-<h1 class="col-sm-12 welcome-title">Welcome to Moderna Motors</h1>
+<!-- Welcome Text -->
+<div class="row no-gutters">
+<h1 class="col-sm-12 text-center">Welcome to Moderna Motors</h1>
 <p class="col-sm-12 welcome-blurb">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis ullamcorper tempus arcu nec congue. Phasellus vel lorem mi. In ut neque ornare, lobortis purus et, rutrum magna. Namssssssimperdiet pellentesque venenatis. Vestibulum eget lacus pretium, imperdiet eros vel, rutrum elit. Maecenas vel cursus lectus. Maecenas vel eros luctus, viverra neque in, porta odio. Maecenas non nibh vitae augue vestibulum venenatis ac a nibh. </p>
+</div>
+<!-- /Welcome Text -->
+
 
 <!-- Infocards -->
-<div class="row">
-<div class="card col-sm-4" style="width: 18rem;">
-  <img src="{% static 'images/landing-image.jpg' %}" class="card-img-top" alt="...">
-  <div class="card-body">
-    <h5 class="card-title">Service Card</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
+<div class="row no-gutters">
+  <div class="card col-md-4 col-sm-12" style="width: 18rem;">
+    <img src="{% static 'images/landing-image.jpg' %}" class="card-img-top" alt="...">
+    <div class="card-body no-gutters">
+      <h5 class="card-title">Service Card</h5>
+      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      <a href="#" class="btn btn-primary">Go somewhere</a>
+    </div>
   </div>
-</div>
 
-<div class="card col-sm-4" style="width: 18rem;">
-  <img src="{% static 'images/landing-image.jpg' %}" class="card-img-top" alt="...">
-  <div class="card-body">
-    <h5 class="card-title">Warranty Card</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
+  <div class="card col-md-4 col-sm-12" style="width: 18rem;">
+    <img src="{% static 'images/landing-image.jpg' %}" class="card-img-top" alt="...">
+    <div class="card-body no-gutters">
+      <h5 class="card-title">Warranty Card</h5>
+      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      <a href="#" class="btn btn-primary">Go somewhere</a>
+    </div>
   </div>
-</div>
 
-<div class="card col-sm-4" style="width: 18rem;">
-  <img src="{% static 'images/landing-image.jpg' %}" class="card-img-top" alt="...">
-  <div class="card-body">
-    <h5 class="card-title">Blog Card</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
+  <div class="card col-md-4 col-sm-12" style="width: 18rem;">
+    <img src="{% static 'images/landing-image.jpg' %}" class="card-img-top" alt="...">
+    <div class="card-body no-gutters">
+      <h5 class="card-title">Blog Card</h5>
+      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      <a href="#" class="btn btn-primary">Go somewhere</a>
+    </div>
   </div>
-</div>
 </div>
 <!-- /Infocards -->
 
+
+<!-- About Us -->
+<div class="row about-us no-gutters">
+  <div class="col-sm-6">
+    <h2>About Us</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nisl nisl, varius in vulputate ac, dignissim a diam. Pellentesque a placerat orci. Praesent interdum lectus in eros placerat, sed luctus velit congue. Sed sapien arcu, posuere at tellus in, viverra lacinia lectus. Aliquam nec facilisis risus. Ut eget malesuada ipsum. Suspendisse auctor lacus eget arcu consectetur facilisis. Nunc eget risus nibh. Nulla facilisi. Suspendisse eu massa massa. Morbi auctor lacus malesuada mauris mattis sollicitudin. Pellentesque ut odio et erat condimentum convallis.
+    </p>
+  </div>
+  <div class="col-sm-6"> <img src="{% static 'images/landing-image.jpg' %}"></div>
+</div>
+<!-- /About Us -->
+
+
 <!-- Featured Vehicles -->
-
-<!-- CarModels will be updated to have an is_featured field so that certain cars will render on the front page using cards. Possibly 3 or 6. -->
-
-
+<div class="row no-gutters">
+<h2 class="col-sm-12 text-center">Featured Cars</h2>
+<p class="col-sm-12 feature-blurb">
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nisl nisl, varius in vulputate ac, dignissim a diam. Pellentesque a placerat orci. Praesent interdum lectus in eros placerat, sed luctus velit congue. Sed sapien arcu, posuere at tellus in, viverra lacinia lectus. Aliquam nec facilisis risus. Ut eget malesuada ipsum. Suspendisse auctor lacus eget arcu consectetur facilisis. Nunc eget risus nibh. Nulla facilisi. Suspendisse eu massa massa. Morbi auctor lacus malesuada mauris mattis sollicitudin. Pellentesque ut odio et erat condimentum convallis.
+</p>
+</div>
+<div class="row no-gutters">
+{% for car in featured_cars %}
+  <div class="card col-md-4 col-sm-12" style="width: 18rem;">
+    <img src="{% static 'images/landing-image.jpg' %}" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">{{ car.make }}, {{ car.model }}</h5>
+      <p class="card-text">{{ car.description|truncatewords:30 }}</p>
+      <a href="#" class="btn btn-primary">Go somewhere</a>
+    </div>
+  </div>
+{% endfor %}
+</div>
 <!-- /Featured Vehicles -->
 
+
 <!-- Google Map Embedded-->
-<div class="col-sm-4"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d9539.035947213582!2d-6.242002059080055!3d53.293852265704565!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48670967208312b5%3A0x2600c7a819b930d1!2sDundrum%2C%20Dublin!5e0!3m2!1sen!2sie!4v1613189339817!5m2!1sen!2sie" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe></div>
+<div class="row no-gutters">
+<div class="col-sm-6"><iframe class="embedded-map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d9539.035947213582!2d-6.242002059080055!3d53.293852265704565!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48670967208312b5%3A0x2600c7a819b930d1!2sDundrum%2C%20Dublin!5e0!3m2!1sen!2sie!4v1613189339817!5m2!1sen!2sie" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe></div>
+
+<div class="col-sm-6">
+  <h6>Subscribe Newsletter</h6>
+    <form action="{% url 'subscribe' %}" method="POST">
+      <div class="form-group">
+        {% csrf_token %} {{ form |as_bootstrap }}
+      </div>
+      <button type="submit" class="btn btn-block">Subscribe <span class="angle_arrow"><i class="fa fa-angle-right" aria-hidden="true"></i></span></button>
+    </form>
+    <p class="subscribed-text">*We send great deals and latest auto news to our subscribed users every week.</p>
+</div>
+</div>
+<!-- /Google Map Embedded -->
+
+
+<!-- Footer -->
+<footer class="bg-light text-center text-lg-start">
+  <div class="container p-4">
+    <div class="row">
+      <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+        <h5 class="text-uppercase mb-0">USEFUL LINKS</h5>
+
+        <ul class="list-unstyled">
+          <li>
+            <a href="" class="text-dark">Link 1</a>
+          </li>
+          <li>
+            <a href="" class="text-dark">Link 2</a>
+          </li>
+          <li>
+            <a href="" class="text-dark">Link 3</a>
+          </li>
+          <li>
+            <a href="" class="text-dark">Link 4</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+        <h5 class="text-uppercase">Links</h5>
+
+        <ul class="list-unstyled mb-0">
+          <li>
+            <a href="" class="text-dark">Link 1</a>
+          </li>
+          <li>
+            <a href="" class="text-dark">Link 2</a>
+          </li>
+          <li>
+            <a href="" class="text-dark">Link 3</a>
+          </li>
+          <li>
+            <a href="" class="text-dark">Link 4</a>
+          </li>
+        </ul>
+      </div>
+  
+      <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+        <h5 class="text-uppercase mb-0">Links</h5>
+
+        <ul class="list-unstyled">
+          <li>
+            <a href="" class="text-dark">Link 1</a>
+          </li>
+          <li>
+            <a href="" class="text-dark">Link 2</a>
+          </li>
+          <li>
+            <a href="" class="text-dark">Link 3</a>
+          </li>
+          <li>
+            <a href="" class="text-dark">Link 4</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
+    © 2020 Copyright:
+    <a class="text-dark" href="https://mdbootstrap.com/">MDBootstrap.com</a>
+  </div>
+
+</footer>
+<!-- /Footer -->
 
 {% endblock %}
