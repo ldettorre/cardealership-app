@@ -1,3 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+h1, h2, h3, h4, h5, p, a, button {
+    font-family:Roboto;
+}
+
 .no-gutters {
     margin-right: 0;
     margin-left: 0;
@@ -9,7 +15,15 @@
     }
   }
 
-.carousel{
+.navbar-styling {
+    background-color:black;
+}
+
+.navbar-styling a {
+    color:white;
+}
+
+.carousel {
     width:100%;
 }
 .search-form {
@@ -23,7 +37,7 @@
     padding-top:5px;
 }
 
-.search > button {
+.search-btn {
     color:white;
     background-color: black;
 }
@@ -36,7 +50,7 @@
 }
 
 
-.about-us img{
+.about-us img {
     width: 100%;
     height:100%;
     object-fit: cover;
@@ -49,7 +63,12 @@
     width: 65%;
 }
 
-.embedded-map{
+.embedded-map {
     width:100%;
     height:100%
+}
+
+.subscribe-btn {
+    color:white;
+    background-color: red;
 }
