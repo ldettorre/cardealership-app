@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
-h1, h2, h3, h4, h5, p, a, button {
+h1, h2, h3, h4, h5, p, a, button, i {
     font-family:Roboto;
 }
 
@@ -15,11 +15,27 @@ h1, h2, h3, h4, h5, p, a, button {
     }
   }
 
-  .topbar-img {
+.logo-div {
     width: 50%;
-    height:50%;
-  }
+    text-align: center;
+    padding-top:20px;
+    
+}
 
+.logo-div img {
+    width: 200px;
+    
+}
+
+.contact-cols {
+    font-weight: bold;
+    text-align: center;
+    padding:20px 5px 20px 5px;
+}
+
+.email-link {
+    color:black;
+}
 .navbar-styling {
     background-color:black;
 }
@@ -76,4 +92,20 @@ h1, h2, h3, h4, h5, p, a, button {
 .subscribe-btn {
     color:white;
     background-color: red;
+}
+
+
+/* MEDIA QUERIES */
+@media (min-width: 768px){
+.navbar-expand-md .navbar-nav .nav-link {
+    padding-right: 1.5rem;
+    padding-left: 1.5rem;
+    } 
+}
+
+
+@media (max-width: 768px){
+    .contact-cols {
+        display:none;
+    } 
 }
