@@ -15,6 +15,7 @@ h1, h2, h3, h4, h5, p, a, button, i {
     }
   }
 
+/* Index Page */
 .logo-div {
     width: 50%;
     text-align: center;
@@ -109,3 +110,41 @@ h1, h2, h3, h4, h5, p, a, button, i {
         display:none;
     } 
 }
+
+/* End of Index Page */
+
+
+/* About Page */
+
+.about-banner  {
+    background-image:linear-gradient(to bottom,black 0%,grey 100%),url("/static/images/landing-image.jpg");
+    background-blend-mode:multiply;
+    background-size:cover;
+    width:100%;
+    height:230px;
+}
+
+.about-banner-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color:white;
+}
+
+.about-welcome-title{
+    text-align: center;
+    margin: auto;
+    width: 65%;
+    padding-top:50px;
+    font-size: 30px;
+}
+
+.about-welcome-text {
+    text-align: center;
+    margin: auto;
+    width: 65%;
+    padding-top:50px;
+    font-size: 1em;
+}
+/* End of About Page */
