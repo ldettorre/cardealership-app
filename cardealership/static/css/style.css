@@ -147,4 +147,19 @@ h1, h2, h3, h4, h5, p, a, button, i {
     padding-top:50px;
     font-size: 1em;
 }
+
+.meet-the-team {
+    padding-top:50px;
+}
+
+.employee-image {
+    width:200px;
+    height: auto;
+    border-radius: 50%;;
+}
+
+.employee-blurb {
+    padding-top:60px;
+}
+
 /* End of About Page */
