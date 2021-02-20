@@ -49,10 +49,17 @@ h1, h2, h3, h4, h5, p, a, button, i {
     width:100%;
 }
 .search-form {
-    background-color:red;
-    top:80%;
-    left:25%;
-    width: 50%;
+    background-color:#eeeeee;
+    padding: 5vh 20vw 5vh 20vw;
+
+}
+
+.form-control {
+    background: #222;
+    border-radius: 3px;
+    color: #fff;
+    border: #222 solid 1px;
+    font-size: 16px;
 }
 
 .row > .form-group {
@@ -61,7 +68,7 @@ h1, h2, h3, h4, h5, p, a, button, i {
 
 .search-btn {
     color:white;
-    background-color: black;
+    background-color: red;
 }
 
 

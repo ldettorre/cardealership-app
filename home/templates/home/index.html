@@ -27,10 +27,12 @@
 
 
 <!-- Filter-Form -->
-<div class="container search-form">
+
+<div class="col-sm-12 search-form">
+  <h3><b>Find Your Dream Car </b></h3>
   <form action="search" method="POST">
       {% csrf_token %}
-    <div class="row">
+    <div class="row form-row">
         <div class="form-group col-md-3 col-sm-6">
             <select class="form-control carmake" name="carmake" id="carmake">
               <option value="">Any Make</option>
@@ -123,7 +125,7 @@
 
 <!-- Welcome Text -->
 <div class="row no-gutters">
-<h1 class="col-sm-12 text-center">Welcome to Moderna Motors</h1>
+<h1 class="col-sm-12 text-center">Welcome <span style="font-weight:300;">to Moderna Motors</span></h1>
 <p class="col-sm-12 welcome-blurb">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis ullamcorper tempus arcu nec congue. Phasellus vel lorem mi. In ut neque ornare, lobortis purus et, rutrum magna. Namssssssimperdiet pellentesque venenatis. Vestibulum eget lacus pretium, imperdiet eros vel, rutrum elit. Maecenas vel cursus lectus. Maecenas vel eros luctus, viverra neque in, porta odio. Maecenas non nibh vitae augue vestibulum venenatis ac a nibh. </p>
 </div>
 <!-- /Welcome Text -->
