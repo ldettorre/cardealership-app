@@ -124,7 +124,7 @@ h1, h2, h3, h4, h5, p, a, button, i {
     height:230px;
 }
 
-.about-banner-text {
+.banner-text {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -188,3 +188,35 @@ h1, h2, h3, h4, h5, p, a, button, i {
 }
 
 /* End of About Page */
+
+/* Used Vehicles */
+
+.vehicles-banner  {
+    background-image:linear-gradient(to bottom,black 0%,grey 100%),url("/static/images/landing-image3.jpg");
+    background-blend-mode:multiply;
+    background-size:cover;
+    background-position:center;
+    width:100%;
+    height:230px;
+    margin-bottom: 50px;
+}
+
+.car-width {
+    max-width:100%;
+}
+
+.x {
+    max-width: 100%;
+    height: auto;
+}
+.details-card {
+    background-color:rgba(245, 245, 245, 0.897);
+    margin-bottom: 25px;
+    padding: 10px;
+    
+}
+
+.details-card:hover {
+    box-shadow: 3px 3px 5px 6px #ccc;
+}
+/* End of Used Vehicles */

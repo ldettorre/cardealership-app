@@ -1,32 +1,57 @@
 {% extends 'base.html' %} {% load humanize %} {% block content %}
 
-<h1 class="blue-text col-sm-12 text-center">Welcome to our carmodels Page.</h1>
+<div class="col-sm-12 text-center vehicles-banner">
+    <h1 class="banner-text">Our Listings</h1>
+</div>
 
-<div class="container search-form">
-    <form action="search" method="POST">
-        {% csrf_token %}
-      <div class="row">
-          <div class="form-group col-md-3 col-sm-6">
-              <select class="form-control carmake" name="carmake" id="carmake">
-                <option value="">Any Make</option>
-                  {% for carmake in carmakes %}
-                    <option value="{{carmake.name}}">{{carmake.name}}</option>
-                  {% endfor %}
-              </select>
-          </div>
-          <div class="form-group col-md-3 col-sm-6">
-              <select class="form-control" name="carmodel" id="carmodel">
-                <option value="">Any Model</option>
-              </select>
-          </div>
-          <div class="form-group col-md-3 col-sm-6">
-              <select class="form-control" name="caryear" id="caryear">
-                <option value="">Any Year</option>
-              </select>
-          </div>
-          <div class="form-group col-md-3 col-sm-6">
-              <select class="form-control" name="price_min" id="price_min">
-                <option value="">Select Min Price</option>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-3">
+            <form action="search" method="POST">
+            {% csrf_token %}
+        
+            <div class="form-group">
+                <select class="form-control carmake" name="carmake" id="carmake">
+                    <option value="">Any Make</option>
+                    {% for carmake in carmakes %}
+                        <option value="{{carmake.name}}">{{carmake.name}}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="form-group">
+                <select class="form-control" name="carmodel" id="carmodel">
+                    <option value="">Any Model</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <select class="form-control" name="caryear" id="caryear">
+                    <option value="">Any Year</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <select class="form-control" name="price_min" id="price_min">
+                    <option value="">Select Min Price</option>
+                    <option value="0">€0</option>
+                    <option value="500">€500</option>
+                    <option value="1000">€1000</option>
+                    <option value="1500">€1500</option>
+                    <option value="2000">€2000</option>
+                    <option value="3000">€3000</option>
+                    <option value="5000">€5000</option>
+                    <option value="7000">€7000</option>
+                    <option value="10000">€10,000</option>
+                    <option value="15000">€15,000</option>
+                    <option value="20000">€20,000</option>
+                    <option value="25000">€25,000</option>
+                    <option value="30000">€30,000</option>
+                    <option value="40000">€40,000</option>
+                    <option value="50000">€50,000</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <select class="form-control" name="price_max" id="price_max">
+                <option value="">Select Max Price</option>
                 <option value="0">€0</option>
                 <option value="500">€500</option>
                 <option value="1000">€1000</option>
@@ -42,121 +67,98 @@
                 <option value="30000">€30,000</option>
                 <option value="40000">€40,000</option>
                 <option value="50000">€50,000</option>
-              </select>
-          </div>
-          
-          <div class="form-group col-md-3 col-sm-6">
-            <select class="form-control" name="price_max" id="price_max">
-              <option value="">Select Max Price</option>
-              <option value="0">€0</option>
-              <option value="500">€500</option>
-              <option value="1000">€1000</option>
-              <option value="1500">€1500</option>
-              <option value="2000">€2000</option>
-              <option value="3000">€3000</option>
-              <option value="5000">€5000</option>
-              <option value="7000">€7000</option>
-              <option value="10000">€10,000</option>
-              <option value="15000">€15,000</option>
-              <option value="20000">€20,000</option>
-              <option value="25000">€25,000</option>
-              <option value="30000">€30,000</option>
-              <option value="40000">€40,000</option>
-              <option value="50000">€50,000</option>
-            </select>
-          </div>
-          
-          <div class="form-group col-md-3 col-sm-6">
-            <select class="form-control" name="fuel" id="fuel">
-              <option value="">Select Fuel</option>
-              <option value="Petrol">Petrol</option>
-              <option value="Diesel">Diesel</option>
-              <option value="Electric">Electric</option>
-              <option value="Hybrid">Hybrid</option>
-            </select>
-          </div>
-      
-          <div class="form-group col-md-3 col-sm-6">
-            <select class="form-control" name="transmission" id="transmission">
-                <option value="">Select Transmission</option>
-                <option value="Automatic">Automatic</option>
-                <option value="Semi-auto">Semi-auto</option>
-                <option value="Manual">Manual</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <select class="form-control" name="fuel" id="fuel">
+                <option value="">Select Fuel</option>
+                <option value="Petrol">Petrol</option>
+                <option value="Diesel">Diesel</option>
                 <option value="Electric">Electric</option>
                 <option value="Hybrid">Hybrid</option>
-              </select>
-          </div>
-      
-          <div class="form-group col-md-3 col-sm-6 search">
-            <button type="submit" class="btn btn-block"><i class="fa fa-search" aria-hidden="true"></i> Search </button>
-          </div>
-      </div>
-        </form>
-</div>
-
-{% if carmodels %}
-    <div class="row mb-2">
+                </select>
+            </div>
+        
+            <div class="form-group">
+                <select class="form-control" name="transmission" id="transmission">
+                    <option value="">Select Transmission</option>
+                    <option value="Automatic">Automatic</option>
+                    <option value="Semi-auto">Semi-auto</option>
+                    <option value="Manual">Manual</option>
+                    <option value="Electric">Electric</option>
+                    <option value="Hybrid">Hybrid</option>
+                </select>
+            </div>
+        
+            <div class="form-group search">
+                <button type="submit" class="btn btn-block search-btn"><i class="fa fa-search" aria-hidden="true"></i> Search </button>
+            </div>
+            
+            </form>
+        </div>
+    
+        <div class="col-sm-9">
+    {% if carmodels %}
         {% for carmodel in carmodels %}
-        <div class="col-md-6">
-            <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-            <div class="col p-4 d-flex flex-column position-static">
-                <h3 class="mb-0">{{ carmodel.title }}</h3>
+            <div class="row no-gutters details-card">
+            <div class="col-sm-6">
+                <h3>{{ carmodel.title }}</h3>
                 <div class="mb-1 text-muted">
                 {{ carmodel.make }} {{ carmodel.model }}
                 </div>
-                <p class="card-text mb-auto">{{ carmodel.title }}</p>
-                <p class="card-text mb-auto">Engine Size: {{ carmodel.engine_size }}</p>
-                <a href="#" class="stretched-link">Price: €{{ carmodel.price | intcomma }}</a>
+                <p>{{ carmodel.title }}</p>
+                <p>Engine Size: {{ carmodel.engine_size }}</p>
+                <p>Price: €{{ carmodel.price | intcomma }}</p>
+                <a href="{% url 'carmodel' carmodel.id %}" class="btn btn-default">View more</a>
             </div>
-            <div class="col-auto d-none d-lg-block">
-                <img width="200" height="250" src="{{ carmodel.photo_main.url }}" />
+            <div class="col-sm-6">
+                <img class="x"src="{{ carmodel.photo_main.url }}" />
             </div>
             </div>
-            <a href="{% url 'carmodel' carmodel.id %}" class="btn btn-default">View more</a></div>
+        
         {% endfor %}
-    </div>
-{% else %}
-    <p>There are currently no carmodels available.</p>
-{% endif %}  
-
-
-{% if carmodels.has_other_pages %}
-<nav aria-label="Page navigation example">
-  <ul class="pagination justify-content-center">
-    {% if carmodels.has_previous %}
-    <li class="page-item">
-      <a href="?page={{carmodels.previous_page_number}}" class="page-link">Previous</a>
-    </li>
+        </div>
     {% else %}
-    <li class="page-item disabled"><a class="page-link">Previous</a></li>
-    {% endif %} 
-    
+        <p>There are currently no carmodels available.</p>
+    {% endif %}  
+        </div>
 
-    {% for i in carmodels.paginator.page_range %} 
-        {% if carmodels.number == i %}
-            <li class="page-item active">
-                <a class="page-link"> {{i}} </a>
-            </li>
-        {% else %}
+
+    {% if carmodels.has_other_pages %}
+    <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-center">
+            {% if carmodels.has_previous %}
             <li class="page-item">
-                <a href="?page={{i}}" class="page-link">{{i}}</a>
-             </li>
-        {% endif %}
-    {% endfor %}
+            <a href="?page={{carmodels.previous_page_number}}" class="page-link">Previous</a>
+            </li>
+            {% else %}
+            <li class="page-item disabled"><a class="page-link">Previous</a></li>
+            {% endif %} 
+            
 
-    {% if carmodels.has_next %}
-    <li class="page-item">
-      <a href="?page={{carmodels.next_page_number}}" class="page-link">
-        Next</a>
-    </li>
-    {% else %}
-    <li class="page-item disabled"><a class="page-link">Next</a></li>
+            {% for i in carmodels.paginator.page_range %} 
+                {% if carmodels.number == i %}
+                    <li class="page-item active">
+                        <a class="page-link"> {{i}} </a>
+                    </li>
+                {% else %}
+                    <li class="page-item">
+                        <a href="?page={{i}}" class="page-link">{{i}}</a>
+                    </li>
+                {% endif %}
+            {% endfor %}
+
+            {% if carmodels.has_next %}
+            <li class="page-item">
+            <a href="?page={{carmodels.next_page_number}}" class="page-link">
+                Next</a>
+            </li>
+            {% else %}
+            <li class="page-item disabled"><a class="page-link">Next</a></li>
+            {% endif %} 
+        </ul>
+    </nav>
     {% endif %} 
-
-
-  </ul>
-  
-</nav>
-{% endif %} 
-
+</div>
 {% endblock %}
