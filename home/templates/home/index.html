@@ -124,7 +124,7 @@
 
 
 <!-- Welcome Text -->
-<div class="row no-gutters welcome-row">
+<div class="row no-gutters row-title">
   <h1 class="col-sm-12 text-center">Welcome <span style="font-weight:300;">to Moderna Motors</span></h1>
   <p class="col-sm-8 ml-auto mr-auto text-blurb">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis ullamcorper tempus arcu nec congue. Phasellus vel lorem mi. In ut neque ornare, lobortis purus et, rutrum magna. Namssssssimperdiet pellentesque venenatis. Vestibulum eget lacus pretium, imperdiet eros vel, rutrum elit. Maecenas vel cursus lectus. Maecenas vel eros luctus, viverra neque in, porta odio. Maecenas non nibh vitae augue vestibulum venenatis ac a nibh. </p>
 </div>
@@ -135,18 +135,23 @@
 <div class="row no-gutters featured-row featured-bg">
   <h2 class="col-sm-12 text-center">Featured Cars & <span style="font-weight:300;">Special Inventory</span></h2>
   <p class="col-sm-8 mx-auto text-blurb">
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nisl nisl, varius in vulputate ac, dignissim a diam. Pellentesque a placerat orci. Praesent interdum lectus in eros placerat, sed luctus velit congue. Sed sapien arcu, posuere at tellus in, viverra lacinia lectus. Aliquam nec facilisis risus. Ut eget malesuada ipsum. Suspendisse auctor lacus eget arcu consectetur facilisis. Nunc eget risus nibh. Nulla facilisi. Suspendisse eu massa massa. Morbi auctor lacus malesuada mauris mattis sollicitudin. Pellentesque ut odio et erat condimentum convallis.
+    Over the years we've been lucky enough to have some of the most luxurious and limited edition cars roll into our showroom. And when they do, we want to share them with you! So whether you are browsing for purchase or pleasure, check out our top three fan-favourites in stock right now!
   </p>
 
   <div class="row">
     {% for car in featured_cars %}
       <div class="col-lg-4 col-md-6 col-sm-6">
-        <div class="card featured-card h-100">
+        <div class="card featured-card h-80">
           <a href="{% url 'carmodel' car.id %}">
           <img class="card-img-top featured-img" src="{{ car.photo_main.url }}" alt="">
           <div class="card-body">
             <h5 class="card-title">{{ car.make }}, {{ car.model }}</h5>
+            
             <p class="card-text">{{ car.description|truncatewords:20 }}</p>
+            <p class="card-text car-detail"><i class="fa fa-road"></i> {{ car.kilometers }} Kms</p>
+            <p class="card-text car-detail"><i class="fa fa-calendar"></i> {{ car.year }}</p>
+            <p class="card-text car-detail"><i class="fa fa-car"></i> {{ car.fuel }}</p>
+           
           </div>
         </div></a>
         
@@ -157,37 +162,27 @@
 
   <!-- /Featured Vehicles -->
 
+<!-- Choose Us Section -->
 
-<!-- Infocards -->
-<div class="row no-gutters info-row">
-  <div class="card col-md-4 col-sm-12"  style="width: 18rem;">
-    <img src="{% static 'images/landing-image.jpg' %}" class="card-img-top" alt="...">
-    <div class="card-body no-gutters">
-      <h5 class="card-title">Service Card</h5>
-      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-      <a href="#" class="btn btn-primary">Go somewhere</a>
-    </div>
-  </div>
+<div class="row no-gutters row-title">
+  <div class="col-sm-6">
+    <h2 class="text-center choose-us-title">Why Choose Us?</h2>
+    <p class="choose-us-blurb ml-auto mr-auto">At Moderna Motors, we believe that our core values both in business and in practice are what truely make us stand out from the crowd. Which is why when working with us, you can expect:
+  </p>
+  <p class="choose-us-blurb ml-auto mr-auto"><i class="fa fa-check-circle"></i> Comprehensive 6-month warranty as standard.</p>
+  <p class="choose-us-blurb ml-auto mr-auto"><i class="fa fa-check-circle"></i> 100% Transparent advice.</p>
+  <p class="choose-us-blurb ml-auto mr-auto"><i class="fa fa-check-circle"></i> Hassle free paperwork.</p>
+  <p class="choose-us-blurb ml-auto mr-auto"><i class="fa fa-check-circle"></i> Zero obligation-to-buy test drives.</p>
+  <p class="choose-us-blurb ml-auto mr-auto"><i class="fa fa-check-circle"></i> Unbeatable finance packages.</p>
+  </p>
+</div>
 
-  <div class="card col-md-4 col-sm-12" style="width: 18rem;">
-    <img src="{% static 'images/landing-image.jpg' %}" class="card-img-top" alt="...">
-    <div class="card-body no-gutters">
-      <h5 class="card-title">Warranty Card</h5>
-      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-      <a href="#" class="btn btn-primary">Go somewhere</a>
-    </div>
-  </div>
-
-  <div class="card col-md-4 col-sm-12" style="width: 18rem;">
-    <img src="{% static 'images/landing-image.jpg' %}" class="card-img-top" alt="...">
-    <div class="card-body no-gutters">
-      <h5 class="card-title">Blog Card</h5>
-      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-      <a href="#" class="btn btn-primary">Go somewhere</a>
-    </div>
+  <div class="col-sm-6">
+    <img class="choose-us-img" src ="{% static 'images/ferrari.jpg' %}">
   </div>
 </div>
-<!-- /Infocards -->
+
+<!-- /Choose Us Section -->
 
 
 <!-- Google Map Embedded-->

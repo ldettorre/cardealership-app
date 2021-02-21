@@ -24,7 +24,7 @@ class CarModel(models.Model):
     price = models.IntegerField()
     condition = models.CharField(max_length=100,blank=True, choices = CONDITION_CHOICES)
     color = models.CharField(max_length=100, choices = COLOUR_CHOICES)
-    mileage = models.IntegerField()
+    kilometers = models.IntegerField()
     fuel = models.CharField(max_length=100, choices = FUEL_CHOICES)
     engine_size = models.DecimalField(max_digits=2,decimal_places=1)
     body_type = models.CharField(max_length=100, choices = BODY_CHOICES)

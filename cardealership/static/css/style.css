@@ -71,7 +71,7 @@ h1, h2, h3, h4, h5, p, a, button, i {
     background-color: red;
 }
 
-.welcome-row{
+.row-title{
     margin:10vh 0 10vh 0;
 }
 .text-blurb {
@@ -101,6 +101,12 @@ h1, h2, h3, h4, h5, p, a, button, i {
     color:black;
 }
 
+.car-detail {
+    display:inline-block;
+    margin-left:10px;
+    margin-right:10px;
+}
+
 .info-row {
     margin:10vh 0 10vh 0;
 }
@@ -117,6 +123,24 @@ h1, h2, h3, h4, h5, p, a, button, i {
     height:100%
 }
 
+.choose-us-title {
+    padding-bottom:50px;
+}
+
+
+.choose-us-blurb {
+    width:65%;
+}
+
+.choose-us-img {
+    max-width: 80%;
+    max-height: auto;
+}
+.subscriber-form{
+    text-align: center;
+    padding-top:50px;
+    width:65%;
+}
 .subscribe-btn {
     color:white;
     background-color: red;
@@ -250,3 +274,14 @@ h1, h2, h3, h4, h5, p, a, button, i {
 /* End of Used Vehicles */
 
 
+/* Footer */
+
+.bg-color{
+    background-color:#253341;
+    color:white;
+}
+
+.footer-font {
+    color:white;
+}
+/* /Footer */
