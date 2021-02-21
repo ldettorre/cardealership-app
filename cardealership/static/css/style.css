@@ -71,25 +71,45 @@ h1, h2, h3, h4, h5, p, a, button, i {
     background-color: red;
 }
 
-
-.welcome-blurb {
+.welcome-row{
+    margin:10vh 0 10vh 0;
+}
+.text-blurb {
     text-align: center;
-    margin: auto;
-    width: 65%;
+    padding-top:50px;
 }
 
+.featured-row {
+    background-color: #eeeeee;
+    padding: 10vh 0 10vh 0;
+}
+
+.featured-bg {
+    background-color: #eeeeee;
+}
+
+.featured-img {
+    height:260px;
+}
+
+.featured-card {
+    margin: 20px;
+    height:auto;
+}
+
+.featured-card h5, p {
+    color:black;
+}
+
+.info-row {
+    margin:10vh 0 10vh 0;
+}
 
 .about-us img {
     width: 100%;
     height:100%;
     object-fit: cover;
     
-}
-
-.feature-blurb {
-    text-align: center;
-    margin: auto;
-    width: 65%;
 }
 
 .embedded-map {
@@ -172,6 +192,7 @@ h1, h2, h3, h4, h5, p, a, button, i {
 .team-grid {
     padding-top:50px;
 }
+
 .employee-image {
     max-width: 100%;
     width:200px;
@@ -227,3 +248,5 @@ h1, h2, h3, h4, h5, p, a, button, i {
     box-shadow: 3px 3px 5px 6px #ccc;
 }
 /* End of Used Vehicles */
+
+
