@@ -41,8 +41,19 @@ h1, h2, h3, h4, h5, p, a, button, i {
     width:100%;
 }
 
-.carousel-height {
+.carousel .carousel-item {
+    height: 500px;
 }
+  
+.carousel-item img {
+    position: absolute;
+    object-fit:cover;
+    object-position: center;
+    top: 0;
+    left: 0;
+    min-height: 500px;
+}
+
 .search-form {
     background-color:#eeeeee;
     padding: 5vh 20vw 5vh 20vw;
