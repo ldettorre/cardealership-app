@@ -124,7 +124,7 @@
 
 
 <!-- Welcome Text -->
-<div class="row no-gutters row-title">
+<div class="row no-gutters welcome-title">
   <h1 class="col-sm-12 text-center">Welcome <span style="font-weight:300;">to Moderna Motors</span></h1>
   <p class="col-sm-8 ml-auto mr-auto text-blurb">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis ullamcorper tempus arcu nec congue. Phasellus vel lorem mi. In ut neque ornare, lobortis purus et, rutrum magna. Namssssssimperdiet pellentesque venenatis. Vestibulum eget lacus pretium, imperdiet eros vel, rutrum elit. Maecenas vel cursus lectus. Maecenas vel eros luctus, viverra neque in, porta odio. Maecenas non nibh vitae augue vestibulum venenatis ac a nibh. </p>
 </div>
@@ -138,12 +138,12 @@
     Over the years we've been lucky enough to have some of the most luxurious and limited edition cars roll into our showroom. And when they do, we want to share them with you! So whether you are browsing for purchase or pleasure, check out our top three fan-favourites in stock right now!
   </p>
 
-  <div class="row">
+  <div class="row no-gutters">
     {% for car in featured_cars %}
       <div class="col-lg-4 col-md-6 col-sm-6">
         <div class="card featured-card h-80">
           <a href="{% url 'carmodel' car.id %}">
-          <img class="card-img-top featured-img" src="{{ car.photo_main.url }}" alt="">
+          <img class="card-img-top feature-img" src="{{ car.photo_main.url }}" alt="">
           <div class="card-body">
             <h5 class="card-title">{{ car.make }}, {{ car.model }}</h5>
             
@@ -164,7 +164,7 @@
 
 <!-- Choose Us Section -->
 
-<div class="row no-gutters row-title">
+<div class="row no-gutters choose-us-row">
   <div class="col-sm-6">
     <h2 class="text-center choose-us-title">Why Choose Us?</h2>
     <p class="choose-us-blurb ml-auto mr-auto">At Moderna Motors, we believe that our core values both in business and in practice are what truely make us stand out from the crowd. Which is why when working with us, you can expect:
@@ -184,24 +184,82 @@
 
 <!-- /Choose Us Section -->
 
+<!-- Services -->
+<div class="row no-gutters services-row">
+  <h2 class="col-sm-12 text-center services-title">Some Of Our Services</h2>
 
-<!-- Google Map Embedded-->
-<div class="row no-gutters">
-<div class="col-sm-6"><iframe class="embedded-map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d9539.035947213582!2d-6.242002059080055!3d53.293852265704565!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48670967208312b5%3A0x2600c7a819b930d1!2sDundrum%2C%20Dublin!5e0!3m2!1sen!2sie!4v1613189339817!5m2!1sen!2sie" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe></div>
+  <div class="col-lg-3 col-md-4 col-sm-6">
+    <div class="card featured-card h-80">
+      <a href="/contact/car_sourcing">
+        <div class="sourcing-img"></div>
+      <div class="card-body">
+        <h5 class="card-title">Car Sourcing</h5>
+        <p class="card-text">Thanks to our industry connections, we can help locate that "one that got away"!</p>
+      </div>
+    </div></a>
+  </div>  
 
-<div class="col-sm-6">
-  <h6>Subscribe Newsletter</h6>
-    <form action="{% url 'subscribe' %}" method="POST">
-      <div class="form-group">
-        {% csrf_token %} {{ form |as_bootstrap }}
+  <div class="col-lg-3 col-md-4 col-sm-6">
+    <div class="card featured-card h-80">
+      <a href="/blog">
+        <div class="reviews-img"></div>
+      <div class="card-body">
+        <h5 class="card-title">Latest News and Reviews</h5>
+        <p class="card-text">Check out our blog for indepth reviews and transparent car buying tips.</p>
       </div>
-      <div class="form-group col-md-3 col-sm-6 ">
-        <button type="submit" class="btn btn-block subscribe-btn">Search</button>
+    </div></a>
+  </div> 
+
+  <div class="col-lg-3 col-md-4 col-sm-6">
+    <div class="card featured-card h-80">
+      <a href="/vehicles">
+        <div class="inventory-img"></div>
+      <div class="card-body">
+        <h5 class="card-title">Our Inventory</h5>
+        <p class="card-text">If our Featured Cars caught your eye, check out our entire inventory online.</p>
       </div>
-    </form>
+    </div></a>
+  </div> 
+
+  <div class="col-lg-3 col-md-4 col-sm-6">
+    <div class="card featured-card h-80">
+      <a href="/contact">
+        <div class="contact-img"></div>
+      <div class="card-body">
+        <h5 class="card-title">Contact Us</h5>
+        <p class="card-text">Contact us with any questions and we'll respond within 24 hours.</p>
+      </div>
+    </div></a>
+  </div> 
 </div>
+<!-- /Services -->
+
+<!-- Find Us & Get In Touch-->
+<div class="row no-gutters findus-row">
+  
+  <div class="col-sm-6 text-center">
+    <h2 class="find-us-title">Find Us</h2>
+      <div class="map-responsive">
+      <iframe class="embedded-map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d9539.035947213582!2d-6.242002059080055!3d53.293852265704565!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48670967208312b5%3A0x2600c7a819b930d1!2sDundrum%2C%20Dublin!5e0!3m2!1sen!2sie!4v1613189339817!5m2!1sen!2sie" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+    </div>
+  </div>
+
+  <div class="col-sm-6">
+    <h2 class="text-center find-us-title"> Subscribe</h2>
+    <div class="subscribe-blurb ml-auto mr-auto">
+    <p>Fancy knowing when our newest stock rolls in? Or would like to stay up to date when we post a review? Then subscribe below for all the latest news!</p>
+      <form action="{% url 'subscribe' %}" method="POST">
+        <div class="form-group  subscribe-form">
+          {% csrf_token %} {{ form |as_bootstrap }}
+        </div>
+        <div class="form-group  subscribe-form">
+          <button type="submit" class="btn btn-block subscribe-btn"><b>Submit</b></button>
+        </div>
+      </form>
+    </div>
+  </div>
 </div>
-<!-- /Google Map Embedded -->
+<!-- /Find Us & Get In Touch -->
 
 
 {% endblock %}

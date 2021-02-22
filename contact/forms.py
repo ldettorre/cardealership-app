@@ -17,3 +17,14 @@ class EmailSubscriberForm(forms.ModelForm):
         model = EmailSubscriber
         fields =  fields = '__all__'
         exclude = ['subscription_start_date']
+        widgets = {
+            'name': forms.TextInput(attrs={'placeholder': 'Name', 'label':"" }),
+            'email': forms.TextInput(attrs={'placeholder': 'Email'})
+        }
+
+        # These are set to blank because I want the placeholder to identify each field. 
+        # After testing, the form still works as intended.
+        labels = {
+            "name": "",
+            "email": ""
+        }

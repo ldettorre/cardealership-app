@@ -45,7 +45,5 @@ class EmailSubscriber(models.Model):
     email = models.EmailField(max_length=50)
     subscription_start_date  = models.DateTimeField(blank=True, null=True, default=timezone.now)
 
-    
-
     def __str__(self):
         return self.name
