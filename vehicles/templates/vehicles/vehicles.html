@@ -6,31 +6,57 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-sm-3">
-            <form action="search" method="POST">
-            {% csrf_token %}
-        
-            <div class="form-group">
-                <select class="form-control carmake" name="carmake" id="carmake">
-                    <option value="">Any Make</option>
-                    {% for carmake in carmakes %}
-                        <option value="{{carmake.name}}">{{carmake.name}}</option>
-                    {% endfor %}
-                </select>
-            </div>
-            <div class="form-group">
-                <select class="form-control" name="carmodel" id="carmodel">
-                    <option value="">Any Model</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <select class="form-control" name="caryear" id="caryear">
-                    <option value="">Any Year</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <select class="form-control" name="price_min" id="price_min">
-                    <option value="">Select Min Price</option>
+        <div class="col-md-3 col-sm-12">
+            <a href="/contact/car_sourcing"><div class="car-sourcing-div">
+                <p class="car-sourcing-text">Car Sourcing Available</p>
+            </div></a>
+            <div class="search-div">
+                <p class="search-title">Find Your Dream Car</p>
+                <form action="search" method="POST">
+                {% csrf_token %}
+            
+                <div class="form-group">
+                    <select class="vehicles-search-fields form-control carmake" name="carmake" id="carmake">
+                        <option value="">Any Make</option>
+                        {% for carmake in carmakes %}
+                            <option value="{{carmake.name}}">{{carmake.name}}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="form-group">
+                    <select class="vehicles-search-fields form-control" name="carmodel" id="carmodel">
+                        <option value="">Any Model</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <select class="vehicles-search-fields form-control" name="caryear" id="caryear">
+                        <option value="">Any Year</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <select class="vehicles-search-fields form-control" name="price_min" id="price_min">
+                        <option value="">Select Min Price</option>
+                        <option value="0">€0</option>
+                        <option value="500">€500</option>
+                        <option value="1000">€1000</option>
+                        <option value="1500">€1500</option>
+                        <option value="2000">€2000</option>
+                        <option value="3000">€3000</option>
+                        <option value="5000">€5000</option>
+                        <option value="7000">€7000</option>
+                        <option value="10000">€10,000</option>
+                        <option value="15000">€15,000</option>
+                        <option value="20000">€20,000</option>
+                        <option value="25000">€25,000</option>
+                        <option value="30000">€30,000</option>
+                        <option value="40000">€40,000</option>
+                        <option value="50000">€50,000</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <select class="vehicles-search-fields form-control" name="price_max" id="price_max">
+                    <option value="">Select Max Price</option>
                     <option value="0">€0</option>
                     <option value="500">€500</option>
                     <option value="1000">€1000</option>
@@ -46,63 +72,47 @@
                     <option value="30000">€30,000</option>
                     <option value="40000">€40,000</option>
                     <option value="50000">€50,000</option>
-                </select>
-            </div>
-            
-            <div class="form-group">
-                <select class="form-control" name="price_max" id="price_max">
-                <option value="">Select Max Price</option>
-                <option value="0">€0</option>
-                <option value="500">€500</option>
-                <option value="1000">€1000</option>
-                <option value="1500">€1500</option>
-                <option value="2000">€2000</option>
-                <option value="3000">€3000</option>
-                <option value="5000">€5000</option>
-                <option value="7000">€7000</option>
-                <option value="10000">€10,000</option>
-                <option value="15000">€15,000</option>
-                <option value="20000">€20,000</option>
-                <option value="25000">€25,000</option>
-                <option value="30000">€30,000</option>
-                <option value="40000">€40,000</option>
-                <option value="50000">€50,000</option>
-                </select>
-            </div>
-            
-            <div class="form-group">
-                <select class="form-control" name="fuel" id="fuel">
-                <option value="">Select Fuel</option>
-                <option value="Petrol">Petrol</option>
-                <option value="Diesel">Diesel</option>
-                <option value="Electric">Electric</option>
-                <option value="Hybrid">Hybrid</option>
-                </select>
-            </div>
-        
-            <div class="form-group">
-                <select class="form-control" name="transmission" id="transmission">
-                    <option value="">Select Transmission</option>
-                    <option value="Automatic">Automatic</option>
-                    <option value="Semi-auto">Semi-auto</option>
-                    <option value="Manual">Manual</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <select class="vehicles-search-fields form-control" name="fuel" id="fuel">
+                    <option value="">Select Fuel</option>
+                    <option value="Petrol">Petrol</option>
+                    <option value="Diesel">Diesel</option>
                     <option value="Electric">Electric</option>
                     <option value="Hybrid">Hybrid</option>
-                </select>
-            </div>
-        
-            <div class="form-group search">
-                <button type="submit" class="btn btn-block search-btn"><i class="fa fa-search" aria-hidden="true"></i> Search </button>
-            </div>
+                    </select>
+                </div>
             
-            </form>
+                <div class="form-group">
+                    <select class="vehicles-search-fields form-control" name="transmission" id="transmission">
+                        <option value="">Select Transmission</option>
+                        <option value="Automatic">Automatic</option>
+                        <option value="Semi-auto">Semi-auto</option>
+                        <option value="Manual">Manual</option>
+                        <option value="Electric">Electric</option>
+                        <option value="Hybrid">Hybrid</option>
+                    </select>
+                </div>
+            
+                <div class="form-group search">
+                    <button type="submit" class="btn btn-block search-btn"><i class="fa fa-search" aria-hidden="true"></i> Search </button>
+                </div>
+                
+                </form>
+            </div>
+            <div class="vehicles-opening-div">
+                <p class="vehicles-opening-text">Opening Hours<br /> Mon-Fri : 09:00 - 19:00,<br /> Sat : 09:00 - 15:00,<br /> Sun : Closed, <br />Viewing after hours by appointment</p> 
+            </div> 
         </div>
+        
     
-        <div class="col-sm-9">
+        <div class="col-md-9 col-sm-12">
     {% if carmodels %}
         {% for carmodel in carmodels %}
             <div class="row no-gutters details-card">
-            <div class="col-sm-6">
+            <div class="col-md-6 col-sm-12">
                 <h3>{{ carmodel.title }}</h3>
                 <div class="mb-1 text-muted">
                 {{ carmodel.make }} {{ carmodel.model }}

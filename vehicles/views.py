@@ -6,7 +6,7 @@ from .models import CarModel, CarMake
 def carmodels(request):
     carmodels = CarModel.objects.order_by("-price").filter(published=True)
     carmakes = CarMake.objects.all()
-    paginator = Paginator(carmodels, 3)
+    paginator = Paginator(carmodels, 15)
     page = request.GET.get('page')
     paged_vehicles = paginator.get_page(page)
     context = {

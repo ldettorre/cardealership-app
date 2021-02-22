@@ -7,12 +7,6 @@ h1, h2, h3, h4, h5, p, a, button, i {
 .no-gutters {
     margin-right: 0;
     margin-left: 0;
-  
-    > .col,
-    > [class*="col-"] {
-      padding-right: 0;
-      padding-left: 0;
-    }
   }
 
 /* Index Page */
@@ -20,12 +14,10 @@ h1, h2, h3, h4, h5, p, a, button, i {
     width: 50%;
     text-align: center;
     padding-top:20px;
-    
 }
 
 .logo-div img {
     width: 200px;
-    
 }
 
 .contact-cols {
@@ -48,13 +40,16 @@ h1, h2, h3, h4, h5, p, a, button, i {
 .carousel {
     width:100%;
 }
+
+.carousel-height {
+}
 .search-form {
     background-color:#eeeeee;
     padding: 5vh 20vw 5vh 20vw;
 
 }
 
-.form-control {
+.index-search-fields{
     background: #222;
     border-radius: 3px;
     color: #fff;
@@ -97,11 +92,17 @@ h1, h2, h3, h4, h5, p, a, button, i {
     height:auto;
 }
 
-.card-body {
+.card {
     border-bottom: 3px solid red;
 }
+
+
 .featured-card h5, p {
     color:black;
+}
+
+.featured-card :hover {
+    box-shadow: 3px 3px 5px 6px #ccc;
 }
 
 .car-detail {
@@ -318,6 +319,70 @@ h1, h2, h3, h4, h5, p, a, button, i {
     margin-bottom: 50px;
 }
 
+.search-div {
+    border: 1px solid rgb(182, 182, 182);
+    padding:0 5px 10px 5px;
+}
+
+.car-sourcing-div {
+    background-color:#cc080c;
+    margin-bottom:40px;
+    text-align:center;
+    min-height:60px;
+}
+
+.car-sourcing-text {
+    text-align:center;
+    color:white;
+    padding:17px 0 17px 0;
+    font-weight:bold;
+    font-size:18px;
+}
+
+.search-title {
+    text-align:center;
+    color:black;
+    padding:17px 0 10px 0;
+    margin-bottom:20px;
+    font-weight:bold;
+    font-size:18px;
+    border-bottom: 3px solid #eeeeee
+}
+
+.vehicles-search-fields {
+    background: #eeeeee;
+    border-radius: 3px;
+    color: rgb(138, 138, 138);
+    font-size: 16px;
+}
+
+.vehicles-opening-div {
+    text-align:center;
+    color:white;
+    margin-top:17px;
+    padding:17px 0 17px 0;
+    height:80px;
+    font-weight:bold;
+    font-size:18px;
+    background-image:linear-gradient(to bottom,black 0%,grey 100%),url("/static/images/landing-image2.jpg");
+    background-blend-mode:multiply;
+    background-size:cover;
+    height: min-content;
+}
+
+.vehicles-opening-text {
+    text-align:center;
+    color:white;
+    padding:17px 0 17px 0;
+    height:80px;
+    font-weight:bold;
+    font-size:18px;
+    background-image:linear-gradient(to bottom,black 0%,grey 100%),url("/static/images/landing-image2.jpg");
+    background-blend-mode:multiply;
+    background-size:cover;
+    height: min-content;
+}
+
 .car-width {
     max-width:100%;
 }
@@ -330,11 +395,21 @@ h1, h2, h3, h4, h5, p, a, button, i {
     background-color:rgba(245, 245, 245, 0.897);
     margin-bottom: 25px;
     padding: 10px;
+    max-height:280px;
     
 }
 
 .details-card:hover {
     box-shadow: 3px 3px 5px 6px #ccc;
+}
+
+.page-item.active .page-link  {
+    background-color:rgb(255, 71, 71);
+    border-color: #eeeeee
+}
+
+.page-link {
+    color: rgb(138, 138, 138);
 }
 /* End of Used Vehicles */
 

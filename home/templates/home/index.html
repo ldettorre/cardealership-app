@@ -3,7 +3,7 @@
 
 <!-- Carousel -->
 <div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
-  <div class="carousel-inner">
+  <div class="carousel-inner carousel-height">
     <div class="carousel-item active">
       <img src="{% static 'images/landing-image.jpg' %}" class="d-block w-100" alt="...">
     </div>
@@ -14,11 +14,11 @@
       <img src="{% static 'images/landing-image3.jpg' %}" class="d-block w-100" alt="...">
     </div>
   </div>
-  <a class="carousel-control-prev" href="#carouselExampleFade" role="button" data-slide="prev">
+  <a class="carousel-control-prev carousel-height" href="#carouselExampleFade" role="button" data-slide="prev">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
     <span class="sr-only">Previous</span>
   </a>
-  <a class="carousel-control-next" href="#carouselExampleFade" role="button" data-slide="next">
+  <a class="carousel-control-next carousel-height" href="#carouselExampleFade" role="button" data-slide="next">
     <span class="carousel-control-next-icon" aria-hidden="true"></span>
     <span class="sr-only">Next</span>
   </a>
@@ -34,7 +34,7 @@
       {% csrf_token %}
     <div class="row form-row">
         <div class="form-group col-md-3 col-sm-6">
-            <select class="form-control carmake" name="carmake" id="carmake">
+            <select class="index-search-fields form-control carmake" name="carmake" id="carmake">
               <option value="">Any Make</option>
                 {% for carmake in carmakes %}
                   <option value="{{carmake.name}}">{{carmake.name}}</option>
@@ -42,17 +42,17 @@
             </select>
         </div>
         <div class="form-group col-md-3 col-sm-6">
-            <select class="form-control" name="carmodel" id="carmodel">
+            <select class="index-search-fields form-control" name="carmodel" id="carmodel">
               <option value="">Any Model</option>
             </select>
         </div>
         <div class="form-group col-md-3 col-sm-6">
-            <select class="form-control" name="caryear" id="caryear">
+            <select class="index-search-fields form-control" name="caryear" id="caryear">
               <option value="">Any Year</option>
             </select>
         </div>
         <div class="form-group col-md-3 col-sm-6">
-            <select class="form-control" name="price_min" id="price_min">
+            <select class="index-search-fields form-control" name="price_min" id="price_min">
               <option value="">Select Min Price</option>
               <option value="0">€0</option>
               <option value="500">€500</option>
@@ -73,7 +73,7 @@
         </div>
         
         <div class="form-group col-md-3 col-sm-6">
-          <select class="form-control" name="price_max" id="price_max">
+          <select class="index-search-fields form-control" name="price_max" id="price_max">
             <option value="">Select Max Price</option>
             <option value="0">€0</option>
             <option value="500">€500</option>
@@ -94,7 +94,7 @@
         </div>
         
         <div class="form-group col-md-3 col-sm-6">
-          <select class="form-control" name="fuel" id="fuel">
+          <select class="index-search-fields form-control" name="fuel" id="fuel">
             <option value="">Select Fuel</option>
             <option value="Petrol">Petrol</option>
             <option value="Diesel">Diesel</option>
@@ -104,7 +104,7 @@
         </div>
     
         <div class="form-group col-md-3 col-sm-6">
-          <select class="form-control" name="transmission" id="transmission">
+          <select class="index-search-fields form-control" name="transmission" id="transmission">
               <option value="">Select Transmission</option>
               <option value="Automatic">Automatic</option>
               <option value="Semi-auto">Semi-auto</option>
@@ -126,7 +126,7 @@
 <!-- Welcome Text -->
 <div class="row no-gutters welcome-title">
   <h1 class="col-sm-12 text-center">Welcome <span style="font-weight:300;">to Moderna Motors</span></h1>
-  <p class="col-sm-8 ml-auto mr-auto text-blurb">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis ullamcorper tempus arcu nec congue. Phasellus vel lorem mi. In ut neque ornare, lobortis purus et, rutrum magna. Namssssssimperdiet pellentesque venenatis. Vestibulum eget lacus pretium, imperdiet eros vel, rutrum elit. Maecenas vel cursus lectus. Maecenas vel eros luctus, viverra neque in, porta odio. Maecenas non nibh vitae augue vestibulum venenatis ac a nibh. </p>
+  <p class="col-sm-8 ml-auto mr-auto text-blurb">Moderna Motors have significant expertise and experience in sourcing high end and speciality cars for our customers. Come and talk to us and we’ll help you find exactly what you are looking for. Alternatively, we showcase our entire inventory online for your convenience and should you see something of interest, get in touch to organise a no obligation viewing and inspection. </p>
 </div>
 <!-- /Welcome Text -->
 
@@ -140,21 +140,20 @@
 
   <div class="row no-gutters">
     {% for car in featured_cars %}
-      <div class="col-lg-4 col-md-6 col-sm-6">
+      <div class="col-lg-4 col-md-6 col-sm-6 pl-3 pr-3 d-flex align-items-stretch">
         <div class="card featured-card h-80">
           <a href="{% url 'carmodel' car.id %}">
           <img class="card-img-top feature-img" src="{{ car.photo_main.url }}" alt="">
           <div class="card-body">
             <h5 class="card-title">{{ car.make }}, {{ car.model }}</h5>
             
-            <p class="card-text">{{ car.description|truncatewords:20 }}</p>
+            <p class="card-text">{{ car.description|truncatewords:10 }}</p>
             <p class="card-text car-detail"><i class="fa fa-road"></i> {{ car.kilometers }} Kms</p>
             <p class="card-text car-detail"><i class="fa fa-calendar"></i> {{ car.year }}</p>
             <p class="card-text car-detail"><i class="fa fa-car"></i> {{ car.fuel }}</p>
            
           </div>
         </div></a>
-        
       </div>  
     {% endfor %}
   </div>
