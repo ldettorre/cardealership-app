@@ -2,15 +2,34 @@
 {% load bootstrap_tags %}
 {% block content %}
 
-<h1>Welcome to the Car Sourcing Page</h1>
-<p></p>
+<div class="col-sm-12 text-center car-sourcing-banner">
+    <h1 class="banner-text">Car Sourcing Service</h1>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-3 col-sm-12">
+            <a href="/contact"><div class="car-sourcing-div">
+                <p class="car-sourcing-text">Contact Us</p>
+            </div></a>
+        
+            <div class="vehicles-opening-div">
+                <p class="vehicles-opening-text">Opening Hours<br /> Mon-Fri : 09:00 - 19:00,<br /> Sat : 09:00 - 15:00,<br /> Sun : Closed, <br />Viewing after hours by appointment</p> 
+            </div> 
+        </div>
+        <div class="col-md-9 col-sm-12">
+            <p class="car-sourcing-title"><b>Source That</b> <span>Special One</span></p>
+            <p class="car-sourcing-blurb">Should we not have the exact model that suits your requirements in stock, feel free to enquire about our Car Sourcing service. This is a service we have been offering since day that comes with zero obligation to purchase or any down payment. After we discuss and understand your perfect match, we will then reach out to our vast list of contacts throughout Ireland and the U.K. to find <b> the one</b>. Once found, we will then use our buying power to secure the best deal for both purchasing and transportation to your location. All you have to do is sit back, relax and wait for the good news!
+            </p>
+            <form action="{% url 'car_sourcing' %}" method="POST">
+                {% csrf_token %} {{ form |as_bootstrap }}
+                <button type="submit" class="btn btn-info">Submit</button>
+            </form>
+        </div>
+    </div>
 {% if messages %}
     {% for message in messages %}
         {{ message }}
     {% endfor %}
 {% endif %}
-<form action="{% url 'car_sourcing' %}" method="POST">
-    {% csrf_token %} {{ form |as_bootstrap }}
-    <button type="submit" class="btn btn-info">Submit</button>
-</form>
+</div>
 {% endblock %}

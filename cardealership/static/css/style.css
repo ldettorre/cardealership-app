@@ -435,6 +435,11 @@ h1, h2, h3, h4, h5, p, a, button, i {
     margin-bottom: 50px;
 }
 
+.contact-blurb {
+    width:65%;
+    background: #eeeeee;
+}
+
 .contact-page-map {
     overflow:hidden;
     padding-bottom:30px;
@@ -448,6 +453,32 @@ h1, h2, h3, h4, h5, p, a, button, i {
 }
 
 /* End of Contact Form Page */
+
+/* Car Sourcing Page */
+
+.car-sourcing-banner  {
+    background-image:linear-gradient(to bottom,black 0%,grey 100%),url("/static/images/landing-image3.jpg");
+    background-blend-mode:multiply;
+    background-size:cover;
+    background-position:center;
+    width:100%;
+    height:230px;
+    margin-bottom: 50px;
+}
+
+.car-sourcing-title {
+    text-align: center;
+    margin: auto;
+    width: 65%;
+    font-size: 30px;
+}
+
+.car-sourcing-blurb {
+    margin: auto;
+    padding-top:50px;
+    margin-bottom: 50px;
+}
+/* End of Car Sourcing Page */
 
 
 /* Footer */
