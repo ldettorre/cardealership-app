@@ -200,8 +200,7 @@ h1, h2, h3, h4, h5, p, a, button, i {
     overflow:hidden;
     padding-bottom:40%;
     position:relative;
-    height:0;
-    margin-left:25px;
+    min-height:300px;
 }
 .map-responsive iframe{
     left:0;
@@ -423,6 +422,32 @@ h1, h2, h3, h4, h5, p, a, button, i {
     color: rgb(138, 138, 138);
 }
 /* End of Used Vehicles */
+
+/* Contact Form Page */
+
+.contact-form-banner  {
+    background-image:linear-gradient(to bottom,black 0%,grey 100%),url("/static/images/landing-image3.jpg");
+    background-blend-mode:multiply;
+    background-size:cover;
+    background-position:center;
+    width:100%;
+    height:230px;
+    margin-bottom: 50px;
+}
+
+.contact-page-map {
+    overflow:hidden;
+    padding-bottom:30px;
+}
+
+.contact-page-map iframe{
+    left:0;
+    top:0;
+    width:100%;
+    min-height:400px;
+}
+
+/* End of Contact Form Page */
 
 
 /* Footer */

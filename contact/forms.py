@@ -18,7 +18,7 @@ class EmailSubscriberForm(forms.ModelForm):
         fields =  fields = '__all__'
         exclude = ['subscription_start_date']
         widgets = {
-            'name': forms.TextInput(attrs={'placeholder': 'Name', 'label':"" }),
+            'name': forms.TextInput(attrs={'placeholder': 'Name'}),
             'email': forms.TextInput(attrs={'placeholder': 'Email'})
         }
 
