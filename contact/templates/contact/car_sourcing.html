@@ -7,7 +7,7 @@
 </div>
 <div class="container">
     <div class="row">
-        <div class="col-md-3 col-sm-12">
+        <div class="col-md-3 col-sm-12 left-sidebar">
             <a href="/contact"><div class="car-sourcing-div">
                 <p class="car-sourcing-text">Contact Us</p>
             </div></a>
@@ -21,8 +21,7 @@
             <p class="car-sourcing-blurb">Should we not have the exact model that suits your requirements in stock, feel free to enquire about our Car Sourcing service. This is a service we have been offering since day that comes with zero obligation to purchase or any down payment. After we discuss and understand your perfect match, we will then reach out to our vast list of contacts throughout Ireland and the U.K. to find <b> the one</b>. Once found, we will then use our buying power to secure the best deal for both purchasing and transportation to your location. All you have to do is sit back, relax and wait for the good news!
             </p>
         </div>
-        <div class="">
-            <form class="offset-md-3 row" action="{% url 'car_sourcing' %}" method="POST">
+            <form class="offset-md-3 row mb-3" action="{% url 'car_sourcing' %}" method="POST">
                 {% csrf_token %} 
             <div class="col-sm-6">{{ form.name|as_crispy_field }}</div>
             <div class="col-sm-6">{{ form.email|as_crispy_field }}</div>
@@ -35,10 +34,8 @@
             <div class="col-sm-6">{{ form.fuel|as_crispy_field }}</div>
             <div class="col-sm-6">{{ form.phone_number|as_crispy_field }}</div>
             <div class="col-sm-12">{{ form.additional_information|as_crispy_field }}</div>
-            <div class="col-sm-12">{{ form.gdpr_agreement|as_crispy_field }}</div>
-                <button type="submit" class="btn btn-info col-sm-4">Submit</button>
+                <button type="submit" class="btn subscribe-btn col-sm-4">Submit</button>
             </form>
-        </div>
     </div>
 {% if messages %}
     {% for message in messages %}

@@ -1,4 +1,4 @@
-{% extends 'base.html' %} {% load static %} {% block content %}
+{% extends 'base.html' %} {% load static %} {% load crispy_forms_tags %} {% block content %}
 
 
 <!-- Carousel -->
@@ -249,10 +249,10 @@
     <p>Fancy knowing when our newest stock rolls in? Or would like to stay up to date when we post a review? Then subscribe below for all the latest news!</p>
       <form action="{% url 'subscribe' %}" method="POST">
         <div class="form-group  subscribe-form">
-          {% csrf_token %} {{ form }}
+          {% csrf_token %} {{ form|crispy }}
         </div>
         <div class="form-group  subscribe-form">
-          <button type="submit" class="btn btn-block subscribe-btn"><b>Submit</b></button>
+          <button type="submit" class="btn btn-block subscribe-btn col-sm-5"><b>Submit</b></button>
         </div>
       </form>
     </div>

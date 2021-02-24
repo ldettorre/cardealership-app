@@ -4,7 +4,7 @@ from .models import BlogPost
 
 def blog(request):
     blogposts = BlogPost.objects.all()
-    blogposts = blogposts.filter(is_published=True)
+    blogposts = blogposts.filter(is_published=True).order_by('published_date')
     return render(request, 'blog/blog.html', {"blogposts":blogposts})
     
 

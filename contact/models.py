@@ -33,7 +33,6 @@ class CarSourcing(models.Model):
     condition = models.CharField(max_length=100,blank=True, choices = CONDITION_CHOICES)
     fuel = models.CharField(max_length=100, choices = FUEL_CHOICES)
     additional_information = models.TextField(max_length=250)
-    gdpr_agreement = models.BooleanField()
     submission_date = models.DateTimeField(blank=True, null=True, default=timezone.now)
 
     def __str__(self):
