@@ -46,12 +46,14 @@ INSTALLED_APPS = [
     'home',
     'vehicles',
     'contact',
-    'django_forms_bootstrap',
     'storages',
     'blog',
     'ckeditor',
+    'crispy_forms',
 
 ]
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
