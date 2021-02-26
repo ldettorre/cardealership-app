@@ -47,7 +47,6 @@ INSTALLED_APPS = [
     'vehicles',
     'contact',
     'storages',
-    'blog',
     'ckeditor',
     'crispy_forms',
 
