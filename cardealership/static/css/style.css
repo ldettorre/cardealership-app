@@ -369,7 +369,7 @@ h1, h2, h3, h4, h5, p, a, button, i {
 .vehicles-opening-div {
     text-align:center;
     color:white;
-    margin-top:17px;
+    margin:17px 0 17px 0;
     padding:17px 0 17px 0;
     height:80px;
     font-weight:bold;
@@ -393,20 +393,23 @@ h1, h2, h3, h4, h5, p, a, button, i {
     height: min-content;
 }
 
-.car-width {
-    max-width:100%;
-}
-
-.x {
+.vehicle-card-img {
     max-width: 100%;
     height: auto;
+    padding: 10px;
 }
-.details-card {
+
+.vehicle-card {
     background-color:rgba(245, 245, 245, 0.897);
     margin-bottom: 25px;
     padding: 10px;
-    max-height:280px;
-    
+}
+
+.vehicle-card-details{
+}
+
+.vehicle-card-desc {
+    padding-top:10px;
 }
 
 .details-card:hover {
@@ -421,6 +424,7 @@ h1, h2, h3, h4, h5, p, a, button, i {
 .page-link {
     color: rgb(138, 138, 138);
 }
+
 /* End of Used Vehicles */
 
 /* Contact Form Page */

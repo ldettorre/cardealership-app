@@ -111,20 +111,26 @@
         <div class="col-md-9 col-sm-12">
     {% if carmodels %}
         {% for carmodel in carmodels %}
-            <div class="row no-gutters details-card">
-            <div class="col-md-6 col-sm-12">
-                <h3>{{ carmodel.title }}</h3>
-                <div class="mb-1 text-muted">
-                {{ carmodel.make }} {{ carmodel.model }}
+            <div class="row no-gutters vehicle-card">
+                <div class="col-sm-12">
+                    <h3>{{ carmodel.title}}</h3>
                 </div>
-                <p>{{ carmodel.title }}</p>
-                <p>Engine Size: {{ carmodel.engine_size }}</p>
-                <p>Price: €{{ carmodel.price | intcomma }}</p>
-                <a href="{% url 'carmodel' carmodel.id %}" class="btn btn-default">View more</a>
-            </div>
-            <div class="col-sm-6">
-                <img class="x"src="{{ carmodel.photo_main.url }}" />
-            </div>
+                <div class="col-md-6 col-sm-12">
+                    <img class="vehicle-card-img"src="{{ carmodel.photo_main.url }}" />
+                </div>
+                <div class="col-md-6 col-sm-12 vehicle-card-details">
+                    <h3>{{ carmodel.title }}</h3>
+                    <div class="mb-1 text-muted">
+                    {{ carmodel.make }} {{ carmodel.model }}
+                    </div>
+                    <p>{{ carmodel.title }}</p>
+                    <p>Engine Size: {{ carmodel.engine_size }}</p>
+                    <p>Price: €{{ carmodel.price | intcomma }}</p>
+                    <a href="{% url 'carmodel' carmodel.id %}" class="btn btn-default">View more</a>
+                </div>
+                <div class="col-sm-12">
+                    <p class="vehicle-card-desc">{{ carmodel.description|truncatewords:20 }}</p>
+                </div>
             </div>
         
         {% endfor %}
