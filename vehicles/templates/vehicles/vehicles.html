@@ -119,28 +119,28 @@
                 <div class="col-sm-6 text-right">
                     <p>€{{ carmodel.price|intcomma }}</p>
                 </div>
-                <div class="col-md-6 col-sm-12">
+                <div class="col-lg-8 col-md-12 col-sm-12">
                     <img class="vehicle-card-img"src="{{ carmodel.photo_main.url }}" />
                 </div>
-                <div class="col-md-6 col-sm-12 vehicle-card-details">
+                <div class="col-lg-4 col-md-12 col-sm-12 vehicle-card-details">
                     <ul class="vehicle-features-group">
-                        <li><i class="fa fa-car"></i> <b> Body : </b> {{ carmodel.body_type }} </li>
-                        <li><i class="fa fa-road"></i><b> Mil : </b> {{ carmodel.kilometers }} Kms</li>
-                        <li><i class="fa fa-tachometer"></i><b> Engine Size: </b> {{ carmodel.engine_size }}L</li>
-                        <li><i class="fa fa-calendar"></i><b> Year: </b> {{ carmodel.year }}</li>
-                        <li><i class="fa fa-tint"></i><b> Color: </b> {{ carmodel.color }}</li>
+                        <li><i class="fa fa-car"></i> Body :  {{ carmodel.body_type }} </li>
+                        <li><i class="fa fa-road"></i>Mil :  {{ carmodel.kilometers|intcomma }} Kms</li>
+                        <li><i class="fa fa-tachometer"></i>Engine:  {{ carmodel.engine_size }}L</li>
+                        <li><i class="fa fa-calendar"></i>Year:  {{ carmodel.year }}</li>
+                        <li><i class="fa fa-tint"></i>Color:  {{ carmodel.color }}</li>
                     </ul>
                     <ul class="vehicle-features-group">
-                        <li><i class="fa fa-cogs"></i><b> Trans:</b> {{ carmodel.transmission }}</li>
-                        <li><i class="fa fa-car"></i><b> Fuel:</b> {{ carmodel.fuel }}</li>
+                        <li><i class="fa fa-cogs"></i>Trans: {{ carmodel.transmission }}</li>
+                        <li><i class="fa fa-car"></i>Fuel: {{ carmodel.fuel }}</li>
                         <li><i class="fa fa-users"></i><b> Owners:</b> {{ carmodel.owners }}</li>
                         <li><i class="fa fa-clipboard"></i><b> NCT Due :</b> {{ carmodel.nct_due_Date }}</li>
                     </ul>
                 </div>
-                <div class="col-sm-6">
+                <div class="col-sm-12">
                     <p class="vehicle-card-desc">{{ carmodel.description|truncatewords:20 }}</p>
                 </div>
-                <div class="col-sm-6">
+                <div class="col-sm-12">
                     <a href="{% url 'carmodel' carmodel.id %}" class="btn btn-default">View more</a>
                 </div>
             </div>

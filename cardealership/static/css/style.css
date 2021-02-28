@@ -413,7 +413,7 @@ h1, h2, h3, h4, h5, p, a, button, i {
 
 .vehicle-card-details {
     display: flex;
-    justify-content: left;
+    justify-content:baseline;
     align-items: flex-start;
     flex-grow: 1;
     flex-wrap: wrap;
@@ -423,6 +423,7 @@ h1, h2, h3, h4, h5, p, a, button, i {
     display: flex;
     align-items: center;
     margin-bottom: .7rem;
+    font-size: 1em;
 }
 
 i {
@@ -444,6 +445,15 @@ i {
 
 .page-link {
     color: rgb(138, 138, 138);
+}
+
+@media (max-width: 768px){
+    .vehicle-card-details li {
+        display: flex;
+        align-items: center;
+        margin-bottom: .7rem;
+        font-size: 14px;
+    }
 }
 
 /* End of Used Vehicles */
