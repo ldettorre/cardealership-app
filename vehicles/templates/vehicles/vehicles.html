@@ -1,4 +1,4 @@
-{% extends 'base.html' %} {% load humanize %} {% block content %}
+{% extends 'base.html' %} {% load static %} {% load humanize %} {% block content %}
 
 <div class="col-sm-12 text-center vehicles-banner">
     <h1 class="banner-text">Our Listings</h1>
@@ -112,24 +112,36 @@
     {% if carmodels %}
         {% for carmodel in carmodels %}
             <div class="row no-gutters vehicle-card">
-                <div class="col-sm-12">
-                    <h3>{{ carmodel.title}}</h3>
+                <div class="col-sm-6">
+                    <h3>{{ carmodel.year }} {{ carmodel.make }} {{ carmodel.model }}</h3>
+                    <h5>{{ carmodel.title }}</h5>
+                </div>
+                <div class="col-sm-6 text-right">
+                    <p>€{{ carmodel.price|intcomma }}</p>
                 </div>
                 <div class="col-md-6 col-sm-12">
                     <img class="vehicle-card-img"src="{{ carmodel.photo_main.url }}" />
                 </div>
                 <div class="col-md-6 col-sm-12 vehicle-card-details">
-                    <h3>{{ carmodel.title }}</h3>
-                    <div class="mb-1 text-muted">
-                    {{ carmodel.make }} {{ carmodel.model }}
-                    </div>
-                    <p>{{ carmodel.title }}</p>
-                    <p>Engine Size: {{ carmodel.engine_size }}</p>
-                    <p>Price: €{{ carmodel.price | intcomma }}</p>
-                    <a href="{% url 'carmodel' carmodel.id %}" class="btn btn-default">View more</a>
+                    <ul class="vehicle-features-group">
+                        <li><i class="fa fa-car"></i> <b> Body : </b> {{ carmodel.body_type }} </li>
+                        <li><i class="fa fa-road"></i><b> Mil : </b> {{ carmodel.kilometers }} Kms</li>
+                        <li><i class="fa fa-tachometer"></i><b> Engine Size: </b> {{ carmodel.engine_size }}L</li>
+                        <li><i class="fa fa-calendar"></i><b> Year: </b> {{ carmodel.year }}</li>
+                        <li><i class="fa fa-tint"></i><b> Color: </b> {{ carmodel.color }}</li>
+                    </ul>
+                    <ul class="vehicle-features-group">
+                        <li><i class="fa fa-cogs"></i><b> Trans:</b> {{ carmodel.transmission }}</li>
+                        <li><i class="fa fa-car"></i><b> Fuel:</b> {{ carmodel.fuel }}</li>
+                        <li><i class="fa fa-users"></i><b> Owners:</b> {{ carmodel.owners }}</li>
+                        <li><i class="fa fa-clipboard"></i><b> NCT Due :</b> {{ carmodel.nct_due_Date }}</li>
+                    </ul>
                 </div>
-                <div class="col-sm-12">
+                <div class="col-sm-6">
                     <p class="vehicle-card-desc">{{ carmodel.description|truncatewords:20 }}</p>
+                </div>
+                <div class="col-sm-6">
+                    <a href="{% url 'carmodel' carmodel.id %}" class="btn btn-default">View more</a>
                 </div>
             </div>
         

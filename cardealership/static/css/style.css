@@ -384,7 +384,6 @@ h1, h2, h3, h4, h5, p, a, button, i {
     text-align:center;
     color:white;
     padding:17px 0 17px 0;
-    height:80px;
     font-weight:bold;
     font-size:18px;
     background-image:linear-gradient(to bottom,black 0%,grey 100%),url("/static/images/landing-image2.jpg");
@@ -396,7 +395,7 @@ h1, h2, h3, h4, h5, p, a, button, i {
 .vehicle-card-img {
     max-width: 100%;
     height: auto;
-    padding: 10px;
+    padding-right:10px;
 }
 
 .vehicle-card {
@@ -405,14 +404,36 @@ h1, h2, h3, h4, h5, p, a, button, i {
     padding: 10px;
 }
 
-.vehicle-card-details{
+.vehicle-features-group {
+    list-style: none;
+    float:left;
+    padding-left:0;
+    margin: 0 20px;
+}
+
+.vehicle-card-details {
+    display: flex;
+    justify-content: left;
+    align-items: flex-start;
+    flex-grow: 1;
+    flex-wrap: wrap;
+}
+
+.vehicle-card-details li {
+    display: flex;
+    align-items: center;
+    margin-bottom: .7rem;
+}
+
+i {
+    margin-right:5px;
 }
 
 .vehicle-card-desc {
     padding-top:10px;
 }
 
-.details-card:hover {
+.vehicle-card:hover {
     box-shadow: 3px 3px 5px 6px #ccc;
 }
 
