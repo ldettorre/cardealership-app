@@ -140,9 +140,7 @@
                 <div class="col-sm-12">
                     <p class="vehicle-card-desc">{{ carmodel.description|truncatewords:20 }}</p>
                 </div>
-                <div class="col-sm-12">
-                    <a href="{% url 'carmodel' carmodel.id %}" class="btn btn-default">View more</a>
-                </div>
+                <a href="{% url 'carmodel' carmodel.id %}" class="btn btn-default">View more</a>
             </div>
         
         {% endfor %}

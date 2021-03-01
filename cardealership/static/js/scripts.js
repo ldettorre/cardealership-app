@@ -1,7 +1,27 @@
 // Notes
 // The terms 'reset/resetting' used in comments refers to combined use of the removeChilds() and add_option() function. 
 // Together, these effectively remove the options from a field and then create a single default option with a value of "" and text "Any".
+$(document).ready(function(){
 
+    $('.slider-for').slick({
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        fade: true,
+        autoplay: true,
+        autoplaySpeed: 2000,
+        asNavFor: '.slider-nav'
+      });
+
+      $('.slider-nav').slick({
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        asNavFor: '.slider-for',
+        dots: true,
+        centerMode: true,
+        focusOnSelect: true
+      });
+  });
+  
 window.onload = function () {
     let selector = document.querySelector("#carmake");
     selector.addEventListener('change', function () {
@@ -136,4 +156,4 @@ engineSizeMax.addEventListener('change', function () {
     $("#engine_size_min").val(engineSizeMax.value)
 })
 
-  
+

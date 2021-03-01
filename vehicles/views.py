@@ -3,6 +3,7 @@ from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 from .models import CarModel, CarMake
 
 
+
 def carmodels(request):
     carmodels = CarModel.objects.order_by("-price").filter(published=True)
     carmakes = CarMake.objects.all()

@@ -458,6 +458,32 @@ i {
 
 /* End of Used Vehicles */
 
+/* Single Vehicle Page */
+
+.top-row {
+    margin-top:10px;
+}
+
+.slider-img {
+    max-width: 100%;
+    height:auto;
+}
+
+.slider-nav {
+    margin-top:10px;
+}
+
+.slider-thumbnail {
+    width: 90%;
+    display: block;
+    height:100px;
+}
+
+th, td {
+    border: 2px solid #eeeeee;
+}
+/* End of Single Vehicle Page */
+
 /* Contact Form Page */
 
 .contact-form-banner  {

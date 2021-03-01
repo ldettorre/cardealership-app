@@ -1,26 +1,113 @@
 {% extends 'base.html' %} 
-
+{% load static %}
 {% load humanize %}
 
 {% block content %}
 
-<h1 class="blue-text">You are currently viewing the {{ carmodel.title }} .</h1>
-<div class="row mb-2">
-        <div class="col-md-6">
-          <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-            <div class="col p-4 d-flex flex-column position-static">
-              <h3 class="mb-0">{{ carmodel.title }}</h3>
-              <div class="mb-1 text-muted">{{ carmodel.make }} {{ carmodel.model }}</div>
-              <p class="card-text mb-auto"> {{ carmodel.title }} </p>
-              <a href="#" class="stretched-link">€ {{ carmodel.price | intcomma }}</a>
-            </div>
-            <div class="col-auto d-none d-lg-block">
-              <img width="200" height="250" src="{{ carmodel.photo_main.url }}" >
-            </div>
-          </div>
-        </div>  
+<div class="container">
+  <div class="row top-row">
+    <div class="col-sm-6">
+      <h2>2019 Lamborghini AVENTADOR</h2>
+    </div>
+    <div class="col-sm-6 text-right">
+      <h2>€ 400,000</h2>
+    </div>
+    <div class="col-sm-12">
+      <p>Lamborghini AVENTADOR</p>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col-md-9">
+      <div class="slider slider-for">
+        <div><img src="{{ carmodel.photo_1.url }}" class="slider-img"></div>
+        <div><img src="{{ carmodel.photo_2.url }}" class="slider-img"></div>
+        <div><img src="{{ carmodel.photo_1.url }}" class="slider-img"></div>
+        <div><img src="{{ carmodel.photo_2.url }}" class="slider-img"></div>
+        <div><img src="{{ carmodel.photo_1.url }}" class="slider-img"></div>
+        <div><img src="{{ carmodel.photo_2.url }}" class="slider-img"></div>
+        <div><img src="{{ carmodel.photo_1.url }}" class="slider-img"></div>
+        <div><img src="{{ carmodel.photo_2.url }}" class="slider-img"></div>
+        <div><img src="{{ carmodel.photo_1.url }}" class="slider-img"></div>
+        <div><img src="{{ carmodel.photo_2.url }}" class="slider-img"></div>
+      </div>
+      <div class="slider slider-nav">
+        <div><img src="{{ carmodel.photo_1.url }}" class="slider-thumbnail"></div>
+        <div><img src="{{ carmodel.photo_2.url }}" class="slider-thumbnail"></div>
+        <div><img src="{{ carmodel.photo_1.url }}" class="slider-thumbnail"></div>
+        <div><img src="{{ carmodel.photo_2.url }}" class="slider-thumbnail"></div>
+        <div><img src="{{ carmodel.photo_1.url }}" class="slider-thumbnail"></div>
+        <div><img src="{{ carmodel.photo_2.url }}" class="slider-thumbnail"></div>
+        <div><img src="{{ carmodel.photo_1.url }}" class="slider-thumbnail"></div>
+        <div><img src="{{ carmodel.photo_2.url }}" class="slider-thumbnail"></div>
+        <div><img src="{{ carmodel.photo_1.url }}" class="slider-thumbnail"></div>
+        <div><img src="{{ carmodel.photo_2.url }}" class="slider-thumbnail"></div>
+      </div>
+    </div>
+
+    <div class="col-md-3">
+      <table class="table table-striped">
+        <tbody>
+          <tr>
+            <th><b>Make:</b></th>
+            <td>{{ carmodel.make }}</td>
+          </tr>
+          <tr>
+            <th><b>Model:</b></th>
+            <td>{{ carmodel.model }}</td>
+          </tr>
+          <tr>
+            <th><b>Year:</b></th>
+            <td>{{ carmodel.year }}</td>
+          </tr>
+          <tr>
+            <th><b>Condition:</b></th>
+            <td>{{ carmodel.condition }}</td>
+          </tr>
+          <tr>
+            <th><b>Colour:</b></th>
+            <td>{{ carmodel.color }}</td>
+          </tr>
+          <tr>
+            <th><b>Mileage:</b></th>
+            <td>{{ carmodel.kilometers }}</td>
+          </tr>
+          <tr>
+            <th><b>Fuel:</b></th>
+            <td>{{ carmodel.fuel }}</td>
+          </tr>
+          <tr>
+            <th><b>Engine Size:</b></th>
+            <td>{{ carmodel.engine_size }}L</td>
+          </tr>
+
+          <tr>
+            <th><b>Body Type:</b></th>
+            <td>{{ carmodel.body_type }}</td>
+          </tr>
+          <tr>
+            <th><b>Owners:</b></th>
+            <td>{{ carmodel.owners }}</td>
+          </tr>
+          <tr>
+            <th><b>Transmission:</b></th>
+            <td>{{ carmodel.transmission }}</td>
+          </tr>
+          <tr>
+            <th><b>NCT Due Date:</b></th>
+            <td>{{ carmodel.nct_due_date }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-8">
+      <p>{{ carmodel.description }}</p>
+    </div>
+  </div>
+
 </div>
 
-    
 
 {% endblock %}
