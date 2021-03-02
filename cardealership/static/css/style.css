@@ -482,6 +482,14 @@ i {
 th, td {
     border: 2px solid #eeeeee;
 }
+
+.td-mileage {
+    padding-right: 0 !important;
+}
+
+.table {
+    font-size:14px;
+}
 /* End of Single Vehicle Page */
 
 /* Contact Form Page */

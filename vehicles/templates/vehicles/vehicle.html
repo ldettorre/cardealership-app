@@ -1,19 +1,19 @@
 {% extends 'base.html' %} 
 {% load static %}
 {% load humanize %}
-
+{% load mathfilters %}
 {% block content %}
 
 <div class="container">
-  <div class="row top-row">
+  <div class="row no-gutters top-row">
     <div class="col-sm-6">
-      <h2>2019 Lamborghini AVENTADOR</h2>
+      <h2> {{ carmodel.year }} {{ carmodel.make }} {{ carmodel.model }}</h2>
     </div>
     <div class="col-sm-6 text-right">
-      <h2>€ 400,000</h2>
+      <h2>€{{ carmodel.price|intcomma }}</h2>
     </div>
     <div class="col-sm-12">
-      <p>Lamborghini AVENTADOR</p>
+      <p>{{ carmodel.title }}</p>
     </div>
   </div>
   
@@ -70,7 +70,7 @@
           </tr>
           <tr>
             <th><b>Mileage:</b></th>
-            <td>{{ carmodel.kilometers }}</td>
+            <td class="td-mileage">{{ carmodel.kilometers|intcomma }} kms, {{ carmodel.kilometers|div:1.6|intcomma }} miles </td>
           </tr>
           <tr>
             <th><b>Fuel:</b></th>
@@ -103,11 +103,13 @@
   </div>
   <div class="row">
     <div class="col-md-8">
+      <h3>Description:</h3>
       <p>{{ carmodel.description }}</p>
     </div>
   </div>
 
 </div>
+
 
 
 {% endblock %}

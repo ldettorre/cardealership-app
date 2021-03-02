@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'storages',
     'ckeditor',
     'crispy_forms',
+    'mathfilters',
 
 ]
 
