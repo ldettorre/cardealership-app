@@ -238,6 +238,12 @@ h1, h2, h3, h4, h5, p, a, button, i {
     } 
 }
 
+@media (max-width: 991px){
+    .subscribe-form {
+        width:100%;
+    }
+}
+
 /* End of Index Page */
 
 
@@ -506,6 +512,11 @@ th, td {
 
 .contact-blurb {
     width:65%;
+    background: #eeeeee;
+}
+
+.contact-form {
+    width:80%;
     background: #eeeeee;
 }
 

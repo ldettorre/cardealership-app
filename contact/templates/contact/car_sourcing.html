@@ -21,22 +21,28 @@
             <p class="car-sourcing-title"><b>Source That</b> <span>Special One</span></p>
             <p class="car-sourcing-blurb">Should we not have the exact model that suits your requirements in stock, feel free to enquire about our Car Sourcing service. This is a service we have been offering since day that comes with zero obligation to purchase or any down payment. After we discuss and understand your perfect match, we will then reach out to our vast list of contacts throughout Ireland and the U.K. to find <b> the one</b>. Once found, we will then use our buying power to secure the best deal for both purchasing and transportation to your location. All you have to do is sit back, relax and wait for the good news!
             </p>
-        </div>
-            <form class="offset-md-3 row mb-3" action="{% url 'car_sourcing' %}" method="POST">
+        
+        <div class="mb-3">
+            <form action="{% url 'car_sourcing' %}" method="POST">
                 {% csrf_token %} 
-            <div class="col-sm-6">{{ form.name|as_crispy_field }}</div>
-            <div class="col-sm-6">{{ form.email|as_crispy_field }}</div>
-            <div class="col-sm-6">{{ form.make|as_crispy_field }}</div>
-            <div class="col-sm-6">{{ form.model|as_crispy_field }}</div>
-            <div class="col-sm-6">{{ form.year|as_crispy_field }}</div>
-            <div class="col-sm-6">{{ form.variant|as_crispy_field }}</div>
-            <div class="col-sm-6">{{ form.transmission|as_crispy_field }}</div>
-            <div class="col-sm-6">{{ form.condition|as_crispy_field }}</div>
-            <div class="col-sm-6">{{ form.fuel|as_crispy_field }}</div>
-            <div class="col-sm-6">{{ form.phone_number|as_crispy_field }}</div>
-            <div class="col-sm-12">{{ form.additional_information|as_crispy_field }}</div>
-                <button type="submit" class="btn subscribe-btn col-sm-4">Submit</button>
+                <div class="row">
+                    <div class="col-md-6 col-sm-12">{{ form.name|as_crispy_field }}</div>
+                    <div class="col-md-6 col-sm-12">{{ form.email|as_crispy_field }}</div>
+                    <div class="col-md-6 col-sm-12">{{ form.make|as_crispy_field }}</div>
+                    <div class="col-md-6 col-sm-12">{{ form.model|as_crispy_field }}</div>
+                    <div class="col-md-6 col-sm-12">{{ form.year|as_crispy_field }}</div>
+                    <div class="col-md-6 col-sm-12">{{ form.variant|as_crispy_field }}</div>
+                    <div class="col-md-6 col-sm-12">{{ form.transmission|as_crispy_field }}</div>
+                    <div class="col-md-6 col-sm-12">{{ form.condition|as_crispy_field }}</div>
+                    <div class="col-md-6 col-sm-12">{{ form.fuel|as_crispy_field }}</div>
+                    <div class="col-md-6 col-sm-12">{{ form.phone_number|as_crispy_field }}</div>
+                    <div class="col-md-12 col-sm-12">{{ form.additional_information|as_crispy_field }}</div>
+                    <button type="submit" class="btn subscribe-btn col-sm-4">Submit</button>
+                </div>
             </form>
+            </form>
+        </div>
+    </div>
     </div>
 {% if messages %}
     {% for message in messages %}
