@@ -470,13 +470,14 @@ i {
     margin-top:10px;
 }
 
-.slider-img {
-    max-width: 100%;
-    height:auto;
+.slick-slide img {
+    width:100%;
+    padding:2px;
 }
 
 .slider-nav {
     margin-top:10px;
+    width:100%;
 }
 
 .slider-thumbnail {
