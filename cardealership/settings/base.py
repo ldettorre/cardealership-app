@@ -28,7 +28,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent.parent
 SECRET_KEY = 'y&y1ip#nnuyj7_!j*dvkm@*-%%hc*#!_k5+$fq*kg5a)jz#im-'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = config("DEBUG")
+DEBUG = config("DEBUG", False)
 
 ALLOWED_HOSTS = ['cardealership-ireland.herokuapp.com','127.0.0.1']
 

@@ -4,6 +4,7 @@ from django.contrib import messages
 from cardealership.settings.base import EMAIL_HOST_USER
 from django.core.mail import send_mail
 from .models import EmailSubscriber
+from decouple import config
 
 
 
@@ -15,6 +16,14 @@ def contact_form(request):
         form = ContactForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
+            person = request.POST['name']
+            phone_number = request.POST['phone_number']
+            email = request.POST['email']
+            submitted_message = request.POST['message']
+            subject = 'You have a new contact submission'
+            message = 'Hi, you received a new message from '+ person + '. '+'Please contact them via ' + phone_number + ' or ' + email + ' about the following message: ' + submitted_message 
+            recipient = config('EMAIL_ADDRESS')
+            send_mail(subject, message, EMAIL_HOST_USER, [recipient], fail_silently=False)
             return redirect("contact_form")
         else:
             messages.error(
