@@ -1,6 +1,15 @@
-{% extends 'base.html' %} {% load crispy_forms_tags %} {% block content %}
+{% extends 'base.html' %} {% load crispy_forms_tags %} {% load static %} {% block content %}
 
-<h1>Success!</h1>
-<p>You've subscribed!</p>
+<div class="container">
+    <div class="col-sm-12 text-center">
+        <div class="card success-card">
+            <div class="success-checkmark">
+            <i class="checkmark">✓</i>
+            </div>
+            <h1 class="success-title">Success</h1> 
+            <p class="success-blurb">We received your submission and<br/> will be in touch shortly!</p>
+        </div>
+    </div>
+</div>
 
 {% endblock %}
