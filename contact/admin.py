@@ -24,6 +24,7 @@ class ContactAdmin(admin.ModelAdmin):
 
 class CarSourcingAdmin(admin.ModelAdmin):
     list_display = ('name', 'phone_number', 'email', 'submission_date')
+    actions = [export_emails]
 
 class EmailSubscriberAdmin(admin.ModelAdmin):
     list_display = ('name', 'email', 'subscription_start_date')

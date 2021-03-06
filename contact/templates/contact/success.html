@@ -1,13 +1,15 @@
 {% extends 'base.html' %} {% load crispy_forms_tags %} {% load static %} {% block content %}
 
 <div class="container">
-    <div class="col-sm-12 text-center">
-        <div class="card success-card">
-            <div class="success-checkmark">
-            <i class="checkmark">✓</i>
+    <div class="row">
+        <div class="col-md-8 col-sm-8 ml-auto mr-auto text-center">
+            <div class="card success-card">
+                <div class="success-checkmark">
+                <i class="checkmark">✓</i>
+                </div>
+                <h1 class="success-title">Success</h1> 
+                <p class="success-blurb"> {{ confirmation_message|linebreaksbr }} </p>
             </div>
-            <h1 class="success-title">Success</h1> 
-            <p class="success-blurb">We received your submission and<br/> will be in touch shortly!</p>
         </div>
     </div>
 </div>
