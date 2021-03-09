@@ -5,25 +5,7 @@ from .models import CarModel, CarMake
 
 
 def carmodels(request):
-    carmodels = CarModel.objects.order_by("-price").filter(published=True)
-    carmakes = CarMake.objects.all()
-    paginator = Paginator(carmodels, 10)
-    page = request.GET.get('page')
-    paged_vehicles = paginator.get_page(page)
-    context = {
-        "carmodels": paged_vehicles,
-        "carmakes": carmakes,
-    }
-    return render(request, 'vehicles/vehicles.html', context)
-
-
-def carmodel(request, carmodel_id):
-    carmodel = get_object_or_404(CarModel, id=carmodel_id)
-    return render(request, 'vehicles/vehicle.html', {"carmodel": carmodel})
-
-
-def search(request):
-    carmodels = CarModel.objects.all()
+    carmodels = CarModel.objects.order_by("model").filter(published=True)
     carmakes = CarMake.objects.all()
 
     # Filter cars by make
@@ -31,6 +13,7 @@ def search(request):
         make = request.POST["carmake"]
         if make:
             carmodels = carmodels.filter(make__name=make)
+
     # Filter cars by model
     if 'carmodel' in request.POST:
         model = request.POST["carmodel"]
@@ -52,7 +35,7 @@ def search(request):
         price_max = request.POST["price_max"]
         if price_max == "":
             price_max = 999999
-        carmodels = carmodels.filter(price__range=(price_min, price_max))
+            carmodels = carmodels.filter(price__range=(price_min, price_max))
 
     # Filter cars by fuel type
     if 'fuel' in request.POST:
@@ -65,20 +48,7 @@ def search(request):
         transmission = request.POST["transmission"]
         if transmission:
             carmodels = carmodels.filter(transmission=transmission)
-
-    # Filter cars by engine size
-    if 'engine_size_min' in request.POST:
-        engine_size_min = request.POST["engine_size_min"]
-        if engine_size_min == "":
-            engine_size_min = 0.0
-    if 'engine_size_max' in request.POST:
-        engine_size_max = request.POST["engine_size_max"]
-        if engine_size_max == "":
-            engine_size_max = 10.0
-        carmodels = carmodels.filter(
-            engine_size__range=(engine_size_min, engine_size_max))
-
-    paginator = Paginator(carmodels, 3)
+    paginator = Paginator(carmodels, 1)
     page = request.GET.get('page')
     paged_vehicles = paginator.get_page(page)
     context = {
@@ -86,6 +56,13 @@ def search(request):
         "carmakes": carmakes,
     }
     return render(request, 'vehicles/vehicles.html', context)
+
+
+def carmodel(request, carmodel_id):
+    carmodel = get_object_or_404(CarModel, id=carmodel_id)
+    return render(request, 'vehicles/vehicle.html', {"carmodel": carmodel})
+
+
 
 def ajax_handler_carmake(request, name):
     carMakeName = name

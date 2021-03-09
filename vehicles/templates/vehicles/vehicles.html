@@ -12,7 +12,7 @@
             </div></a>
             <div class="search-div">
                 <p class="search-title">Find Your Dream Car</p>
-                <form action="search" method="POST">
+                <form action="{% url 'carmodels' %}" method="POST">
                 {% csrf_token %}
             
                 <div class="form-group">
@@ -124,17 +124,17 @@
                 </div>
                 <div class="col-lg-4 col-md-12 col-sm-12 vehicle-card-details">
                     <ul class="vehicle-features-group">
-                        <li><i class="fa fa-car"></i> Body :  {{ carmodel.body_type }} </li>
-                        <li><i class="fa fa-road"></i>Mil :  {{ carmodel.kilometers|intcomma }} Kms</li>
+                        <li><i class="fa fa-car"></i> Body:  {{ carmodel.body_type }} </li>
+                        <li><i class="fa fa-road"></i>Mil:  {{ carmodel.kilometers|intcomma }} Kms</li>
                         <li><i class="fa fa-tachometer"></i>Engine:  {{ carmodel.engine_size }}L</li>
                         <li><i class="fa fa-calendar"></i>Year:  {{ carmodel.year }}</li>
                         <li><i class="fa fa-tint"></i>Color:  {{ carmodel.color }}</li>
                     </ul>
                     <ul class="vehicle-features-group">
-                        <li><i class="fa fa-cogs"></i>Trans: {{ carmodel.transmission }}</li>
-                        <li><i class="fa fa-car"></i>Fuel: {{ carmodel.fuel }}</li>
-                        <li><i class="fa fa-users"></i><b> Owners:</b> {{ carmodel.owners }}</li>
-                        <li><i class="fa fa-clipboard"></i><b> NCT Due :</b> {{ carmodel.nct_due_Date }}</li>
+                        <li><i class="fa fa-cogs"></i>Trans:  {{ carmodel.transmission }}</li>
+                        <li><i class="fa fa-car"></i>Fuel:  {{ carmodel.fuel }}</li>
+                        <li><i class="fa fa-users"></i> Owners:  {{ carmodel.owners }}</li>
+                        <li><i class="fa fa-clipboard"></i> NCT Due:  {{ carmodel.nct_due_Date }}</li>
                     </ul>
                 </div>
                 <div class="col-sm-12">
