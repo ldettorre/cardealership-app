@@ -31,11 +31,12 @@ def carmodels(request):
         price_min = request.POST["price_min"]
         if price_min == "":
             price_min = 0
+
     if 'price_max' in request.POST:
         price_max = request.POST["price_max"]
         if price_max == "":
             price_max = 999999
-            carmodels = carmodels.filter(price__range=(price_min, price_max))
+        carmodels = carmodels.filter(price__range=(price_min, price_max))
 
     # Filter cars by fuel type
     if 'fuel' in request.POST:
@@ -48,7 +49,8 @@ def carmodels(request):
         transmission = request.POST["transmission"]
         if transmission:
             carmodels = carmodels.filter(transmission=transmission)
-    paginator = Paginator(carmodels, 1)
+
+    paginator = Paginator(carmodels, 3)
     page = request.GET.get('page')
     paged_vehicles = paginator.get_page(page)
     context = {

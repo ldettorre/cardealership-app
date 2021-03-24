@@ -372,6 +372,9 @@ h1, h2, h3, h4, h5, p, a, button, i {
     font-size: 16px;
 }
 
+.order-by-div {
+    background-color:red;
+}
 .vehicles-opening-div {
     text-align:center;
     color:white;
@@ -579,7 +582,7 @@ th, td {
     font-size:20px;
     margin: 0;
   }
-i {
+.checkmark {
   color: #9ABC66;
   font-size: 100px;
   line-height: 200px;

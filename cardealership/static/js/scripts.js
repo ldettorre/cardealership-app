@@ -155,5 +155,3 @@ engineSizeMax.addEventListener('change', function () {
     if(parseFloat(engineSizeMin.value) > parseFloat(engineSizeMax.value))
     $("#engine_size_min").val(engineSizeMax.value)
 })
-
-
