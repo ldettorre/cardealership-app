@@ -36,8 +36,8 @@
         <div class="form-group col-md-3 col-sm-6">
             <select class="index-search-fields form-control carmake" name="carmake" id="carmake">
               <option value="">Any Make</option>
-                {% for carmake in carmakes %}
-                  <option value="{{carmake.name}}">{{carmake.name}}</option>
+                {% for carmake in current_avail_makes %}
+                  <option value="{{carmake}}">{{carmake}}</option>
                 {% endfor %}
             </select>
         </div>

@@ -5,6 +5,11 @@ from django.http import JsonResponse
 from contact.forms import EmailSubscriberForm
 
 def index(request):
+    makes = CarModel.objects.all()
+    current_makes = []
+    for m in makes:
+        current_makes.append(m.make.name)
+    current_avail_makes = set(current_makes)
     carmakes = CarMake.objects.all()
     carmodels = CarModel.objects.all()
     featured_cars = CarModel.objects.filter(is_featured=True)
@@ -16,6 +21,7 @@ def index(request):
     else:
         form = EmailSubscriberForm()
     context = {
+        'current_avail_makes': current_avail_makes,
         'carmakes': carmakes,
         'carmodels': carmodels,
         'form': form,
