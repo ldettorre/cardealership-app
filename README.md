@@ -21,8 +21,6 @@ The Vehicles page and single view Vehicle page were both heavily inspired from t
 The Landing Page however is where I decided to take inspiration from main dealerships that invest more in advertising their services as opposed to independents. To help with this I used a template from Themeforest. 
 
 
-
-
 ### Technologies Used For This Project
 * HTML
 * CSS
@@ -74,17 +72,21 @@ The Landing Page however is where I decided to take inspiration from main dealer
 
 
 ## Deployment and Hosting
+The steps provided assume that you have forked the repository to your GitHub already and have knowledge on setting up a storage bucket via AWS S3.
+
+1. Sign into Heroku, click new in the top right hand of the page and click on create app.
+2. Provide an app name, select the region relevant to you then click 'create'.
+3. Within the Deploy tab of your app dashboard, locate ‘Deployment Method’ and select GitHub. You will then need to enter the app name and select it.
+4. Within the Resources of the dashboard, you will need to scroll to ‘Add-ons’ and enter ‘Heroku Postgres’. Ensure that you select the ‘Hobby Dev - Free’ Tier.
+5. You will then need to locate the Settings tab and scroll down to 'Config Vars' where you will enter the project ‘config vars’ or ‘environment variables’.
+    - These are the AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY, AWS_STORAGE_BUCKET_NAME, DATABASE_URL, DJANGO_SETTINGS_MODULE, EMAIL_ADDRESS, EMAIL_PASSWORD, EMAIL_PORT, PGHOST, PGNAME, PGPASSWORD, PGUSER, and SECRET_KEY.
+    - Regarding the email password, if you are using Gmail and have 2-factor authentication enabled then you will need to go to thr Security section of your account and generate an app password.
+
+Note that we did not set a DEBUG config var as this will default to False as seen in the base.py file.
+
+Once the above has been completed you can return to the Deploy tab, scroll down to ‘Manual Deploy’ and click ‘Deploy Branch’. Should you encounter any issue, I would recommend then consulting the log by returning to the app dashboard within Heroku, clicking on 'More' in the top right and selecting 'View Logs'. You may need to redeploy the app with the log opened in order to see an entire account of what happened. While you could create a config var called DEBUG and set it to True in order to receive any 'yellow page errors', please ensure you remember to remove it when you're done.
 
 
-### Running Locally
 
-
-## Testing
-
-
-## Remaining Issues
-
-
-## Content
 
 
