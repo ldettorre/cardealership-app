@@ -7,7 +7,7 @@ from itertools import islice
 
 
 # Register your models here.
-def export_emails(modelAdmin, request, queryset):
+def export_data(modelAdmin, request, queryset):
     response = HttpResponse(content_type='type/csv')
     writer = csv.writer(response)
     headers = []
@@ -26,16 +26,16 @@ def export_emails(modelAdmin, request, queryset):
 
 class ContactAdmin(admin.ModelAdmin):
     list_display = ('name', 'phone_number', 'email', 'submission_date')
-    actions = [export_emails]
+    actions = [export_data]
 
 
 class CarSourcingAdmin(admin.ModelAdmin):
     list_display = ('name', 'phone_number', 'email', 'submission_date')
-    actions = [export_emails]
+    actions = [export_data]
 
 class EmailSubscriberAdmin(admin.ModelAdmin):
     list_display = ('name', 'email', 'subscription_start_date')
-    actions = [export_emails]
+    actions = [export_data]
 
 
  
