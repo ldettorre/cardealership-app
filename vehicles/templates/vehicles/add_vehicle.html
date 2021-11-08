@@ -3,4 +3,9 @@
 {% block content %}
 
 <h1>This is the add vehicle page</h1>
+
+<form action="">
+    {% csrf_token %}
+    {{ form.as_p }}
+</form>
 {% endblock content %}

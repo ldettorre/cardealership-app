@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 from .models import CarModel, CarMake
+from .forms import CarModelForm
 
 
 
@@ -105,4 +106,8 @@ def ajax_handler_carmodel(request, carmodel):
 
 
 def addVehicle(request):
-    return render(request, 'vehicles/add_vehicle.html')
+    form = CarModelForm()
+    context = {
+        'form':form,
+    }
+    return render(request, 'vehicles/add_vehicle.html', context)
