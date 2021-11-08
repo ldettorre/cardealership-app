@@ -33,6 +33,11 @@
       <li class="nav-item">
         <a class="nav-link" href="{% url 'contact_form' %}"><b>CONTACT</b></a>
       </li>
+      {% if request.user.is_superuser %}
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'add_vehicle' %}"><b>ADD LISTING</b></a>
+      </li>
+      {% endif %}
     </ul>
   </div>
 </nav>

@@ -102,3 +102,7 @@ def ajax_handler_carmodel(request, carmodel):
     return JsonResponse({
         'caryears': caryears,
     })
+
+
+def addVehicle(request):
+    return render(request, 'vehicles/add_vehicle.html')
