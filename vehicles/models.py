@@ -17,6 +17,7 @@ class CarModel(models.Model):
     BODY_CHOICES = [("Convertible","Convertible"),("Coupe", "Coupe"), ("Estate", "Estate"), ("Hatchback","Hatchback"),("SUV","SUV"),("Saloon","Saloon")]
     title = models.CharField(max_length=200, default = "Ad Title & Folder Name")
     def upload_photo_to(self, filename):
+        print(filename)
         return f'{self.title}/{filename}'
     make = models.ForeignKey(CarMake, on_delete= models.CASCADE)
     model = models.CharField(max_length=100)

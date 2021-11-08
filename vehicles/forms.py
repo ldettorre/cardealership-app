@@ -6,3 +6,5 @@ class CarModelForm(ModelForm):
     class Meta:
         model = CarModel
         fields = '__all__'
+
+    
