@@ -5,6 +5,9 @@ from django.http import JsonResponse
 from contact.forms import EmailSubscriberForm
 
 def index(request):
+
+    # Looping over CarModel and not CarMake because the CarModel objects
+    # are cars currently available which can return relevant makes
     makes = CarModel.objects.all()
     current_makes = []
     for m in makes:
@@ -20,6 +23,7 @@ def index(request):
             return redirect("index")
     else:
         form = EmailSubscriberForm()
+        
     context = {
         'current_avail_makes': current_avail_makes,
         'carmakes': carmakes,
