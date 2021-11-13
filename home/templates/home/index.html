@@ -30,7 +30,7 @@
 
 <div class="col-sm-12 search-form">
   <h3><b>Find Your Dream Car </b></h3>
-  <form action="{% url 'carmodels' %}" method="POST">
+  <form action="{% url 'carmodels' %}" method="GET">
       {% csrf_token %}
     <div class="row form-row">
         <div class="form-group col-md-3 col-sm-6">

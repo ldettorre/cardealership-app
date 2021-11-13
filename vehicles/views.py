@@ -3,7 +3,7 @@ from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 from .models import CarModel, CarMake
 from .forms import CarModelForm
 from .utils import searchFilter
-
+from django.db.models import Q
 
 
 def carmodels(request):
@@ -15,8 +15,9 @@ def carmodels(request):
     paginator = Paginator(carmodels, 3)
     page = request.GET.get('page')
     paged_vehicles = paginator.get_page(page)
+    # Change carmodels variable to paged_vehicles in order to use pagination
     context = {
-        "carmodels": paged_vehicles,
+        "carmodels": carmodels,
         "carmakes": carmakes,
     }
     return render(request, 'vehicles/vehicles.html', context)
@@ -25,7 +26,6 @@ def carmodels(request):
 def carmodel(request, carmodel_id):
     carmodel = get_object_or_404(CarModel, id=carmodel_id)
     return render(request, 'vehicles/vehicle.html', {"carmodel": carmodel})
-
 
 
 def ajax_handler_carmake(request, name):
@@ -74,6 +74,6 @@ def addVehicle(request):
             form.save()
             return redirect('index')
     context = {
-        'form':form,
+        'form': form,
     }
     return render(request, 'vehicles/add_vehicle.html', context)

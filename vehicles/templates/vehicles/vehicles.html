@@ -155,40 +155,6 @@
     </div>
 
 
-    {% if carmodels.has_other_pages %}
-    <nav aria-label="Page navigation example">
-        <ul class="pagination justify-content-center">
-            {% if carmodels.has_previous %}
-            <li class="page-item">
-            <a href="?page={{carmodels.previous_page_number}}" class="page-link">Previous</a>
-            </li>
-            {% else %}
-            <li class="page-item disabled"><a class="page-link">Previous</a></li>
-            {% endif %} 
-            
-
-            {% for i in carmodels.paginator.page_range %} 
-                {% if carmodels.number == i %}
-                    <li class="page-item active">
-                        <a class="page-link"> {{i}} </a>
-                    </li>
-                {% else %}
-                    <li class="page-item">
-                        <a href="?page={{i}}" class="page-link">{{i}}</a>
-                    </li>
-                {% endif %}
-            {% endfor %}
-
-            {% if carmodels.has_next %}
-            <li class="page-item">
-            <a href="?page={{carmodels.next_page_number}}" class="page-link">
-                Next</a>
-            </li>
-            {% else %}
-            <li class="page-item disabled"><a class="page-link">Next</a></li>
-            {% endif %} 
-        </ul>
-    </nav>
-    {% endif %} 
+    {% include 'partials/_pagination.html' with query_set=carmodels %}
 </div>
 {% endblock %}
