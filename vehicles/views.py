@@ -4,6 +4,8 @@ from .models import CarModel, CarMake
 from .forms import CarModelForm
 from .utils import searchFilter
 from django.db.models import Q
+import os
+from django.conf import settings
 
 
 def carmodels(request):
@@ -25,7 +27,9 @@ def carmodels(request):
 
 def carmodel(request, carmodel_id):
     carmodel = get_object_or_404(CarModel, id=carmodel_id)
-    return render(request, 'vehicles/vehicle.html', {"carmodel": carmodel})
+    folder_name = carmodel.title.replace(" ", '%20')
+    image_folder = os.listdir('media/'+carmodel.title)
+    return render(request, 'vehicles/vehicle.html', {"carmodel": carmodel, "image_folder":image_folder, "folder_name":folder_name})
 
 
 def ajax_handler_carmake(request, name):
