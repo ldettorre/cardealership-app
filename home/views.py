@@ -8,13 +8,11 @@ def index(request):
 
     # Looping over CarModel and not CarMake because the CarModel objects
     # are cars currently available which can return relevant makes
-    makes = CarModel.objects.all()
+    makes = CarModel.objects.order_by("model").filter(published=True)
     current_makes = []
     for m in makes:
         current_makes.append(m.make.name)
     current_avail_makes = set(current_makes)
-    carmakes = CarMake.objects.all()
-    carmodels = CarModel.objects.all()
     featured_cars = CarModel.objects.filter(is_featured=True)
     if request.method =="POST":
         form =  EmailSubscriberForm(request.POST, request.FILES)
@@ -26,8 +24,6 @@ def index(request):
         
     context = {
         'current_avail_makes': current_avail_makes,
-        'carmakes': carmakes,
-        'carmodels': carmodels,
         'form': form,
         'featured_cars': featured_cars,
     }

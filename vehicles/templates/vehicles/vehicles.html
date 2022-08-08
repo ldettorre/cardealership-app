@@ -12,14 +12,14 @@
             </div></a>
             <div class="search-div">
                 <p class="search-title">Find Your Dream Car</p>
-                <form action="{% url 'carmodels' %}" method="POST">
+                <form action="{% url 'carmodels' %}" method="GET">
                 {% csrf_token %}
             
                 <div class="form-group">
                     <select class="vehicles-search-fields form-control carmake" name="carmake" id="carmake">
                         <option value="">Any Make</option>
                         {% for carmake in current_avail_makes %}
-                            <option value="{{carmake.name}}">{{carmake.name}}</option>
+                            <option value="{{carmake}}">{{carmake}}</option>
                         {% endfor %}
                     </select>
                 </div>

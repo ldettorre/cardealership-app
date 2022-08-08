@@ -20,8 +20,7 @@ def searchFilter(request):
             fuel = request.GET.get("fuel")
             transmission = request.GET.get("transmission")
 
-            # the filter for cars below doesn't look great but it works and
-            # and uses the correct request method.
+            # the filter for cars below doesn't look great but it works.
             carmodels = CarModel.objects.filter(make__name__contains=make).filter(
                 model__contains=model).filter(year__contains=year).filter(
                 price__range=(price_min, price_max)).filter(
