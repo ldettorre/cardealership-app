@@ -26,6 +26,8 @@ def index(request):
         
     context = {
         'current_avail_makes': current_avail_makes,
+        'carmakes': carmakes,
+        'carmodels': carmodels,
         'form': form,
         'featured_cars': featured_cars,
     }

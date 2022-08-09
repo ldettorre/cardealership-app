@@ -9,31 +9,20 @@ from django.conf import settings
 
 
 def carmodels(request):
-    # makes = CarModel.objects.order_by("model").filter(published=True)
-    # current_makes = []
-    # for m in makes:
-    #     current_makes.append(m.make.name)
-    # current_avail_makes = set(current_makes)
-    # carmodels = searchFilter(request)
-
-    # paginator = Paginator(carmodels, 3)
-    # page = request.GET.get('page')
-    # paged_vehicles = paginator.get_page(page)
-    # # Change carmodels variable to paged_vehicles in order to use pagination
-    # context = {
-    #     "current_avail_makes":current_avail_makes,
-    #     "carmodels": carmodels
-    # }
-    carmodels = CarModel.objects.order_by("model").filter(published=True)
-    carmakes = CarMake.objects.all()
+    makes = CarModel.objects.order_by("model").filter(published=True)
+    current_makes = []
+    for m in makes:
+        current_makes.append(m.make.name)
+    current_avail_makes = set(current_makes)
     carmodels = searchFilter(request)
+
     paginator = Paginator(carmodels, 3)
     page = request.GET.get('page')
     paged_vehicles = paginator.get_page(page)
     # Change carmodels variable to paged_vehicles in order to use pagination
     context = {
-        "carmodels": carmodels,
-        "carmakes": carmakes,
+        "current_avail_makes":current_avail_makes,
+        "carmodels": carmodels
     }
     return render(request, 'vehicles/vehicles.html', context)
 
