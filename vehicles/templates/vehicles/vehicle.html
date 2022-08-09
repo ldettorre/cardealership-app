@@ -21,7 +21,8 @@
     <div class="col-md-8">
       <div class="slider slider-for">
         {% for image in image_folder %}
-        <img src="/media/{{ folder_name }}/{{ image }}" class="slider-thumbnail">
+        <!-- <img src="/media/{{ folder_name }}/{{ image }}" class="slider-thumbnail"> -->
+        <img src="{{ MEDIA_URL }}/{{ folder_name }}/{{ image }}" class="slider-thumbnail">
         {% endfor %}
       </div>
       
