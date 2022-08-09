@@ -13,6 +13,8 @@ def index(request):
     for m in makes:
         current_makes.append(m.make.name)
     current_avail_makes = set(current_makes)
+    carmakes = CarMake.objects.all()
+    carmodels = CarModel.objects.all()
     featured_cars = CarModel.objects.filter(is_featured=True)
     if request.method =="POST":
         form =  EmailSubscriberForm(request.POST, request.FILES)
