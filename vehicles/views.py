@@ -30,7 +30,7 @@ def carmodels(request):
 def carmodel(request, carmodel_id):
     carmodel = get_object_or_404(CarModel, id=carmodel_id)
     folder_name = carmodel.title.replace(" ", '%20')
-    image_folder = os.listdir('media/'+carmodel.title)
+    image_folder = settings.MEDIA_URL + folder_name
     return render(request, 'vehicles/vehicle.html', {"carmodel": carmodel, "image_folder":image_folder, "folder_name":folder_name})
 
 
