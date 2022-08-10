@@ -21,8 +21,12 @@
     <div class="col-md-8">
       <div class="slider slider-for">
         {% for image in image_folder %}
-        <img src="/media/{{ folder_name }}/{{ image }}" class="slider-thumbnail">
+        <!-- Loading the full aws url works in development so just need to find out how to 
+        use the config vars to load the same -->
+        <img src="https://cardealership-app.s3.eu-west-1.amazonaws.com/media/Boring+Audi+A3/angus-gray-d6wAC31JkRQ-unsplash.jpg" class="slider-thumbnail">
         {% endfor %}
+        
+
       </div>
       
       <div class="slider slider-nav">
@@ -95,6 +99,11 @@
       {% endfor %} -->
       <h3>Description:</h3>
       <p>{{ carmodel.description }}</p>
+    </div>
+    <div class="slider slider-nav">
+      {% for image in image_folder %}
+      <img src="{{ MEDIA_URL }}{{ folder_name }}/{{ image }}" class="slider-thumbnail">
+      {% endfor %}
     </div>
   </div>
 
