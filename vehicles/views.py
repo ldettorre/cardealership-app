@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
+
 from .models import CarModel, CarMake
 from .forms import CarModelForm
 from .utils import searchFilter
@@ -30,7 +31,7 @@ def carmodels(request):
 def carmodel(request, carmodel_id):
     carmodel = get_object_or_404(CarModel, id=carmodel_id)
     folder_name = carmodel.title.replace(" ", '%20')
-    image_folder = 'media/'+carmodel.title
+    image_folder = os.listdir('media/'+carmodel.title)
     
     return render(request, 'vehicles/vehicle.html', {"carmodel": carmodel, "image_folder":image_folder, "folder_name":folder_name})
 
