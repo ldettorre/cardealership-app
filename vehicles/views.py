@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
-from cardealership.settings.prod import MEDIA_URL
 
+from cardealership.settings.prod import MEDIA_URL
 from .models import CarModel, CarMake
 from .forms import CarModelForm
 from .utils import searchFilter
@@ -29,12 +29,40 @@ def carmodels(request):
     return render(request, 'vehicles/vehicles.html', context)
 
 
+
+
+
+
+from cardealership.settings.prod import *
+DATABASE_URL = config("DATABASE_URL")
+import boto3
+from decouple import config
+
 def carmodel(request, carmodel_id):
     carmodel = get_object_or_404(CarModel, id=carmodel_id)
     folder_name = carmodel.title.replace(" ", '%20')
-    image_folder = MEDIA_URL('media/'+carmodel.title)
+    image_folder = MEDIA_URL+carmodel.title
+    print("THIS IS THE TITLE", carmodel.title)
     
-    return render(request, 'vehicles/vehicle.html', {"carmodel": carmodel, "image_folder":image_folder, "folder_name":folder_name})
+    images =[]
+    cli = boto3.resource('s3',aws_access_key_id=config("AWS_ACCESS_KEY_ID"),
+    aws_secret_access_key=config("AWS_SECRET_ACCESS_KEY"))
+    bucket = cli.Bucket('cardealership-app')
+    for i in bucket.objects.filter(Prefix='media/'+carmodel.title):
+        print(i.key)
+        images.append(i.key)
+
+    
+    
+    # The folders within the cardealership bucket are actually objects and not more buckets. So 
+    # i need to iterate over objects in a bucket and not over buckets.
+
+    return render(request, 'vehicles/vehicle.html', {"carmodel": carmodel, "image_folder":image_folder, "folder_name":folder_name,"images":images})
+
+
+
+
+
 
 
 def ajax_handler_carmake(request, name):

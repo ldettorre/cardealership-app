@@ -20,17 +20,23 @@
   <div class="row">
     <div class="col-md-8">
       <div class="slider slider-for">
-        {% for image in image_folder %}
-        <img src="{{MEDIA_URL}}{{ folder_name }}/{{ image }}" class="slider-thumbnail">
+        {% for image in images %}
+        <img src="{{MEDIA_URL}}{{ image }}" class="slider-thumbnail">
         {% endfor %}
       </div>
       
-      <div class="slider slider-nav">
+      <!-- <div class="slider slider-nav">
         {% for image in image_folder %}
         <img src="/media/{{ folder_name }}/{{ image }}" class="slider-thumbnail">
         {% endfor %}
       </div>
-    </div>
+    </div>-->
+
+    <div class="slider slider-for">
+      {% for image in stuff %}
+      <img src="{{ image }}" class="slider-thumbnail">
+      {% endfor %}
+    </div> 
 
     <div class="col-md-3">
       <table class="table table-striped">
