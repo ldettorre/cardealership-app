@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 
 from cardealership.settings.prod import MEDIA_URL
-from .models import CarModel, CarMake
+from .models import CarModel, CarMake, CarImages
 from .forms import CarModelForm
 from .utils import searchFilter
 from django.db.models import Q
@@ -38,8 +38,34 @@ DATABASE_URL = config("DATABASE_URL")
 import boto3
 from decouple import config
 
+# def carmodel(request, carmodel_id):
+#     carmodel = get_object_or_404(CarModel, id=carmodel_id)
+#     folder_name = carmodel.title.replace(" ", '%20')
+#     image_folder = MEDIA_URL+carmodel.title
+#     print("THIS IS THE TITLE", carmodel.title)
+    
+#     images =[]
+#     cli = boto3.resource('s3',aws_access_key_id=config("AWS_ACCESS_KEY_ID"),
+#     aws_secret_access_key=config("AWS_SECRET_ACCESS_KEY"))
+#     bucket = cli.Bucket('cardealership-app')
+#     for i in bucket.objects.filter(Prefix='media/'+carmodel.title):
+#         print(i.key)
+#         images.append(i.key)
+
+    
+    
+#     # The folders within the cardealership bucket are actually objects and not more buckets. So 
+#     # i need to iterate over objects in a bucket and not over buckets.
+
+#     return render(request, 'vehicles/vehicle.html', {"carmodel": carmodel, "image_folder":image_folder, "folder_name":folder_name,"images":images})
+
+# Test view to render images from carImages model
 def carmodel(request, carmodel_id):
     carmodel = get_object_or_404(CarModel, id=carmodel_id)
+    carImages = CarImages.objects.filter(ad_title=carmodel)
+    for i in carImages:
+        print(i.images.url)
+
     folder_name = carmodel.title.replace(" ", '%20')
     image_folder = MEDIA_URL+carmodel.title
     print("THIS IS THE TITLE", carmodel.title)
@@ -56,9 +82,14 @@ def carmodel(request, carmodel_id):
     
     # The folders within the cardealership bucket are actually objects and not more buckets. So 
     # i need to iterate over objects in a bucket and not over buckets.
-
-    return render(request, 'vehicles/vehicle.html', {"carmodel": carmodel, "image_folder":image_folder, "folder_name":folder_name,"images":images})
-
+    context = {
+        "carmodel": carmodel, 
+        "image_folder":image_folder, 
+        "folder_name":folder_name,
+        "images":images,
+        "carImages":carImages
+    }
+    return render(request, 'vehicles/vehicle.html', context)
 
 
 

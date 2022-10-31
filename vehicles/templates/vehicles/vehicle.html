@@ -17,6 +17,10 @@
     </div>
   </div>
   
+  {% for i in carImages %}
+    <img src="{{i.images.url}}">
+  {% endfor %}
+
   <div class="row">
     <div class="col-md-8">
       <div class="slider slider-for">

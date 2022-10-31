@@ -1,3 +1,4 @@
+from os import access
 from django.db import models
 from datetime import datetime
 
@@ -51,6 +52,13 @@ class CarModel(models.Model):
     def __str__(self):
         return '%s %s %s' % (self.make, self.model, self.year)
 
-    
 
+class CarImages(models.Model):
 
+    ad_title= models.ForeignKey(CarModel, default=None, on_delete= models.CASCADE)
+    images = models.ImageField(upload_to='images', blank=True)
+
+    # Returning self.ad_title returns an integer which won't work.
+    # Instead of converting to string, we access the title value of the carmodel.
+    def __str__(self):
+        return self.ad_title.title

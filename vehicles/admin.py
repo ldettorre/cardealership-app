@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import CarMake, CarModel
+from .models import CarMake, CarModel, CarImages
 # Register your models here.
 
 
@@ -15,5 +15,9 @@ class CarModelAdmin(admin.ModelAdmin):
     #This allows admin to use a search feature when looking for specific vehicles
     search_fields = ('id', 'title', 'make', 'model', 'color', 'engine_size', 'condition', 'year', 'price', 'published','is_featured')
 
+class CarImagesAdmin(admin.ModelAdmin):
+    list_display = ('id','ad_title',)
+
 admin.site.register(CarMake, CarMakeAdmin)
 admin.site.register(CarModel, CarModelAdmin)
+admin.site.register(CarImages, CarImagesAdmin)
