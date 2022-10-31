@@ -17,20 +17,22 @@
     </div>
   </div>
   
+
   <div class="row">
     <div class="col-md-8">
       <div class="slider slider-for">
-        {% for image in image_folder %}
-        <img src="{{MEDIA_URL}}{{ folder_name }}/{{ image }}" class="slider-thumbnail">
+        {% for i in carImages %}
+          <img src="{{i.images.url}}" class="slider-img">
         {% endfor %}
       </div>
       
       <div class="slider slider-nav">
-        {% for image in image_folder %}
-        <img src="/media/{{ folder_name }}/{{ image }}" class="slider-thumbnail">
+        {% for i in carImages %}
+          <img src="{{i.images.url}}" class="slider-thumbnail">
         {% endfor %}
       </div>
     </div>
+
 
     <div class="col-md-3">
       <table class="table table-striped">
@@ -88,11 +90,9 @@
       </table>
     </div>
   </div>
+  
   <div class="row">
     <div class="col-md-8">
-      <!-- {% for image in image_folder %}
-        <img src="/media/{{ folder_name }}/{{ image }}">
-      {% endfor %} -->
       <h3>Description:</h3>
       <p>{{ carmodel.description }}</p>
     </div>

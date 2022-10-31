@@ -1,8 +1,8 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
-from cardealership.settings.prod import MEDIA_URL
 
-from .models import CarModel, CarMake
+from cardealership.settings.prod import MEDIA_URL
+from .models import CarModel, CarMake, CarImages
 from .forms import CarModelForm
 from .utils import searchFilter
 from django.db.models import Q
@@ -29,12 +29,28 @@ def carmodels(request):
     return render(request, 'vehicles/vehicles.html', context)
 
 
+
+from cardealership.settings.prod import *
+DATABASE_URL = config("DATABASE_URL")
+import boto3
+from decouple import config
+
+
+# Test view to render images from carImages model
 def carmodel(request, carmodel_id):
     carmodel = get_object_or_404(CarModel, id=carmodel_id)
-    folder_name = carmodel.title.replace(" ", '%20')
-    image_folder = MEDIA_URL('media/'+carmodel.title)
-    
-    return render(request, 'vehicles/vehicle.html', {"carmodel": carmodel, "image_folder":image_folder, "folder_name":folder_name})
+    carImages = CarImages.objects.filter(ad_title=carmodel)
+    # The folders within the cardealership bucket are actually objects and not more buckets. So 
+    # i need to iterate over objects in a bucket and not over buckets.
+    context = {
+        "carmodel": carmodel, 
+        "carImages":carImages
+    }
+    return render(request, 'vehicles/vehicle.html', context)
+
+
+
+
 
 
 def ajax_handler_carmake(request, name):
