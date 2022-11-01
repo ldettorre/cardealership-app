@@ -490,13 +490,13 @@ i {
     max-height:480px */
 }
 
-.slider-thumbnail {
-    width: 90%;
-    display: block;
-    max-height:64px;
-    margin:5px;
-
+.slider-thumbnail{
+    width: 100px;
+    height: 100px;
+    background-position: center center;
+    background-repeat: no-repeat;
 }
+
 
 th, td {
     border: 2px solid #eeeeee;
