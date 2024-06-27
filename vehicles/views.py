@@ -42,6 +42,8 @@ def carmodel(request, carmodel_id):
     carImages = CarImages.objects.filter(ad_title=carmodel)
     # The folders within the cardealership bucket are actually objects and not more buckets. So 
     # i need to iterate over objects in a bucket and not over buckets.
+    for i in carImages:
+        print(i)
     context = {
         "carmodel": carmodel, 
         "carImages":carImages
