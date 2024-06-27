@@ -3,15 +3,9 @@ import dj_database_url
 
 SECRET_KEY = config("SECRET_KEY")
 
-# DATABASES= {
-#         'default': dj_database_url.parse(config('DATABASE_URL'))
-#     }
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+DATABASES= {
+        'default': dj_database_url.parse(config('DATABASE_URL'))
     }
-}
 
 
 AWS_STORAGE_BUCKET_NAME = config("AWS_STORAGE_BUCKET_NAME")
