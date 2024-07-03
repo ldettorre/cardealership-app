@@ -10,6 +10,7 @@ class CarMake(models.Model):
     def __str__(self):
         return self.name
 
+# Model to be revised for better image management
 class CarModel(models.Model):
     CONDITION_CHOICES = [("Brand New","Brand New"),("Used", "Used")]
     COLOUR_CHOICES = [("Black","Black"),("Blue", "Blue"),("Gold", "Gold"),("Green", "Green"),("Grey", "Grey"),("Navy", "Navy"),("Orange", "Orange"),("Red", "Red"),("Silver", "Silver"),("White", "White")]
