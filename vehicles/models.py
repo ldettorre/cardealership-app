@@ -5,6 +5,7 @@ from datetime import datetime
 # Create your models here.
 
 class CarMake(models.Model):
+    id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=100)
 
     def __str__(self):
@@ -18,13 +19,10 @@ class CarModel(models.Model):
     TRANSMISSION_CHOICES = [("Automatic","Automatic"),("Manual", "Manual"), ("Semi-auto", "Semi-auto"), ("CVT","CVT"),("Other","Other")]
     BODY_CHOICES = [("Convertible","Convertible"),("Coupe", "Coupe"), ("Estate", "Estate"), ("Hatchback","Hatchback"),("SUV","SUV"),("Saloon","Saloon")]
     title = models.CharField(max_length=200, default = "Ad Title & Folder Name")
-    def upload_photo_to(self, filename):
-        print(filename)
-        return f'{self.title}/{filename}'
     make = models.ForeignKey(CarMake, on_delete= models.CASCADE)
     model = models.CharField(max_length=100)
-    year = models.CharField(max_length=4)
-    price = models.IntegerField()
+    year = models.IntegerField()
+    price = models.DecimalField(decimal_places=2,max_digits=9)
     condition = models.CharField(max_length=100,blank=True, choices = CONDITION_CHOICES)
     color = models.CharField(max_length=100, choices = COLOUR_CHOICES)
     kilometers = models.IntegerField()
@@ -36,17 +34,6 @@ class CarModel(models.Model):
     nct_due_date = models.DateField(blank=True, null=True)
     description = models.TextField(blank=True)
     is_featured = models.BooleanField(default=False)
-    photo_main = models.ImageField(upload_to=upload_photo_to, blank=True)
-    photo_1 = models.ImageField(upload_to=upload_photo_to, blank=True)
-    photo_2 = models.ImageField(upload_to=upload_photo_to, blank=True)
-    photo_3 = models.ImageField(upload_to=upload_photo_to, blank=True)
-    photo_4 = models.ImageField(upload_to=upload_photo_to, blank=True)
-    photo_5 = models.ImageField(upload_to=upload_photo_to, blank=True)
-    photo_6 = models.ImageField(upload_to=upload_photo_to, blank=True)
-    photo_7 = models.ImageField(upload_to=upload_photo_to, blank=True)
-    photo_8 = models.ImageField(upload_to=upload_photo_to, blank=True)
-    photo_9 = models.ImageField(upload_to=upload_photo_to, blank=True)
-    photo_10 = models.ImageField(upload_to=upload_photo_to, blank=True)
     published = models.BooleanField(default=True)
     date_listed = models.DateTimeField(default=datetime.now)
 
@@ -55,7 +42,6 @@ class CarModel(models.Model):
 
 
 class CarImages(models.Model):
-
     ad_title= models.ForeignKey(CarModel, default=None, on_delete= models.CASCADE)
     images = models.ImageField(upload_to='images', blank=True)
 
