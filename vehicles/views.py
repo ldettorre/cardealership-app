@@ -17,7 +17,7 @@ def carmodels(request):
         current_makes.append(m.make.name)
     current_avail_makes = set(current_makes)
     carmodels = searchFilter(request)
-
+    
     paginator = Paginator(carmodels, 3)
     page = request.GET.get('page')
     paged_vehicles = paginator.get_page(page)
@@ -30,16 +30,10 @@ def carmodels(request):
 
 
 
-from cardealership.settings.prod import *
-DATABASE_URL = config("DATABASE_URL")
-import boto3
-from decouple import config
-
-
 # Test view to render images from carImages model
 def carmodel(request, carmodel_id):
     carmodel = get_object_or_404(CarModel, id=carmodel_id)
-    carImages = CarImages.objects.filter(ad_title=carmodel)
+    carImages = CarImages.objects.filter(car_model=carmodel)
     print(carmodel)
     # The folders within the cardealership bucket are actually objects and not more buckets. So 
     # i need to iterate over objects in a bucket and not over buckets.

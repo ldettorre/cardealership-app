@@ -7,7 +7,7 @@ class CarMakeAdmin(admin.ModelAdmin):
     list_display = ('id','name',)
 
 class CarModelAdmin(admin.ModelAdmin):
-    list_display = ('id', 'title', 'make', 'model', 'color', 'engine_size', 'condition', 'year', 'price', 'published','is_featured')
+    list_display = ('id', 'title', 'make', 'model', 'color', 'engine_size', 'condition', 'year', 'price', 'published','is_featured', 'main_image')
     list_display_links = ('id', 'title')
     list_filter = ('make','condition','is_featured')
     list_editable = ('published', 'is_featured')
@@ -16,7 +16,8 @@ class CarModelAdmin(admin.ModelAdmin):
     search_fields = ('id', 'title', 'make', 'model', 'color', 'engine_size', 'condition', 'year', 'price', 'published','is_featured')
 
 class CarImagesAdmin(admin.ModelAdmin):
-    list_display = ('id','ad_title',)
+    list_display = ('id','car_model',)
+    search_fields = ('id',)
 
 admin.site.register(CarMake, CarMakeAdmin)
 admin.site.register(CarModel, CarModelAdmin)
