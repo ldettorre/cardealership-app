@@ -9,6 +9,10 @@ from django.db.models import Q
 import os
 from django.conf import settings
 
+from cardealership.settings.prod import *
+DATABASE_URL = config("DATABASE_URL")
+import boto3
+from decouple import config
 
 def carmodels(request):
     makes = CarModel.objects.order_by("model").filter(published=True)
