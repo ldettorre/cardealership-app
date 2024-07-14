@@ -22,13 +22,13 @@
     <div class="col-md-8">
       <div class="slider slider-for">
         {% for i in carImages %}
-          <img src="{{i.images.url}}" class="slider-img">
+          <img src="{{i.image.url}}" class="slider-img">
         {% endfor %}
       </div>
       
       <div class="slider slider-nav">
         {% for i in carImages %}
-          <div><img src="{{i.images.url}}" class="slider-thumbnail"></div>
+          <div><img src="{{i.image.url}}" class="slider-thumbnail"></div>
         {% endfor %}
       </div>
     </div>

@@ -121,12 +121,7 @@
                     <p>€{{ carmodel.price|intcomma }}</p>
                 </div>
                 <div class="col-lg-8 col-md-12 col-sm-12">
-                    <!-- {% if carmodel.images.images %}
-                    <img class="vehicle-card-img" src="{{ carmodel.images.url }}" />
-                    {% endif %} -->
-                    
                     <img class="vehicle-card-img" src="{{ carmodel.main_image.image.url }}" />
-                 
                 </div>
                 <div class="col-lg-4 col-md-12 col-sm-12 vehicle-card-details">
                     <ul class="vehicle-features-group">
