@@ -9,11 +9,6 @@ from django.db.models import Q
 import os
 from django.conf import settings
 
-# from cardealership.settings.prod import *
-# DATABASE_URL = config("DATABASE_URL")
-# import boto3
-# from decouple import config
-
 def carmodels(request):
     makes = CarModel.objects.order_by("model").filter(published=True)
     current_makes = []
@@ -25,6 +20,8 @@ def carmodels(request):
     paginator = Paginator(carmodels, 3)
     page = request.GET.get('page')
     paged_vehicles = paginator.get_page(page)
+    for i in carmodels:
+        print(i)
     # Change carmodels variable to paged_vehicles in order to use pagination
     context = {
         "current_avail_makes":current_avail_makes,
